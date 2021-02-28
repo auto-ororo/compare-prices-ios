@@ -9,13 +9,16 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            CommodityListView()
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().onAppear(perform: {
+            DIContainer.shared.register(type: CommodityRepository.self, component: MockCommodityRepository())
+        })
     }
 }
