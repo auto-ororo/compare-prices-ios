@@ -32,6 +32,16 @@ final class MockCommodityRepository : CommodityRepository {
             Commodity(name: "そば", price: 18, store: "業務スーパー"),
             Commodity(name: "りんごジャムりんごジャムりんごジャムりんごジャムりんごジャムりんごジャム", price: 500, store: "成城石井"),
             Commodity(name: "はくさい1/4", price: 98, store: "タイラヤ"),
+            Commodity(name: "納豆", price: 80, store: "ビッグ・エー"),
+            Commodity(name: "カレー粉", price: 80, store: "カッコー"),
+            Commodity(name: "片栗粉", price: 80, store: "タイラヤ"),
+            Commodity(name: "小麦粉", price: 200, store: "タイラヤ"),
+            Commodity(name: "パン粉", price: 150, store: "タイラヤ"),
+            Commodity(name: "そば粉", price: 80, store: "タイラヤ"),
+            Commodity(name: "小麦粉", price: 200, store: "タイラヤ"),
+            Commodity(name: "酒", price: 200, store: "タイラヤ"),
+            Commodity(name: "鮭", price: 200, store: "タイラヤ"),
+            Commodity(name: "シチュー", price: 200, store: "タイラヤ"),
         ]
         
         private init() {}

@@ -8,9 +8,33 @@
 import SwiftUI
 
 struct ContentView: View {
+
+    @StateObject var contentViewModel : ContentViewModel = ContentViewModel.shared
+
     var body: some View {
         NavigationView {
             CommodityListView()
+        }.alert(isPresented: self.$contentViewModel.alert.isShown) {
+            
+            switch contentViewModel.alert.type {
+            case .info:
+                return Alert(title: Text(contentViewModel.alert.title),
+                      message: Text(contentViewModel.alert.message),
+                      dismissButton: .default(Text(contentViewModel.alert.positiveButtonTitle), action: contentViewModel.alert.onOkClick)
+                )
+            case .confirm:
+                return Alert(title: Text(contentViewModel.alert.title),
+                      message: Text(contentViewModel.alert.message),
+                      primaryButton: .default(Text(contentViewModel.alert.positiveButtonTitle), action: contentViewModel.alert.onOkClick),
+                      secondaryButton: .cancel(Text(contentViewModel.alert.negativeButtonTitle))
+                )
+            case .destructiveConfirm:
+                return Alert(title: Text(contentViewModel.alert.title),
+                      message: Text(contentViewModel.alert.message),
+                      primaryButton: .destructive(Text(contentViewModel.alert.positiveButtonTitle), action: contentViewModel.alert.onOkClick),
+                      secondaryButton: .cancel(Text(contentViewModel.alert.negativeButtonTitle))
+                )
+            }
         }
     }
 }

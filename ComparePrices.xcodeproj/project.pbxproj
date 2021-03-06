@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A64664425F3530700CE770E /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A64664325F3530700CE770E /* ContentViewModel.swift */; };
 		2A9363EE25C56D4A00BD4FEA /* ComparePricesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9363ED25C56D4A00BD4FEA /* ComparePricesApp.swift */; };
 		2A9363F025C56D4A00BD4FEA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9363EF25C56D4A00BD4FEA /* ContentView.swift */; };
 		2A9363F225C56D4A00BD4FEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A9363F125C56D4A00BD4FEA /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A64664325F3530700CE770E /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		2A9363EA25C56D4A00BD4FEA /* ComparePrices.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComparePrices.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A9363ED25C56D4A00BD4FEA /* ComparePricesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparePricesApp.swift; sourceTree = "<group>"; };
 		2A9363EF25C56D4A00BD4FEA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				2AC3EA4525EB66E900E81AD5 /* AddCommodityViewModel.swift */,
 				2AC3EA4025EB61DF00E81AD5 /* AddCommodityView.swift */,
 				2AC3EA5525EBEDF400E81AD5 /* CommodityDetailView.swift */,
+				2A64664325F3530700CE770E /* ContentViewModel.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				2AF14CEE25E3D7F0004E901C /* DIContainer.swift in Sources */,
 				2AC3EA4125EB61DF00E81AD5 /* AddCommodityView.swift in Sources */,
 				2AC3EA4C25EB967A00E81AD5 /* IntExtensions.swift in Sources */,
+				2A64664425F3530700CE770E /* ContentViewModel.swift in Sources */,
 				2AE4A97425D961510022D873 /* NavigationBackButton.swift in Sources */,
 				2AC3EA4625EB66E900E81AD5 /* AddCommodityViewModel.swift in Sources */,
 				2AC3EA5625EBEDF400E81AD5 /* CommodityDetailView.swift in Sources */,
