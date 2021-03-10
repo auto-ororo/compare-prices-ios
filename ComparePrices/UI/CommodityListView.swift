@@ -30,20 +30,20 @@ struct CommodityListView: View {
                     }.frame(width: displaySize.width, height: searchHeight, alignment: .center)
 
                     // 品物リスト
-                    List(viewModel.filteredCommodities) { commodity in
+                    List(viewModel.filteredCommodityList) { commodity in
                         NavigationLink(
                             destination: CommodityDetailView(commodity: commodity),
                             label: {
                                 CommodityRowView(commodity: commodity)
                             }
                         ).onAppear {
-                            if (viewModel.filteredCommodities.first?.id == commodity.id) {
+                            if (viewModel.filteredCommodityList.first?.id == commodity.id) {
                                 withAnimation() {
                                     self.searchOffset = 0
                                 }
                             }
                         }.onDisappear {
-                            if (viewModel.filteredCommodities.first?.id == commodity.id) {
+                            if (viewModel.filteredCommodityList.first?.id == commodity.id) {
                                 withAnimation() {
                                     self.searchOffset = searchHeight * -1
                                 }
@@ -77,7 +77,7 @@ struct CommodityListView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
-                viewModel.observeCommodities()
+                viewModel.getCommodities()
             }
         }
     }

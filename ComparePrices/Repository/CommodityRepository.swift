@@ -22,26 +22,33 @@ protocol CommodityRepository{
 
 final class MockCommodityRepository : CommodityRepository {
     
+    static let ninzinUUID = UUID()
+    static let zyagaimoUUID = UUID()
+    static let tamanegiUUID = UUID()
+    static let kyabetsuUUID = UUID()
+    static let curryUUID = UUID()
+    static let hakusaiUUID = UUID()
+    static let naganegiUUID = UUID()
+    static let satoimoUUID = UUID()
+    static let asparaUUID = UUID()
+    static let ringoUUID = UUID()
+    static let nattoUUID = UUID()
+
     private class SingletonCommodities {
         static let shared = SingletonCommodities()
         
         @Published var commodities: [Commodity] = [
-            Commodity(name: "にんじん", price: 100, store: "タイラヤ"),
-            Commodity(name: "じゃがいも", price: 48, store: "ベルク"),
-            Commodity(name: "玉ねぎ", price: 50, store: "ベルク"),
-            Commodity(name: "そば", price: 18, store: "業務スーパー"),
-            Commodity(name: "りんごジャムりんごジャムりんごジャムりんごジャムりんごジャムりんごジャム", price: 500, store: "成城石井"),
-            Commodity(name: "はくさい1/4", price: 98, store: "タイラヤ"),
-            Commodity(name: "納豆", price: 80, store: "ビッグ・エー"),
-            Commodity(name: "カレー粉", price: 80, store: "カッコー"),
-            Commodity(name: "片栗粉", price: 80, store: "タイラヤ"),
-            Commodity(name: "小麦粉", price: 200, store: "タイラヤ"),
-            Commodity(name: "パン粉", price: 150, store: "タイラヤ"),
-            Commodity(name: "そば粉", price: 80, store: "タイラヤ"),
-            Commodity(name: "小麦粉", price: 200, store: "タイラヤ"),
-            Commodity(name: "酒", price: 200, store: "タイラヤ"),
-            Commodity(name: "鮭", price: 200, store: "タイラヤ"),
-            Commodity(name: "シチュー", price: 200, store: "タイラヤ"),
+            Commodity(id: ninzinUUID,name: "にんじん"),
+            Commodity(id: zyagaimoUUID,name: "じゃがいも"),
+            Commodity(id: tamanegiUUID,name: "玉ねぎ"),
+            Commodity(id: kyabetsuUUID,name: "キャベツ"),
+            Commodity(id: curryUUID,name: "カレールー"),
+            Commodity(id: hakusaiUUID,name: "白菜"),
+            Commodity(id: naganegiUUID,name: "長ネギ"),
+            Commodity(id: satoimoUUID,name: "さといも"),
+            Commodity(id: asparaUUID,name: "アスパラガス"),
+            Commodity(id: ringoUUID, name: "りんご"),
+            Commodity(id: nattoUUID, name: "納豆")
         ]
         
         private init() {}

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CommodityRowView: View {
-    var commodity: Commodity
+    var commodity: CommodityListRow
     
     var body: some View {
         HStack() {
@@ -17,8 +17,8 @@ struct CommodityRowView: View {
                 Text(commodity.name).font(.headline)
                 HStack() {
                     Spacer()
-                    Text(commodity.store)
-                    Text(commodity.price.descriptionWithCurrency())
+                    Text(commodity.mostInexpensiveStore)
+                    Text(commodity.lowestPrice.descriptionWithCurrency())
                 }
             }
         }
@@ -27,8 +27,8 @@ struct CommodityRowView: View {
 
 struct CommodityRowView_Previews: PreviewProvider {
     static var previews: some View {
-        CommodityRowView(commodity: Commodity(
-            name: "納豆", price: 100, store: "タイラヤ"
+        CommodityRowView(commodity: CommodityListRow(
+            name: "納豆", lowestPrice: 100, mostInexpensiveStore: "タイラヤ"
         ))
     }
 }

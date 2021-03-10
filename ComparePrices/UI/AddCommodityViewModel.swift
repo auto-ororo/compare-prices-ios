@@ -23,9 +23,8 @@ final class AddCommodityViewModel : ObservableObject, Identifiable {
     private var cancellables: [AnyCancellable] = []
 
     func addCommotity() {
-        guard let price = price else { return }
         isButtonEnabled = false
-        commodityRepository.addCommodity(Commodity(name: commodityName, price: price, store: storeName))
+        commodityRepository.addCommodity(Commodity(name: commodityName))
             .sink(receiveCompletion: { result in
                 switch result {
                 case .failure(let error):

@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2A64664425F3530700CE770E /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A64664325F3530700CE770E /* ContentViewModel.swift */; };
+		2A64664F25F4894B00CE770E /* Commodity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A64664E25F4894B00CE770E /* Commodity.swift */; };
+		2A64665425F48A5A00CE770E /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A64665325F48A5A00CE770E /* Shop.swift */; };
+		2A64665925F48F9700CE770E /* ShopRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A64665825F48F9700CE770E /* ShopRepository.swift */; };
+		2A64666425F49CE000CE770E /* CommodityPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A64666325F49CE000CE770E /* CommodityPrice.swift */; };
+		2A64666925F4A34C00CE770E /* CommodityPriceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A64666825F4A34C00CE770E /* CommodityPriceRepository.swift */; };
 		2A9363EE25C56D4A00BD4FEA /* ComparePricesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9363ED25C56D4A00BD4FEA /* ComparePricesApp.swift */; };
 		2A9363F025C56D4A00BD4FEA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9363EF25C56D4A00BD4FEA /* ContentView.swift */; };
 		2A9363F225C56D4A00BD4FEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A9363F125C56D4A00BD4FEA /* Assets.xcassets */; };
@@ -16,7 +21,7 @@
 		2A93640B25C56D4A00BD4FEA /* ComparePricesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93640A25C56D4A00BD4FEA /* ComparePricesUITests.swift */; };
 		2A93642125C5723000BD4FEA /* CommodityListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93642025C5723000BD4FEA /* CommodityListView.swift */; };
 		2A93642C25C5974A00BD4FEA /* CommodityRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93642B25C5974A00BD4FEA /* CommodityRowView.swift */; };
-		2A93644825C6A30500BD4FEA /* Commodity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93644725C6A30500BD4FEA /* Commodity.swift */; };
+		2A93644825C6A30500BD4FEA /* CommodityListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93644725C6A30500BD4FEA /* CommodityListRow.swift */; };
 		2A93644D25C6BA6500BD4FEA /* CommodityListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93644C25C6BA6500BD4FEA /* CommodityListViewModel.swift */; };
 		2AC3EA4125EB61DF00E81AD5 /* AddCommodityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3EA4025EB61DF00E81AD5 /* AddCommodityView.swift */; };
 		2AC3EA4625EB66E900E81AD5 /* AddCommodityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3EA4525EB66E900E81AD5 /* AddCommodityViewModel.swift */; };
@@ -48,6 +53,11 @@
 
 /* Begin PBXFileReference section */
 		2A64664325F3530700CE770E /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		2A64664E25F4894B00CE770E /* Commodity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commodity.swift; sourceTree = "<group>"; };
+		2A64665325F48A5A00CE770E /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
+		2A64665825F48F9700CE770E /* ShopRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopRepository.swift; sourceTree = "<group>"; };
+		2A64666325F49CE000CE770E /* CommodityPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityPrice.swift; sourceTree = "<group>"; };
+		2A64666825F4A34C00CE770E /* CommodityPriceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityPriceRepository.swift; sourceTree = "<group>"; };
 		2A9363EA25C56D4A00BD4FEA /* ComparePrices.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComparePrices.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A9363ED25C56D4A00BD4FEA /* ComparePricesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparePricesApp.swift; sourceTree = "<group>"; };
 		2A9363EF25C56D4A00BD4FEA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,7 +73,7 @@
 		2A93641B25C56E3700BD4FEA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2A93642025C5723000BD4FEA /* CommodityListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityListView.swift; sourceTree = "<group>"; };
 		2A93642B25C5974A00BD4FEA /* CommodityRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityRowView.swift; sourceTree = "<group>"; };
-		2A93644725C6A30500BD4FEA /* Commodity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commodity.swift; sourceTree = "<group>"; };
+		2A93644725C6A30500BD4FEA /* CommodityListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityListRow.swift; sourceTree = "<group>"; };
 		2A93644C25C6BA6500BD4FEA /* CommodityListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityListViewModel.swift; sourceTree = "<group>"; };
 		2AC3EA4025EB61DF00E81AD5 /* AddCommodityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommodityView.swift; sourceTree = "<group>"; };
 		2AC3EA4525EB66E900E81AD5 /* AddCommodityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommodityViewModel.swift; sourceTree = "<group>"; };
@@ -183,7 +193,10 @@
 		2A93643525C598F300BD4FEA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2A93644725C6A30500BD4FEA /* Commodity.swift */,
+				2A93644725C6A30500BD4FEA /* CommodityListRow.swift */,
+				2A64664E25F4894B00CE770E /* Commodity.swift */,
+				2A64665325F48A5A00CE770E /* Shop.swift */,
+				2A64666325F49CE000CE770E /* CommodityPrice.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -218,6 +231,8 @@
 			isa = PBXGroup;
 			children = (
 				2AF14CFB25E3E821004E901C /* CommodityRepository.swift */,
+				2A64665825F48F9700CE770E /* ShopRepository.swift */,
+				2A64666825F4A34C00CE770E /* CommodityPriceRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -351,9 +366,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A93644825C6A30500BD4FEA /* Commodity.swift in Sources */,
+				2A93644825C6A30500BD4FEA /* CommodityListRow.swift in Sources */,
 				2A9363F025C56D4A00BD4FEA /* ContentView.swift in Sources */,
 				2AF14CF325E3DD40004E901C /* Injected.swift in Sources */,
+				2A64665425F48A5A00CE770E /* Shop.swift in Sources */,
 				2A93644D25C6BA6500BD4FEA /* CommodityListViewModel.swift in Sources */,
 				2A93642C25C5974A00BD4FEA /* CommodityRowView.swift in Sources */,
 				2AF14CEE25E3D7F0004E901C /* DIContainer.swift in Sources */,
@@ -363,10 +379,14 @@
 				2AE4A97425D961510022D873 /* NavigationBackButton.swift in Sources */,
 				2AC3EA4625EB66E900E81AD5 /* AddCommodityViewModel.swift in Sources */,
 				2AC3EA5625EBEDF400E81AD5 /* CommodityDetailView.swift in Sources */,
+				2A64666425F49CE000CE770E /* CommodityPrice.swift in Sources */,
 				2A93642125C5723000BD4FEA /* CommodityListView.swift in Sources */,
 				2AC3EA5125EBD56900E81AD5 /* SubmitButton.swift in Sources */,
+				2A64666925F4A34C00CE770E /* CommodityPriceRepository.swift in Sources */,
+				2A64664F25F4894B00CE770E /* Commodity.swift in Sources */,
 				2A9363EE25C56D4A00BD4FEA /* ComparePricesApp.swift in Sources */,
 				2AF14CFC25E3E821004E901C /* CommodityRepository.swift in Sources */,
+				2A64665925F48F9700CE770E /* ShopRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

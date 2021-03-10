@@ -1,5 +1,5 @@
 //
-//  Commodity.swift
+//  Shop.swift
 //  ComparePrices
 //
 //  Created by Ryo Narisawa on 2021/03/07.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Commodity: Identifiable {
+struct Shop {
     var id = UUID()
     var name: String
     var createdAt : Date = Date()

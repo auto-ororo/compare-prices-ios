@@ -10,13 +10,13 @@ import SwiftUI
 
 struct CommodityDetailView: View {
     
-    var commodity: Commodity
+    var commodity: CommodityListRow
 
     var body: some View {
         VStack(alignment: .leading) {
             DetailTextLayout(label: "商品名", text: commodity.name).padding(8)
-            DetailTextLayout(label: "店名", text: commodity.store).padding(8)
-            DetailTextLayout(label: "価格", text: commodity.price.description).padding(8)
+            DetailTextLayout(label: "店名", text: commodity.mostInexpensiveStore).padding(8)
+            DetailTextLayout(label: "価格", text: commodity.lowestPrice.description).padding(8)
             Spacer()
         }
         .navigationBarBackButtonHidden(true)
@@ -52,6 +52,6 @@ struct CommodityDetailView: View {
 struct CommodityDetailView_Previews: PreviewProvider {
 
     static var previews: some View {
-        CommodityDetailView(commodity: Commodity(name: "もやし", price: 19, store: "ビッグ・エー"))
+        CommodityDetailView(commodity: CommodityListRow(name: "もやし", lowestPrice: 19, mostInexpensiveStore: "ビッグ・エー"))
     }
 }
