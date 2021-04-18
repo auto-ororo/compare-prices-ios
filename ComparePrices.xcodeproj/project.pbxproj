@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A29C2D826078D1D00953618 /* SelectShopSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A29C2D726078D1D00953618 /* SelectShopSheetView.swift */; };
+		2A29C2E02607907B00953618 /* SelectShopSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A29C2DF2607907B00953618 /* SelectShopSheetViewModel.swift */; };
+		2A29C2E5260791A800953618 /* ShopListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A29C2E4260791A800953618 /* ShopListRow.swift */; };
+		2A4BD9F4262C684200BEC349 /* ModuleInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4BD9F3262C684200BEC349 /* ModuleInjector.swift */; };
 		2A64664425F3530700CE770E /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A64664325F3530700CE770E /* ContentViewModel.swift */; };
 		2A64664F25F4894B00CE770E /* Commodity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A64664E25F4894B00CE770E /* Commodity.swift */; };
 		2A64665425F48A5A00CE770E /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A64665325F48A5A00CE770E /* Shop.swift */; };
@@ -52,6 +56,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A29C2D726078D1D00953618 /* SelectShopSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectShopSheetView.swift; sourceTree = "<group>"; };
+		2A29C2DF2607907B00953618 /* SelectShopSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectShopSheetViewModel.swift; sourceTree = "<group>"; };
+		2A29C2E4260791A800953618 /* ShopListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopListRow.swift; sourceTree = "<group>"; };
+		2A4BD9F3262C684200BEC349 /* ModuleInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleInjector.swift; sourceTree = "<group>"; };
 		2A64664325F3530700CE770E /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		2A64664E25F4894B00CE770E /* Commodity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commodity.swift; sourceTree = "<group>"; };
 		2A64665325F48A5A00CE770E /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
@@ -186,6 +194,8 @@
 				2AC3EA4025EB61DF00E81AD5 /* AddCommodityView.swift */,
 				2AC3EA5525EBEDF400E81AD5 /* CommodityDetailView.swift */,
 				2A64664325F3530700CE770E /* ContentViewModel.swift */,
+				2A29C2D726078D1D00953618 /* SelectShopSheetView.swift */,
+				2A29C2DF2607907B00953618 /* SelectShopSheetViewModel.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -197,6 +207,7 @@
 				2A64664E25F4894B00CE770E /* Commodity.swift */,
 				2A64665325F48A5A00CE770E /* Shop.swift */,
 				2A64666325F49CE000CE770E /* CommodityPrice.swift */,
+				2A29C2E4260791A800953618 /* ShopListRow.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -223,6 +234,7 @@
 			children = (
 				2AF14CED25E3D7F0004E901C /* DIContainer.swift */,
 				2AF14CF225E3DD40004E901C /* Injected.swift */,
+				2A4BD9F3262C684200BEC349 /* ModuleInjector.swift */,
 			);
 			path = DI;
 			sourceTree = "<group>";
@@ -370,14 +382,18 @@
 				2A9363F025C56D4A00BD4FEA /* ContentView.swift in Sources */,
 				2AF14CF325E3DD40004E901C /* Injected.swift in Sources */,
 				2A64665425F48A5A00CE770E /* Shop.swift in Sources */,
+				2A29C2E02607907B00953618 /* SelectShopSheetViewModel.swift in Sources */,
 				2A93644D25C6BA6500BD4FEA /* CommodityListViewModel.swift in Sources */,
 				2A93642C25C5974A00BD4FEA /* CommodityRowView.swift in Sources */,
 				2AF14CEE25E3D7F0004E901C /* DIContainer.swift in Sources */,
 				2AC3EA4125EB61DF00E81AD5 /* AddCommodityView.swift in Sources */,
 				2AC3EA4C25EB967A00E81AD5 /* IntExtensions.swift in Sources */,
+				2A29C2E5260791A800953618 /* ShopListRow.swift in Sources */,
+				2A4BD9F4262C684200BEC349 /* ModuleInjector.swift in Sources */,
 				2A64664425F3530700CE770E /* ContentViewModel.swift in Sources */,
 				2AE4A97425D961510022D873 /* NavigationBackButton.swift in Sources */,
 				2AC3EA4625EB66E900E81AD5 /* AddCommodityViewModel.swift in Sources */,
+				2A29C2D826078D1D00953618 /* SelectShopSheetView.swift in Sources */,
 				2AC3EA5625EBEDF400E81AD5 /* CommodityDetailView.swift in Sources */,
 				2A64666425F49CE000CE770E /* CommodityPrice.swift in Sources */,
 				2A93642125C5723000BD4FEA /* CommodityListView.swift in Sources */,
