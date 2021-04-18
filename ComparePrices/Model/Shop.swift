@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Shop {
+struct Shop: Identifiable {
     var id = UUID()
     var name: String
     var createdAt : Date = Date()

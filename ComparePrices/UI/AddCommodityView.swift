@@ -10,16 +10,24 @@ import SwiftUI
 struct AddCommodityView: View {
     
     @Environment(\.presentationMode) private var presentationMode
-
+    
     @StateObject var viewModel = AddCommodityViewModel()
     
     var body: some View {
-    VStack(alignment: .leading) {
-        InputTextLayout(label: "商品名", bindingText: $viewModel.commodityName)
-            InputTextLayout(label: "店名", bindingText: $viewModel.storeName)
+        VStack(alignment: .leading) {
+            InputTextLayout(label: "商品名", bindingText: $viewModel.commodityName)
+            HStack {
+                Text("購入店").font(.headline).frame(width: 70, alignment: .trailing)
+                Button (action: { viewModel.showStoreSheet.toggle() }) {
+                    Text(viewModel.selectedShop?.name ?? "選択して下さい").foregroundColor(.gray).padding(8).overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.gray, lineWidth: 1)
+                    )
+                }.padding()
+            }
             InputPriceLayout(label: "価格", bindingPrice: $viewModel.price)
             Spacer()
-        SubmitButton(text: "追加",action: {viewModel.addCommotity()} , isActive: viewModel.isButtonEnabled).padding()
+            SubmitButton(text: "追加",action: {viewModel.addCommotity()} , isActive: viewModel.isButtonEnabled).padding()
         }.onReceive(viewModel.finishedAddCommodity) {
             presentationMode.wrappedValue.dismiss()
         }
@@ -33,6 +41,9 @@ struct AddCommodityView: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
+        .sheet(isPresented: $viewModel.showStoreSheet) {
+            SelectShopSheetView(isPresent: $viewModel.showStoreSheet,selectedShop: $viewModel.selectedShop)
+        }
     }
     
     private struct InputTextLayout: View {
@@ -40,7 +51,7 @@ struct AddCommodityView: View {
         var label : String
         
         var bindingText: Binding<String>
-
+        
         var body: some View {
             
             HStack {
@@ -55,7 +66,7 @@ struct AddCommodityView: View {
         var label : String
         
         var bindingPrice: Binding<Int?>
-
+        
         var body: some View {
             
             HStack {
@@ -69,8 +80,7 @@ struct AddCommodityView: View {
 
 struct AddCommodityView_Previews: PreviewProvider {
     static var previews: some View {
-        AddCommodityView().onAppear{
-            DIContainer.shared.register(type: CommodityRepository.self, component: MockCommodityRepository())
-        }
+        MockModuleInjector().inject()
+        return AddCommodityView()
     }
 }
