@@ -10,17 +10,9 @@ import SwiftUI
 @main
 struct ComparePricesApp: App {
     var body: some Scene {
-        WindowGroup {
-            ContentView().onAppear {
-                registerModules()
-            }
+        MockModuleInjector().inject()
+        return WindowGroup {
+            ContentView()
         }
     }
-
-    func registerModules() {
-        DIContainer.shared.register(type: CommodityRepository.self, component: MockCommodityRepository())
-        DIContainer.shared.register(type: CommodityPriceRepository.self, component: MockCommodityPriceRepository())
-        DIContainer.shared.register(type: ShopRepository.self, component: MockShopRepository())
-    }
-
 }

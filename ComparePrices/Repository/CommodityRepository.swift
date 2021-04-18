@@ -61,6 +61,7 @@ final class MockCommodityRepository : CommodityRepository {
     func addCommodity(_ commodity: Commodity) -> Future<Void, Error> {
         return .init {  promise in
             SingletonCommodities.shared.commodities.append(commodity)
+            print("addCommodity finished")
             promise(.success(()))
         }
     }

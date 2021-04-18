@@ -13,7 +13,7 @@ struct CommodityListView: View {
     @State var showDetailView : Bool = false
     @State var showAddView : Bool = false
     
-    // offset変数でメニューを表示・非表示するためのオフセットを保持します
+    // 検索欄を表示・非表示するためのオフセットを保持
     @State private var searchOffset = CGFloat.zero
     private let searchHeight = CGFloat(60)
 
@@ -76,9 +76,6 @@ struct CommodityListView: View {
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
-            .onAppear {
-                viewModel.getCommodities()
-            }
         }
     }
 }
@@ -86,13 +83,8 @@ struct CommodityListView: View {
 struct CommodityListView_Previews: PreviewProvider {
 
     static var previews: some View {
+        MockModuleInjector().inject()
 
-        ContentView().onAppear {
-            DIContainer.shared.register(type: CommodityRepository.self, component: MockCommodityRepository())
-        }.environment(\.colorScheme, .light)
-        
-        ContentView().onAppear {
-            DIContainer.shared.register(type: CommodityRepository.self, component: MockCommodityRepository())
-        }.environment(\.colorScheme, .dark)
+        return CommodityListView().environment(\.colorScheme, .light)
     }
 }

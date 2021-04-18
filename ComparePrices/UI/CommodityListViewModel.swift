@@ -20,29 +20,35 @@ final class CommodityListViewModel : ObservableObject, Identifiable {
     @Published private var commodityList : [CommodityListRow] = []
     @Published private(set) var filteredCommodityList : [CommodityListRow] = []
 
-    func getCommodities() {
+    func observeCommodities() {
         var list : [CommodityListRow] = []
 
         // ユーザーが登録した商品リスト、及び各商品の最安値・購入店を取得
-        commodityRepository.getCommodities().flatMap{ $0.publisher }
-            .compactMap { [weak self] commodity in
-                self?.commodityPriceRepository.getLowestCommodityPrice(commodity.id).compactMap{$0}
-                    .compactMap { [weak self] commodityPrice in
-                        self?.shopRepository.getShop(commodityPrice.shopId).flatMap{ shop in
-                            Just(CommodityListRow(name: commodity.name, lowestPrice: commodityPrice.price, mostInexpensiveStore: shop.name))
-                        }
-                    }.flatMap{$0}
-            }.flatMap{$0}
-            .sink(receiveCompletion: { result in
-                switch result {
-                case .failure(let error):
-                    print(error)
-                case .finished:
-                    self.commodityList = list
-                }
-            }) { commodities in
-                list.append(commodities)
-            }.store(in: &cancellables)
+        Publishers.CombineLatest(
+            commodityRepository.observeCommodities(),
+            commodityPriceRepository.observeCommodityPrices()
+        )
+        .handleEvents( receiveOutput: { (_, _) in list = [] } )
+        .flatMap{ (commodities, _) in commodities.publisher }
+        .compactMap { [weak self] commodity in
+            self?.commodityPriceRepository.getLowestCommodityPrice(commodity.id).compactMap{$0}
+                .compactMap { [weak self] commodityPrice in
+                    self?.shopRepository.getShop(commodityPrice.shopId).flatMap{ shop in
+                        Just(CommodityListRow(name: commodity.name, lowestPrice: commodityPrice.price, mostInexpensiveStore: shop.name))
+                    }
+                }.flatMap{$0}
+        }.flatMap{$0}
+        .sink(receiveCompletion: { result in
+            switch result {
+            case .failure(let error):
+                print(error)
+            default:
+                break
+            }
+        }) { [weak self] commodity in
+            list.append(commodity)
+            self?.commodityList = list
+        }.store(in: &cancellables)
     }
     
     func filterCommodityListFromSearchWord() {
@@ -53,6 +59,7 @@ final class CommodityListViewModel : ObservableObject, Identifiable {
     }
 
     init() {
+        observeCommodities()
         filterCommodityListFromSearchWord()
     }
 }
