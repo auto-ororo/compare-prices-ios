@@ -34,7 +34,7 @@ final class CommodityListViewModel : ObservableObject, Identifiable {
             self?.commodityPriceRepository.getLowestCommodityPrice(commodity.id).compactMap{$0}
                 .compactMap { [weak self] commodityPrice in
                     self?.shopRepository.getShop(commodityPrice.shopId).flatMap{ shop in
-                        Just(CommodityListRow(name: commodity.name, lowestPrice: commodityPrice.price, mostInexpensiveStore: shop.name))
+                        Just(CommodityListRow(commodity: commodity, lowestPrice: commodityPrice.price, mostInexpensiveShop: shop))
                     }
                 }.flatMap{$0}
         }.flatMap{$0}
@@ -54,7 +54,7 @@ final class CommodityListViewModel : ObservableObject, Identifiable {
     func filterCommodityListFromSearchWord() {
         self.$commodityList.combineLatest($searchWord).map{ (commodities, searchWord) in
             if searchWord.isEmpty { return commodities }
-            return commodities.filter{ $0.name.contains(searchWord) || $0.mostInexpensiveStore.contains(searchWord) }
+            return commodities.filter{ $0.commodity.name.contains(searchWord) || $0.mostInexpensiveShop.name.contains(searchWord) }
         }.assign(to: \.filteredCommodityList, on: self).store(in: &cancellables)
     }
 

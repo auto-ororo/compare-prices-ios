@@ -9,7 +9,7 @@ import Foundation
 
 struct CommodityListRow: Identifiable {
     var id = UUID()
-    var name: String
+    var commodity: Commodity
     var lowestPrice: Int
-    var mostInexpensiveStore: String
+    var mostInexpensiveShop: Shop
 }

@@ -36,6 +36,8 @@
 		2AF14CEE25E3D7F0004E901C /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF14CED25E3D7F0004E901C /* DIContainer.swift */; };
 		2AF14CF325E3DD40004E901C /* Injected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF14CF225E3DD40004E901C /* Injected.swift */; };
 		2AF14CFC25E3E821004E901C /* CommodityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF14CFB25E3E821004E901C /* CommodityRepository.swift */; };
+		7C3048CF2634128E00D1FBFE /* CommodityDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3048CE2634128E00D1FBFE /* CommodityDetailViewModel.swift */; };
+		7C3048D4263415CF00D1FBFE /* ShopPriceListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3048D3263415CF00D1FBFE /* ShopPriceListRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +94,8 @@
 		2AF14CED25E3D7F0004E901C /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		2AF14CF225E3DD40004E901C /* Injected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injected.swift; sourceTree = "<group>"; };
 		2AF14CFB25E3E821004E901C /* CommodityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityRepository.swift; sourceTree = "<group>"; };
+		7C3048CE2634128E00D1FBFE /* CommodityDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityDetailViewModel.swift; sourceTree = "<group>"; };
+		7C3048D3263415CF00D1FBFE /* ShopPriceListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopPriceListRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +200,7 @@
 				2A64664325F3530700CE770E /* ContentViewModel.swift */,
 				2A29C2D726078D1D00953618 /* SelectShopSheetView.swift */,
 				2A29C2DF2607907B00953618 /* SelectShopSheetViewModel.swift */,
+				7C3048CE2634128E00D1FBFE /* CommodityDetailViewModel.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -208,6 +213,7 @@
 				2A64665325F48A5A00CE770E /* Shop.swift */,
 				2A64666325F49CE000CE770E /* CommodityPrice.swift */,
 				2A29C2E4260791A800953618 /* ShopListRow.swift */,
+				7C3048D3263415CF00D1FBFE /* ShopPriceListRow.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -379,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A93644825C6A30500BD4FEA /* CommodityListRow.swift in Sources */,
+				7C3048D4263415CF00D1FBFE /* ShopPriceListRow.swift in Sources */,
 				2A9363F025C56D4A00BD4FEA /* ContentView.swift in Sources */,
 				2AF14CF325E3DD40004E901C /* Injected.swift in Sources */,
 				2A64665425F48A5A00CE770E /* Shop.swift in Sources */,
@@ -401,6 +408,7 @@
 				2A64666925F4A34C00CE770E /* CommodityPriceRepository.swift in Sources */,
 				2A64664F25F4894B00CE770E /* Commodity.swift in Sources */,
 				2A9363EE25C56D4A00BD4FEA /* ComparePricesApp.swift in Sources */,
+				7C3048CF2634128E00D1FBFE /* CommodityDetailViewModel.swift in Sources */,
 				2AF14CFC25E3E821004E901C /* CommodityRepository.swift in Sources */,
 				2A64665925F48F9700CE770E /* ShopRepository.swift in Sources */,
 			);

@@ -15,8 +15,10 @@ protocol CommodityPriceRepository {
     
     func getLowestCommodityPrice(_ commodityId:UUID) -> Future<CommodityPrice?, Error>
     
-    func getCommodityPrices() -> Future<[CommodityPrice], Error>
-
+    func getAllCommodityPrices() -> Future<[CommodityPrice], Error>
+    
+    func getCommodityPrices(_ commodityId:UUID) -> Future<[CommodityPrice]?, Error>
+    
     func observeCommodityPrices() -> AnyPublisher<[CommodityPrice], Error>
 }
 
@@ -66,9 +68,15 @@ final class MockCommodityPriceRepository : CommodityPriceRepository {
         }
     }
     
-    func getCommodityPrices() -> Future<[CommodityPrice], Error> {
+    func getAllCommodityPrices() -> Future<[CommodityPrice], Error> {
         return .init {  promise in
             promise(.success(SingletonCommodities.shared.commoditiyPrices))
+        }
+    }
+    
+    func getCommodityPrices(_ commodityId: UUID) -> Future<[CommodityPrice]?, Error> {
+        return .init { promise in
+            promise(.success(SingletonCommodities.shared.commoditiyPrices.filter{ $0.commodityId == commodityId }))
         }
     }
     

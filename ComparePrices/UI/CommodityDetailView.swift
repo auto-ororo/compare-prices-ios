@@ -10,14 +10,32 @@ import SwiftUI
 
 struct CommodityDetailView: View {
     
-    var commodity: CommodityListRow
-
+    @StateObject var viewModel = CommodityDetailViewModel()
+    
+    var commodity: Commodity
+    
     var body: some View {
         VStack(alignment: .leading) {
-            DetailTextLayout(label: "商品名", text: commodity.name).padding(8)
-            DetailTextLayout(label: "店名", text: commodity.mostInexpensiveStore).padding(8)
-            DetailTextLayout(label: "価格", text: commodity.lowestPrice.description).padding(8)
+            HStack {
+                Spacer()
+                Text(commodity.name).padding().font(.title)
+                Spacer()
+            }
+
+            // 品物リスト
+            List(viewModel.shopPriceList) { shopPrice in
+                HStack {
+                    Text(shopPrice.rank.description)
+                    Text(shopPrice.shop.name)
+                    Spacer()
+                    Text(shopPrice.price.descriptionWithCurrency())
+                }
+            }
+
             Spacer()
+        }
+        .onAppear{
+            viewModel.getShopPrices(commodityId: commodity.id)
         }
         .navigationBarBackButtonHidden(true)
         .toolbar {
@@ -30,28 +48,12 @@ struct CommodityDetailView: View {
         }
         .navigationBarTitleDisplayMode(.inline)
     }
-    
-    
-    private struct DetailTextLayout: View {
-        
-        var label : String
-        
-        var text : String
-        
-        var body: some View {
-            
-            HStack {
-                Text(label).font(.headline).frame(width: 70, alignment: .trailing)
-                Text(text)
-                Spacer()
-            }
-        }
-    }
 }
 
 struct CommodityDetailView_Previews: PreviewProvider {
-
+    
     static var previews: some View {
-        CommodityDetailView(commodity: CommodityListRow(name: "もやし", lowestPrice: 19, mostInexpensiveStore: "ビッグ・エー"))
+        MockModuleInjector().inject()
+        return CommodityDetailView(commodity: Commodity(id: MockCommodityRepository.asparaUUID,name: "もやし"))
     }
 }

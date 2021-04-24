@@ -24,23 +24,21 @@ struct CommodityListView: View {
                 HStack {
                     Image(systemName: "magnifyingglass").foregroundColor(.blue).padding(8)
                     TextField("商品名、店名を入力",text: $viewModel.searchWord)
-                        .textFieldStyle(RoundedBorderTextFieldStyle()).padding(.trailing, 8)
-                }
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                }.padding()
                 
                 // 品物リスト
-                List(viewModel.filteredCommodityList) { commodity in
+                List(viewModel.filteredCommodityList) { commodityListRow in
                     NavigationLink(
-                        destination: CommodityDetailView(commodity: commodity),
+                        destination: CommodityDetailView(commodity: commodityListRow.commodity),
                         label: {
-                            CommodityRowView(commodity: commodity)
+                            CommodityRowView(commodityListRow: commodityListRow)
                         }
                     )
                 }
                 .listStyle(PlainListStyle())
                 
             }
-            .offset(y: self.searchOffset)
-            
         }.background(
             NavigationLink(
                 destination: AddCommodityView(),
