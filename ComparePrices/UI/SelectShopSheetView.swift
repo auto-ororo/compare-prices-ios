@@ -22,7 +22,7 @@ struct SelectShopSheetView: View {
                 TextField("店名を入力",text: $viewModel.searchWord)
                     .textFieldStyle(RoundedBorderTextFieldStyle()).padding(.leading, 8)
                 Button(action: {
-                    isPresent = false
+                    viewModel.addShop()
                 }) {
                     Text("追加").font(.headline)
                 }.padding(8).overlay(
@@ -37,18 +37,19 @@ struct SelectShopSheetView: View {
                         HStack {
                             Text(shop.name).font(.title3)
                             Spacer()
-                        }.padding(8).onTapGesture {
-                            
-                            self.selectedShop = shop
-                            isPresent = false
+                        }.padding(8).contentShape(Rectangle())
+                        .onTapGesture {
+                            viewModel.selectShop(shop: shop)
                         }
                         Divider()
                     }
                 }
             }
-            
         }.onAppear{
             viewModel.getShops()
+        }.onReceive(viewModel.shopSelected) { shop in
+            self.selectedShop = shop
+            isPresent = false
         }
     }
 }

@@ -15,8 +15,13 @@ final class SelectShopSheetViewModel : ObservableObject, Identifiable {
     private var cancellables: [AnyCancellable] = []
     
     @Published var searchWord : String = ""
+    private(set) var shopSelected = PassthroughSubject<Shop, Never>()
     @Published private var shopList : [Shop] = []
     @Published private(set) var filteredShopList : [Shop] = []
+    
+    func selectShop(shop : Shop) {
+        shopSelected.send(shop)
+    }
     
     func getShops() {
         shopRepository.getShops()
@@ -30,6 +35,25 @@ final class SelectShopSheetViewModel : ObservableObject, Identifiable {
             }) { shops in
                 self.shopList = shops
             }.store(in: &cancellables)
+    }
+    
+    func addShop() {
+        let uuid = UUID()
+        shopRepository.addShop(Shop(id: uuid,name: searchWord))
+            .compactMap{ [weak self] _ in
+                self?.shopRepository.getShop(uuid)
+            }.flatMap{$0}
+            .sink(receiveCompletion: { result in
+                switch result {
+                case .failure(let error):
+                    print(error)
+                default:
+                    break
+                }
+            }, receiveValue: { [weak self]  shop in
+                self?.shopSelected.send(shop)
+            })
+            .store(in: &cancellables)
     }
     
     func filterShopListFromSearchWord() {
