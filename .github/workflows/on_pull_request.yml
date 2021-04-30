@@ -75,7 +75,8 @@ jobs:
       run: bundle exec pod install
     - name: Run Lint
       run: |
-        touch -p fastlane/output/swiftlint.result.html  
+        mkdir fastlane/output
+        touch fastlane/output/swiftlint.result.html  
         bundle exec fastlane lint
     - name: Upload TestFailureReport If Failure
       uses: actions/upload-artifact@v1.0.0
