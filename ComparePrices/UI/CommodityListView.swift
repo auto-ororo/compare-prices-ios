@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CommodityListView: View {
     
-    @EnvironmentObject var navigation : Navigator
+    @EnvironmentObject var navigator : Navigator
     
     @StateObject var viewModel: CommodityListViewModel = CommodityListViewModel()
     @State var showDetailView : Bool = false
@@ -34,11 +34,11 @@ struct CommodityListView: View {
                 // 品物リスト
                 List(viewModel.filteredCommodityList) { commodityListRow in
                     Button(action: {
-                        navigation.navigate(to: .commodityDetail(commodityListRow.commodity), direction: .next)
+                        navigator.navigate(to: .commodityDetail(commodityListRow.commodity), direction: .next)
                     },
-                           label: {
-                            CommodityRowView(commodityListRow: commodityListRow)
-                           })
+                    label: {
+                        CommodityRowView(commodityListRow: commodityListRow)
+                    })
                 }.listStyle(PlainListStyle())
             }
             
@@ -47,18 +47,9 @@ struct CommodityListView: View {
                 Spacer()
                 HStack {
                     Spacer()
-                    Button(action: {
-                        navigation.navigate(to: .addCommodity, direction: .next)
-                    }, label: {
-                        Image(systemName: "plus")
-                            .foregroundColor(.white)
-                            .font(.system(size: 24))
+                    AddCircleButton(action: {
+                        navigator.navigate(to: .addCommodity, direction: .next)
                     })
-                    .frame(width: 60, height: 60)
-                    .background(Color.pink)
-                    .cornerRadius(30.0)
-                    .shadow(color: .gray, radius: 3, x: 3, y: 3)
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 16.0, trailing: 16.0))
                 }
             }
         }.onAppear {
