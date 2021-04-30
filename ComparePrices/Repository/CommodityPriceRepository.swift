@@ -5,25 +5,24 @@
 //  Created by Ryo Narisawa on 2021/03/07.
 //
 
-import Foundation
 import Combine
+import Foundation
 
 protocol CommodityPriceRepository {
-    func addCommodityPrice(_ purchaseResult:CommodityPrice) -> Future<Void, Error>
+    func addCommodityPrice(_ purchaseResult: CommodityPrice) -> Future<Void, Error>
     
-    func removeCommodityPrice(_ purchaseResult:CommodityPrice) -> Future<Void, Error>
+    func removeCommodityPrice(_ purchaseResult: CommodityPrice) -> Future<Void, Error>
     
-    func getLowestCommodityPrice(_ commodityId:UUID) -> Future<CommodityPrice?, Error>
+    func getLowestCommodityPrice(_ commodityId: UUID) -> Future<CommodityPrice?, Error>
     
     func getAllCommodityPrices() -> Future<[CommodityPrice], Error>
     
-    func getCommodityPrices(_ commodityId:UUID) -> Future<[CommodityPrice]?, Error>
+    func getCommodityPrices(_ commodityId: UUID) -> Future<[CommodityPrice]?, Error>
     
     func observeCommodityPrices() -> AnyPublisher<[CommodityPrice], Error>
 }
 
-final class MockCommodityPriceRepository : CommodityPriceRepository {
-    
+final class MockCommodityPriceRepository: CommodityPriceRepository {
     private class SingletonCommodities {
         static let shared = SingletonCommodities()
         
@@ -34,14 +33,14 @@ final class MockCommodityPriceRepository : CommodityPriceRepository {
             CommodityPrice(commodityId: MockCommodityRepository.curryUUID, shopId: MockShopRepository.gyomuSuperUUID, price: 170),
             CommodityPrice(commodityId: MockCommodityRepository.hakusaiUUID, shopId: MockShopRepository.gyomuSuperUUID, price: 100),
             CommodityPrice(commodityId: MockCommodityRepository.hakusaiUUID, shopId: MockShopRepository.bigUUID, price: 99),
-            CommodityPrice(commodityId: MockCommodityRepository.kyabetsuUUID, shopId: MockShopRepository.bigAUUID, price: 96),
+            CommodityPrice(commodityId: MockCommodityRepository.kyabetsuUUID, shopId: MockShopRepository.bigAUUID, price: 96)
         ]
         
         private init() {}
     }
     
     func addCommodityPrice(_ purchaseResult: CommodityPrice) -> Future<Void, Error> {
-        return .init { promise in
+        .init { promise in
             SingletonCommodities.shared.commoditiyPrices.append(purchaseResult)
             print("addCommodityPrice Finished")
             promise(.success(()))
@@ -49,8 +48,8 @@ final class MockCommodityPriceRepository : CommodityPriceRepository {
     }
     
     func removeCommodityPrice(_ purchaseResult: CommodityPrice) -> Future<Void, Error> {
-        return Future<Void, Error> { promise in
-            guard let index = SingletonCommodities.shared.commoditiyPrices.firstIndex(where: { $0.id == purchaseResult.id}) else {
+        Future<Void, Error> { promise in
+            guard let index = SingletonCommodities.shared.commoditiyPrices.firstIndex(where: { $0.id == purchaseResult.id }) else {
                 print("CommodityPrice not found")
                 promise(.failure(NSError()))
                 return
@@ -62,25 +61,25 @@ final class MockCommodityPriceRepository : CommodityPriceRepository {
     }
     
     func getLowestCommodityPrice(_ commodityId: UUID) -> Future<CommodityPrice?, Error> {
-        return Future<CommodityPrice?, Error> { promise in
-            let commodityPrice = SingletonCommodities.shared.commoditiyPrices.filter({ $0.commodityId == commodityId}).min(by: { $1.price > $0.price })
+        Future<CommodityPrice?, Error> { promise in
+            let commodityPrice = SingletonCommodities.shared.commoditiyPrices.filter { $0.commodityId == commodityId }.min(by: { $1.price > $0.price })
             promise(.success(commodityPrice))
         }
     }
     
     func getAllCommodityPrices() -> Future<[CommodityPrice], Error> {
-        return .init {  promise in
+        .init { promise in
             promise(.success(SingletonCommodities.shared.commoditiyPrices))
         }
     }
     
     func getCommodityPrices(_ commodityId: UUID) -> Future<[CommodityPrice]?, Error> {
-        return .init { promise in
-            promise(.success(SingletonCommodities.shared.commoditiyPrices.filter{ $0.commodityId == commodityId }))
+        .init { promise in
+            promise(.success(SingletonCommodities.shared.commoditiyPrices.filter { $0.commodityId == commodityId }))
         }
     }
     
     func observeCommodityPrices() -> AnyPublisher<[CommodityPrice], Error> {
-        return SingletonCommodities.shared.$commoditiyPrices.tryMap{ $0 }.eraseToAnyPublisher()
+        SingletonCommodities.shared.$commoditiyPrices.tryMap { $0 }.eraseToAnyPublisher()
     }
 }

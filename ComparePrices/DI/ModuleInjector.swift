@@ -7,13 +7,11 @@
 
 import Foundation
 
-
 protocol ModuleInjector {
     func inject()
 }
 
 final class MockModuleInjector: ModuleInjector {
-    
     func inject() {
         DIContainer.shared.register(type: CommodityRepository.self, component: MockCommodityRepository())
         DIContainer.shared.register(type: CommodityPriceRepository.self, component: MockCommodityPriceRepository())

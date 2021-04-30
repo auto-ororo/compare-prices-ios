@@ -1,0 +1,4 @@
+--exclude Carthage,Pods
+--disable strongOutlets,trailingCommas
+--trimwhitespace nonblank-lines
+--stripunusedargs closure-only

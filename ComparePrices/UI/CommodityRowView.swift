@@ -11,10 +11,10 @@ struct CommodityRowView: View {
     var commodityListRow: CommodityListRow
     
     var body: some View {
-        HStack() {
+        HStack {
             VStack(alignment: .leading) {
                 Text(commodityListRow.commodity.name).font(.headline)
-                HStack() {
+                HStack {
                     Spacer()
                     Text(commodityListRow.mostInexpensiveShop.name)
                     Text(commodityListRow.lowestPrice.descriptionWithCurrency())

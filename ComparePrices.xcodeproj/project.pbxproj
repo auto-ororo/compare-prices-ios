@@ -36,6 +36,7 @@
 		2AF14CEE25E3D7F0004E901C /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF14CED25E3D7F0004E901C /* DIContainer.swift */; };
 		2AF14CF325E3DD40004E901C /* Injected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF14CF225E3DD40004E901C /* Injected.swift */; };
 		2AF14CFC25E3E821004E901C /* CommodityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF14CFB25E3E821004E901C /* CommodityRepository.swift */; };
+		66F2004F4FC84E18D2121CC6 /* Pods_ComparePricesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55963511EC8A1062CCEF4705 /* Pods_ComparePricesTests.framework */; };
 		7C292C4A26354BF00041CC7F /* AddShopPriceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C292C4926354BF00041CC7F /* AddShopPriceViewModel.swift */; };
 		7C292C4F26354C4B0041CC7F /* AddShopPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C292C4E26354C4B0041CC7F /* AddShopPriceView.swift */; };
 		7C3048CF2634128E00D1FBFE /* CommodityDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3048CE2634128E00D1FBFE /* CommodityDetailViewModel.swift */; };
@@ -43,6 +44,8 @@
 		7C44730F263BEB650001F9EB /* AddCircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44730E263BEB650001F9EB /* AddCircleButton.swift */; };
 		7C7801A8263AF82D00E8B571 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7801A7263AF82D00E8B571 /* Navigator.swift */; };
 		7C7801AA263B182700E8B571 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7801A9263B182700E8B571 /* Header.swift */; };
+		EAA05829E124951D832D7672 /* Pods_ComparePrices_ComparePricesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3E788840EC2EA1094AABC5E /* Pods_ComparePrices_ComparePricesUITests.framework */; };
+		F6787154F0B4145D1581E398 /* Pods_ComparePrices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA5921CA419A3F748B412137 /* Pods_ComparePrices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +102,11 @@
 		2AF14CED25E3D7F0004E901C /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		2AF14CF225E3DD40004E901C /* Injected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injected.swift; sourceTree = "<group>"; };
 		2AF14CFB25E3E821004E901C /* CommodityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityRepository.swift; sourceTree = "<group>"; };
+		55963511EC8A1062CCEF4705 /* Pods_ComparePricesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ComparePricesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56AECC7AB3646D3A89E0EB39 /* Pods-ComparePrices.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComparePrices.release.xcconfig"; path = "Target Support Files/Pods-ComparePrices/Pods-ComparePrices.release.xcconfig"; sourceTree = "<group>"; };
+		5B615C671138D4DB3F01323F /* Pods-ComparePricesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComparePricesTests.release.xcconfig"; path = "Target Support Files/Pods-ComparePricesTests/Pods-ComparePricesTests.release.xcconfig"; sourceTree = "<group>"; };
+		6A18E668C2F3B7398A9BA597 /* Pods-ComparePrices.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComparePrices.debug.xcconfig"; path = "Target Support Files/Pods-ComparePrices/Pods-ComparePrices.debug.xcconfig"; sourceTree = "<group>"; };
+		7AC874E6D43A723CBAD48123 /* Pods-ComparePricesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComparePricesTests.debug.xcconfig"; path = "Target Support Files/Pods-ComparePricesTests/Pods-ComparePricesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7C292C4926354BF00041CC7F /* AddShopPriceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShopPriceViewModel.swift; sourceTree = "<group>"; };
 		7C292C4E26354C4B0041CC7F /* AddShopPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShopPriceView.swift; sourceTree = "<group>"; };
 		7C3048CE2634128E00D1FBFE /* CommodityDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityDetailViewModel.swift; sourceTree = "<group>"; };
@@ -106,6 +114,10 @@
 		7C44730E263BEB650001F9EB /* AddCircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCircleButton.swift; sourceTree = "<group>"; };
 		7C7801A7263AF82D00E8B571 /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		7C7801A9263B182700E8B571 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		AA5921CA419A3F748B412137 /* Pods_ComparePrices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ComparePrices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFE2CA4FA4A17426EB793B98 /* Pods-ComparePrices-ComparePricesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComparePrices-ComparePricesUITests.release.xcconfig"; path = "Target Support Files/Pods-ComparePrices-ComparePricesUITests/Pods-ComparePrices-ComparePricesUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DACDF7C9A83691E5E45C8F87 /* Pods-ComparePrices-ComparePricesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComparePrices-ComparePricesUITests.debug.xcconfig"; path = "Target Support Files/Pods-ComparePrices-ComparePricesUITests/Pods-ComparePrices-ComparePricesUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F3E788840EC2EA1094AABC5E /* Pods_ComparePrices_ComparePricesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ComparePrices_ComparePricesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6787154F0B4145D1581E398 /* Pods_ComparePrices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66F2004F4FC84E18D2121CC6 /* Pods_ComparePricesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAA05829E124951D832D7672 /* Pods_ComparePrices_ComparePricesUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +156,8 @@
 				2A9363FE25C56D4A00BD4FEA /* ComparePricesTests */,
 				2A93640925C56D4A00BD4FEA /* ComparePricesUITests */,
 				2A9363EB25C56D4A00BD4FEA /* Products */,
+				D7DDCD5D8CCCF028B2D1C872 /* Pods */,
+				8F5B76E7E8BFDDCEB3D89659 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -278,6 +295,29 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
+		8F5B76E7E8BFDDCEB3D89659 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA5921CA419A3F748B412137 /* Pods_ComparePrices.framework */,
+				F3E788840EC2EA1094AABC5E /* Pods_ComparePrices_ComparePricesUITests.framework */,
+				55963511EC8A1062CCEF4705 /* Pods_ComparePricesTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D7DDCD5D8CCCF028B2D1C872 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6A18E668C2F3B7398A9BA597 /* Pods-ComparePrices.debug.xcconfig */,
+				56AECC7AB3646D3A89E0EB39 /* Pods-ComparePrices.release.xcconfig */,
+				DACDF7C9A83691E5E45C8F87 /* Pods-ComparePrices-ComparePricesUITests.debug.xcconfig */,
+				AFE2CA4FA4A17426EB793B98 /* Pods-ComparePrices-ComparePricesUITests.release.xcconfig */,
+				7AC874E6D43A723CBAD48123 /* Pods-ComparePricesTests.debug.xcconfig */,
+				5B615C671138D4DB3F01323F /* Pods-ComparePricesTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -285,9 +325,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2A93640F25C56D4A00BD4FEA /* Build configuration list for PBXNativeTarget "ComparePrices" */;
 			buildPhases = (
+				913E801250A356653896C142 /* [CP] Check Pods Manifest.lock */,
 				2A9363E625C56D4A00BD4FEA /* Sources */,
 				2A9363E725C56D4A00BD4FEA /* Frameworks */,
 				2A9363E825C56D4A00BD4FEA /* Resources */,
+				7C0E1E52263BF6D40059B5EC /* SwiftFormat */,
+				7C0E1E53263BF76D0059B5EC /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -302,6 +345,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2A93641225C56D4A00BD4FEA /* Build configuration list for PBXNativeTarget "ComparePricesTests" */;
 			buildPhases = (
+				7D7916194FF81EC75085516B /* [CP] Check Pods Manifest.lock */,
 				2A9363F725C56D4A00BD4FEA /* Sources */,
 				2A9363F825C56D4A00BD4FEA /* Frameworks */,
 				2A9363F925C56D4A00BD4FEA /* Resources */,
@@ -320,6 +364,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2A93641525C56D4A00BD4FEA /* Build configuration list for PBXNativeTarget "ComparePricesUITests" */;
 			buildPhases = (
+				686BCD89F4BC5AB3C5C0CA26 /* [CP] Check Pods Manifest.lock */,
 				2A93640225C56D4A00BD4FEA /* Sources */,
 				2A93640325C56D4A00BD4FEA /* Frameworks */,
 				2A93640425C56D4A00BD4FEA /* Resources */,
@@ -401,6 +446,111 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		686BCD89F4BC5AB3C5C0CA26 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ComparePrices-ComparePricesUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7C0E1E52263BF6D40059B5EC /* SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" .\n";
+		};
+		7C0E1E53263BF76D0059B5EC /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		7D7916194FF81EC75085516B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ComparePricesTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		913E801250A356653896C142 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ComparePrices-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2A9363E625C56D4A00BD4FEA /* Sources */ = {
@@ -592,6 +742,7 @@
 		};
 		2A93641025C56D4A00BD4FEA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A18E668C2F3B7398A9BA597 /* Pods-ComparePrices.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -616,6 +767,7 @@
 		};
 		2A93641125C56D4A00BD4FEA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56AECC7AB3646D3A89E0EB39 /* Pods-ComparePrices.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -640,6 +792,7 @@
 		};
 		2A93641325C56D4A00BD4FEA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7AC874E6D43A723CBAD48123 /* Pods-ComparePricesTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -661,6 +814,7 @@
 		};
 		2A93641425C56D4A00BD4FEA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B615C671138D4DB3F01323F /* Pods-ComparePricesTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -682,6 +836,7 @@
 		};
 		2A93641625C56D4A00BD4FEA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DACDF7C9A83691E5E45C8F87 /* Pods-ComparePrices-ComparePricesUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -701,6 +856,7 @@
 		};
 		2A93641725C56D4A00BD4FEA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFE2CA4FA4A17426EB793B98 /* Pods-ComparePrices-ComparePricesUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

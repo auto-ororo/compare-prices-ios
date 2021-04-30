@@ -5,11 +5,10 @@
 //  Created by Ryo Narisawa on 2021/03/06.
 //
 
-import Foundation
 import Combine
+import Foundation
 
-final class ContentViewModel : ObservableObject {
-    
+final class ContentViewModel: ObservableObject {
     static let shared = ContentViewModel()
     
     @Published var alert = Alert()
@@ -28,15 +27,16 @@ final class ContentViewModel : ObservableObject {
     }
     
     func showConfirm(
-        isDestructive : Bool = false,
+        isDestructive: Bool = false,
         title: String,
         message: String,
         positiveButtonTitle: String = "OK",
         negativeButtonTitle: String = "Cancel",
         onOkClick: @escaping () -> Void = {},
-        onCancelClick: @escaping () -> Void = {}) {
-        let alertType : Alert.AlertType
-        if isDestructive { alertType = .destructiveConfirm} else { alertType = .confirm}
+        onCancelClick: @escaping () -> Void = {}
+    ) {
+        let alertType: AlertType
+        if isDestructive { alertType = .destructiveConfirm } else { alertType = .confirm }
         alert = Alert(
             isShown: true,
             type: alertType,
@@ -50,19 +50,19 @@ final class ContentViewModel : ObservableObject {
     }
 
     struct Alert {
-        var isShown : Bool = false
-        var type : AlertType = .info
-        var title : String = ""
-        var message : String = ""
-        var positiveButtonTitle : String = "OK"
-        var negativeButtonTitle : String = "キャンセル"
-        var onOkClick : () -> Void = {}
-        var onCaccelClick : () -> Void = {}
-        
-        enum AlertType {
-            case info
-            case confirm
-            case destructiveConfirm
-        }
+        var isShown: Bool = false
+        var type: AlertType = .info
+        var title: String = ""
+        var message: String = ""
+        var positiveButtonTitle: String = "OK"
+        var negativeButtonTitle: String = "キャンセル"
+        var onOkClick: () -> Void = {}
+        var onCaccelClick: () -> Void = {}
+    }
+    
+    enum AlertType {
+        case info
+        case confirm
+        case destructiveConfirm
     }
 }

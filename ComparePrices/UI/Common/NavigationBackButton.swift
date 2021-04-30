@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct NavigationBackButton: View {
-    
-    var action : () -> Void
+    var action: () -> Void
 
     var body: some View {
         Button(action: action, label: {
             HStack {
                 Image(systemName: "arrow.left")
             }
-        })}
+        })
+    }
 }

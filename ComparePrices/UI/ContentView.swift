@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     @EnvironmentObject var navigation: Navigator
-    @State private var moveTo : MoveTo = .commodityList
+    @State private var moveTo: MoveTo = .commodityList
     
-    @StateObject var contentViewModel : ContentViewModel = ContentViewModel.shared
+    @StateObject var contentViewModel = ContentViewModel.shared
     
     var body: some View {
         Group {
@@ -21,9 +20,9 @@ struct ContentView: View {
                 CommodityListView().transition(navigation.getTransitionAnimation())
             case .addCommodity:
                 AddCommodityView().transition(navigation.getTransitionAnimation())
-            case .commodityDetail(let commodity):
+            case let .commodityDetail(commodity):
                 CommodityDetailView(commodity: commodity).transition(navigation.getTransitionAnimation())
-            case .addShopPrice(let commodity):
+            case let .addShopPrice(commodity):
                 AddShopPriceView(commodity: commodity).transition(navigation.getTransitionAnimation())
             default:
                 CommodityListView().transition(navigation.getTransitionAnimation())
@@ -34,25 +33,21 @@ struct ContentView: View {
             }
         }
         .alert(isPresented: self.$contentViewModel.alert.isShown) {
-            
             switch contentViewModel.alert.type {
             case .info:
                 return Alert(title: Text(contentViewModel.alert.title),
                              message: Text(contentViewModel.alert.message),
-                             dismissButton: .default(Text(contentViewModel.alert.positiveButtonTitle), action: contentViewModel.alert.onOkClick)
-                )
+                             dismissButton: .default(Text(contentViewModel.alert.positiveButtonTitle), action: contentViewModel.alert.onOkClick))
             case .confirm:
                 return Alert(title: Text(contentViewModel.alert.title),
                              message: Text(contentViewModel.alert.message),
                              primaryButton: .default(Text(contentViewModel.alert.positiveButtonTitle), action: contentViewModel.alert.onOkClick),
-                             secondaryButton: .cancel(Text(contentViewModel.alert.negativeButtonTitle))
-                )
+                             secondaryButton: .cancel(Text(contentViewModel.alert.negativeButtonTitle)))
             case .destructiveConfirm:
                 return Alert(title: Text(contentViewModel.alert.title),
                              message: Text(contentViewModel.alert.message),
                              primaryButton: .destructive(Text(contentViewModel.alert.positiveButtonTitle), action: contentViewModel.alert.onOkClick),
-                             secondaryButton: .cancel(Text(contentViewModel.alert.negativeButtonTitle))
-                )
+                             secondaryButton: .cancel(Text(contentViewModel.alert.negativeButtonTitle)))
             }
         }
     }

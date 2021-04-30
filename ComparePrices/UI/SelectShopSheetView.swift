@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct SelectShopSheetView: View {
-    
     @StateObject private var viewModel = SelectShopSheetViewModel()
     
     @Binding var isPresent: Bool
@@ -19,13 +18,16 @@ struct SelectShopSheetView: View {
         VStack {
             // 検索欄
             HStack {
-                TextField("店名を入力",text: $viewModel.searchWord)
+                TextField("店名を入力", text: $viewModel.searchWord)
                     .textFieldStyle(RoundedBorderTextFieldStyle()).padding(.leading, 8)
-                Button(action: {
-                    viewModel.addShop()
-                }) {
-                    Text("追加").font(.headline)
-                }.padding(8).overlay(
+                Button(
+                    action: {
+                        viewModel.addShop()
+                    },
+                    label: {
+                        Text("追加").font(.headline)
+                    }
+                ).padding(8).overlay(
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.blue, lineWidth: 2)
                 ).padding(.trailing, 8)
@@ -38,14 +40,14 @@ struct SelectShopSheetView: View {
                             Text(shop.name).font(.title3)
                             Spacer()
                         }.padding(8).contentShape(Rectangle())
-                        .onTapGesture {
-                            viewModel.selectShop(shop: shop)
-                        }
+                            .onTapGesture {
+                                viewModel.selectShop(shop: shop)
+                            }
                         Divider()
                     }
                 }
             }
-        }.onAppear{
+        }.onAppear {
             viewModel.getShops()
         }.onReceive(viewModel.shopSelected) { shop in
             self.selectedShop = shop
@@ -55,7 +57,6 @@ struct SelectShopSheetView: View {
 }
 
 struct SelectShopView_Previews: PreviewProvider {
-    
     static var previews: some View {
         MockModuleInjector().inject()
         

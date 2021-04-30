@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-enum MoveTo : Equatable {
+enum MoveTo: Equatable {
     case none
     case commodityList
     case addCommodity
@@ -23,10 +23,10 @@ enum MoveTo : Equatable {
             return true
         case (.addCommodity, .addCommodity):
             return true
-        case (.commodityDetail(_), .commodityDetail(_)):
-            return true
-        case (.addShopPrice(_), .addShopPrice(_)):
-            return true
+        case let (.commodityDetail(commodity1), .commodityDetail(commodity2)):
+            return commodity1 == commodity2
+        case let (.addShopPrice(shop1), .addShopPrice(shop2)):
+            return shop1 == shop2
         default:
             return false
         }
@@ -40,14 +40,14 @@ enum Direction {
 }
 
 struct NavigationRequest {
-    var moveTo : MoveTo
-    var direction : Direction
+    var moveTo: MoveTo
+    var direction: Direction
 }
 
-class Navigator : ObservableObject {
-    @Published private(set) var request : NavigationRequest = NavigationRequest(moveTo: .none, direction: .none)
+class Navigator: ObservableObject {
+    @Published private(set) var request = NavigationRequest(moveTo: .none, direction: .none)
     
-    private var stack : [NavigationRequest] = []
+    private var stack: [NavigationRequest] = []
     
     func navigate(to: MoveTo, direction: Direction) {
         stack.append(request)
@@ -65,7 +65,7 @@ class Navigator : ObservableObject {
     }
 
     func getTransitionAnimation() -> AnyTransition {
-        switch self.request.direction {
+        switch request.direction {
         case .none:
             return .asymmetric(insertion: .identity, removal: .move(edge: .leading))
         case .next:

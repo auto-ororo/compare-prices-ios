@@ -9,8 +9,7 @@ import Foundation
 import SwiftUI
 
 struct CommodityDetailView: View {
-    
-    @EnvironmentObject var navigator : Navigator
+    @EnvironmentObject var navigator: Navigator
     
     @StateObject var viewModel = CommodityDetailViewModel()
     
@@ -19,7 +18,6 @@ struct CommodityDetailView: View {
     var body: some View {
         ZStack {
             VStack(alignment: .leading) {
-                
                 Header(backButtonAction: {
                     navigator.navigate(to: .commodityList, direction: .back)
                 }, title: "詳細")
@@ -52,16 +50,15 @@ struct CommodityDetailView: View {
                 }
             }
             
-        }.onAppear{
+        }.onAppear {
             viewModel.getShopPrices(commodityId: commodity.id)
         }
     }
 }
 
 struct CommodityDetailView_Previews: PreviewProvider {
-    
     static var previews: some View {
         MockModuleInjector().inject()
-        return CommodityDetailView(commodity: Commodity(id: MockCommodityRepository.asparaUUID,name: "もやし"))
+        return CommodityDetailView(commodity: Commodity(id: MockCommodityRepository.asparaUUID, name: "もやし"))
     }
 }

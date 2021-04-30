@@ -7,9 +7,16 @@
 
 import Foundation
 
-struct Shop: Identifiable {
+struct Shop: Identifiable, Equatable {
     var id = UUID()
     var name: String
-    var createdAt : Date = Date()
-    var updatedAt : Date = Date()
+    var createdAt = Date()
+    var updatedAt = Date()
+    
+    static func == (lhs: Shop, rhs: Shop) -> Bool {
+        lhs.id == rhs.id &&
+            lhs.name == rhs.name &&
+            lhs.createdAt == rhs.createdAt &&
+            lhs.updatedAt == lhs.updatedAt
+    }
 }

@@ -8,10 +8,10 @@
 import Foundation
 
 struct CommodityPrice {
-    var id : UUID = UUID()
-    var commodityId : UUID
-    var shopId : UUID
-    var price : Int
-    var createdAt : Date = Date()
-    var updatedAt : Date = Date()
+    var id = UUID()
+    var commodityId: UUID
+    var shopId: UUID
+    var price: Int
+    var createdAt = Date()
+    var updatedAt = Date()
 }

@@ -7,14 +7,13 @@
 
 import SwiftUI
 
-struct Header : View {
-    var backButtonAction : (() -> Void)?
+struct Header: View {
+    var backButtonAction: (() -> Void)?
 
-    var title : String = ""
+    var title: String = ""
     
-
     var body: some View {
-        VStack(alignment: .center){
+        VStack(alignment: .center) {
             HStack(alignment: .center) {
                 if let action = backButtonAction {
                     NavigationBackButton(action: action).frame(width: 50)
