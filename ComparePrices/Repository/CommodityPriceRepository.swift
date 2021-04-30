@@ -29,12 +29,12 @@ final class MockCommodityPriceRepository : CommodityPriceRepository {
         
         @Published var commoditiyPrices: [CommodityPrice] = [
             CommodityPrice(commodityId: MockCommodityRepository.ninzinUUID, shopId: MockShopRepository.sevenElevenUUID, price: 300),
-//            CommodityPrice(commodityId: MockCommodityRepository.ninzinUUID, shopId: MockShopRepository.bigAUUID, price: 100),
-//            CommodityPrice(commodityId: MockCommodityRepository.asparaUUID, shopId: MockShopRepository.bigAUUID, price: 150),
-//            CommodityPrice(commodityId: MockCommodityRepository.curryUUID, shopId: MockShopRepository.gyomuSuperUUID, price: 170),
-//            CommodityPrice(commodityId: MockCommodityRepository.hakusaiUUID, shopId: MockShopRepository.gyomuSuperUUID, price: 100),
-//            CommodityPrice(commodityId: MockCommodityRepository.hakusaiUUID, shopId: MockShopRepository.bigUUID, price: 99),
-//            CommodityPrice(commodityId: MockCommodityRepository.kyabetsuUUID, shopId: MockShopRepository.bigAUUID, price: 96),
+            CommodityPrice(commodityId: MockCommodityRepository.ninzinUUID, shopId: MockShopRepository.bigAUUID, price: 100),
+            CommodityPrice(commodityId: MockCommodityRepository.asparaUUID, shopId: MockShopRepository.bigAUUID, price: 150),
+            CommodityPrice(commodityId: MockCommodityRepository.curryUUID, shopId: MockShopRepository.gyomuSuperUUID, price: 170),
+            CommodityPrice(commodityId: MockCommodityRepository.hakusaiUUID, shopId: MockShopRepository.gyomuSuperUUID, price: 100),
+            CommodityPrice(commodityId: MockCommodityRepository.hakusaiUUID, shopId: MockShopRepository.bigUUID, price: 99),
+            CommodityPrice(commodityId: MockCommodityRepository.kyabetsuUUID, shopId: MockShopRepository.bigAUUID, price: 96),
         ]
         
         private init() {}

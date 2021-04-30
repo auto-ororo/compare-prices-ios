@@ -39,16 +39,16 @@ final class MockCommodityRepository : CommodityRepository {
         
         @Published var commodities: [Commodity] = [
             Commodity(id: ninzinUUID,name: "にんじん"),
-//            Commodity(id: zyagaimoUUID,name: "じゃがいも"),
-//            Commodity(id: tamanegiUUID,name: "玉ねぎ"),
-//            Commodity(id: kyabetsuUUID,name: "キャベツ"),
-//            Commodity(id: curryUUID,name: "カレールー"),
-//            Commodity(id: hakusaiUUID,name: "白菜"),
-//            Commodity(id: naganegiUUID,name: "長ネギ"),
-//            Commodity(id: satoimoUUID,name: "さといも"),
-//            Commodity(id: asparaUUID,name: "アスパラガス"),
-//            Commodity(id: ringoUUID, name: "りんご"),
-//            Commodity(id: nattoUUID, name: "納豆")
+            Commodity(id: zyagaimoUUID,name: "じゃがいも"),
+            Commodity(id: tamanegiUUID,name: "玉ねぎ"),
+            Commodity(id: kyabetsuUUID,name: "キャベツ"),
+            Commodity(id: curryUUID,name: "カレールー"),
+            Commodity(id: hakusaiUUID,name: "白菜"),
+            Commodity(id: naganegiUUID,name: "長ネギ"),
+            Commodity(id: satoimoUUID,name: "さといも"),
+            Commodity(id: asparaUUID,name: "アスパラガス"),
+            Commodity(id: ringoUUID, name: "りんご"),
+            Commodity(id: nattoUUID, name: "納豆")
         ]
         
         private init() {}

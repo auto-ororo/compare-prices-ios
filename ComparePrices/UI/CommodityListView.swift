@@ -29,7 +29,7 @@ struct CommodityListView: View {
                     Image(systemName: "magnifyingglass").foregroundColor(.blue).padding(8)
                     TextField("商品名、店名を入力",text: $viewModel.searchWord)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                }.padding()
+                }.padding(.horizontal, 8)
                 
                 // 品物リスト
                 List(viewModel.filteredCommodityList) { commodityListRow in

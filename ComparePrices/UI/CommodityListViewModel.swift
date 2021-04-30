@@ -34,7 +34,6 @@ final class CommodityListViewModel : ObservableObject, Identifiable {
                         }
                     }.flatMap{$0}
             }.flatMap{$0}
-            .print()
             .sink(receiveCompletion: { [weak self] result in
                 switch result {
                 case .failure(let error):
