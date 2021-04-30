@@ -55,9 +55,7 @@ class Navigator: ObservableObject {
     }
     
     func getLastStack() -> NavigationRequest {
-        let req = stack.last
-        
-        guard let req = req else {
+        guard let req = stack.last else {
             fatalError("スタックが存在しない")
         }
         
