@@ -18,3 +18,7 @@ Pods/*
 
 # Bundler
 vendor/bundle
+
+# Fastlane
+**/fastlane/report.xml
+**/fastlane/output

@@ -1,6 +1,7 @@
 excluded:
 - Carthage
 - Pods
+- vendor/bundle
 disabled_rules:
 - line_length
 - trailing_whitespace
