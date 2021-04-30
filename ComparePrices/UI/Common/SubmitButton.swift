@@ -14,7 +14,7 @@ struct SubmitButton : View {
     
     var action : () -> Void
     
-    var isActive : Bool
+    var isActive : Bool = true
     
     var body: some View {
         Button(action: action) {

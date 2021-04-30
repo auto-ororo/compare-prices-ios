@@ -9,12 +9,10 @@ import SwiftUI
 
 struct NavigationBackButton: View {
     
-    @Environment(\.presentationMode) private var presentationMode
-    
+    var action : () -> Void
+
     var body: some View {
-        Button(action: {
-            presentationMode.wrappedValue.dismiss()
-        }, label: {
+        Button(action: action, label: {
             HStack {
                 Image(systemName: "arrow.left")
             }

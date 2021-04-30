@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CommodityListView: View {
     
+    @EnvironmentObject var navigation : Navigator
+    
     @StateObject var viewModel: CommodityListViewModel = CommodityListViewModel()
     @State var showDetailView : Bool = false
     @State var showAddView : Bool = false
@@ -20,6 +22,8 @@ struct CommodityListView: View {
     var body: some View {
         ZStack(alignment: .topLeading ) {
             VStack {
+                Header(title: "リスト")
+                
                 // 検索欄
                 HStack {
                     Image(systemName: "magnifyingglass").foregroundColor(.blue).padding(8)
@@ -29,36 +33,37 @@ struct CommodityListView: View {
                 
                 // 品物リスト
                 List(viewModel.filteredCommodityList) { commodityListRow in
-                    NavigationLink(
-                        destination: CommodityDetailView(commodity: commodityListRow.commodity),
-                        label: {
+                    Button(action: {
+                        navigation.navigate(to: .commodityDetail(commodityListRow.commodity), direction: .next)
+                    },
+                           label: {
                             CommodityRowView(commodityListRow: commodityListRow)
-                        }
-                    )
-                }
-                .listStyle(PlainListStyle())
-                
+                           })
+                }.listStyle(PlainListStyle())
             }
-        }.background(
-            NavigationLink(
-                destination: AddCommodityView(),
-                isActive: $showAddView,
-                label: {
-                    EmptyView()
+            
+            // Floating Button
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        navigation.navigate(to: .addCommodity, direction: .next)
+                    }, label: {
+                        Image(systemName: "plus")
+                            .foregroundColor(.white)
+                            .font(.system(size: 24))
+                    })
+                    .frame(width: 60, height: 60)
+                    .background(Color.pink)
+                    .cornerRadius(30.0)
+                    .shadow(color: .gray, radius: 3, x: 3, y: 3)
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 16.0, trailing: 16.0))
                 }
-            )
-        )
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                Text("品物リスト")
             }
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: { showAddView = true }) {
-                    Image(systemName: "plus")
-                }
-            }
+        }.onAppear {
+            viewModel.getCommodities()
         }
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

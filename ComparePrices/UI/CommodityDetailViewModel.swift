@@ -24,6 +24,9 @@ final class CommodityDetailViewModel : ObservableObject, Identifiable {
         
         commodityPriceRepository.getCommodityPrices(commodityId)
             .compactMap{ $0 }
+            .map { $0.sorted(by: { l, r -> Bool in
+                return l.price < r.price
+            }) }
             .flatMap(maxPublishers: .max(1)) {commodities in commodities.publisher}
             .compactMap { [weak self] commodityPrice in
                 self?.shopRepository.getShop(commodityPrice.shopId).flatMap { shop in

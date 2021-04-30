@@ -11,48 +11,41 @@ import Combine
 final class AddCommodityViewModel : ObservableObject, Identifiable {
     
     @Injected var commodityRepository: CommodityRepository
-    @Injected var commodityPriceRepository: CommodityPriceRepository
     
     @Published private (set) var isButtonEnabled : Bool = false
-    
+    @Published private (set) var addedCommodity : Commodity?
+
     @Published var commodityName : String = ""
-    @Published var price : Int? = 0
-    
-    @Published var selectedShop : Shop? = nil
-    
-    @Published var showStoreSheet = false
-    
-    private (set) var finishedAddCommodity = PassthroughSubject<Void, Never>()
-    
+
     private var cancellables: [AnyCancellable] = []
     
     func addCommotity() {
         isButtonEnabled = false
         
-        let uuid = UUID()
+        let commodity = Commodity(id: UUID(), name: commodityName)
         
-        Publishers.Zip(
-            commodityPriceRepository.addCommodityPrice(CommodityPrice(commodityId: uuid, shopId: selectedShop!.id, price: price!)),
-            commodityRepository.addCommodity(Commodity(id: uuid, name: commodityName))
-        ).sink(receiveCompletion: { result in
-            switch result {
-            case .failure(let error):
-                print(error)
-            case .finished:
-                print("zip finished")
-                self.finishedAddCommodity.send(())
-            }
-            self.isButtonEnabled = true
-        }){ _ in }
-        .store(in: &cancellables)
+        commodityRepository.addCommodity(commodity)
+            .sink(receiveCompletion: { [weak self] result in
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .finished:
+                    self?.addedCommodity = commodity
+                }
+                self?.isButtonEnabled = true
+            }){ _ in }
+            .store(in: &cancellables)
     }
     
     init() {
         // Validation
-        Publishers.CombineLatest3($commodityName, $selectedShop, $price)
+        $commodityName
             .receive(on: RunLoop.main)
-            .map{ (commodityName, selectedShop, price) in
-                return !commodityName.isEmpty &&  price != nil && price! > 0 && selectedShop != nil
-            }.print(self.isButtonEnabled.description).assign(to: \.isButtonEnabled, on: self).store(in: &cancellables)
+            .map{ commodityName in
+                return !commodityName.isEmpty
+            }
+            .assign(to: \.isButtonEnabled, on: self)
+            .store(in: &cancellables)
+        
     }
 }

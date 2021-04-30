@@ -10,12 +10,19 @@ import SwiftUI
 
 struct CommodityDetailView: View {
     
+    @EnvironmentObject var navigator : Navigator
+    
     @StateObject var viewModel = CommodityDetailViewModel()
     
     var commodity: Commodity
     
     var body: some View {
         VStack(alignment: .leading) {
+            
+            Header(backButtonAction: {
+                navigator.navigate(to: .commodityList, direction: .back)
+            }, title: "詳細")
+            
             HStack {
                 Spacer()
                 Text(commodity.name).padding().font(.title)
@@ -30,23 +37,15 @@ struct CommodityDetailView: View {
                     Spacer()
                     Text(shopPrice.price.descriptionWithCurrency())
                 }
-            }
-
-            Spacer()
+            }.listStyle(PlainListStyle())
+            
+            SubmitButton(text: "店舗・値段を追加", action: {
+                navigator.navigate(to: .addShopPrice(commodity), direction: .next)
+            }).padding()
         }
         .onAppear{
             viewModel.getShopPrices(commodityId: commodity.id)
         }
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                Text("詳細")
-            }
-            ToolbarItem(placement: .navigationBarLeading) {
-                NavigationBackButton()
-            }
-        }
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

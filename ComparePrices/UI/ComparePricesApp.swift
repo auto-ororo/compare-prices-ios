@@ -12,7 +12,7 @@ struct ComparePricesApp: App {
     var body: some Scene {
         MockModuleInjector().inject()
         return WindowGroup {
-            ContentView()
+            ContentView().environmentObject(Navigator())
         }
     }
 }
