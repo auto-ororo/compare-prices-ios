@@ -15,19 +15,15 @@ struct CommodityListView: View {
     @State var showDetailView : Bool = false
     @State var showAddView : Bool = false
     
-    // 検索欄を表示・非表示するためのオフセットを保持
-    @State private var searchOffset = CGFloat.zero
-    private let searchHeight = CGFloat(60)
-    
     var body: some View {
-        ZStack(alignment: .topLeading ) {
+        ZStack() {
             VStack {
-                Header(title: "リスト")
+                Header(title: "商品リスト")
                 
                 // 検索欄
                 HStack {
                     Image(systemName: "magnifyingglass").foregroundColor(.blue).padding(8)
-                    TextField("商品名、店名を入力",text: $viewModel.searchWord)
+                    TextField("商品名を入力",text: $viewModel.searchWord)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }.padding(.horizontal, 8)
                 
