@@ -12,3 +12,9 @@ xcuserdata/
 ## Playgrounds
 timeline.xctimeline
 playground.xcworkspace
+
+# CocoaPod
+Pods/*
+
+# Bundler
+vendor/bundle
