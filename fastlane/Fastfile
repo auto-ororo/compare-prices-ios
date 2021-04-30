@@ -23,7 +23,7 @@ platform :ios do
       output_directory: "fastlane/output",
       output_types: "html",
       devices: ["iPhone 12"],
-      scheme: "ComparePrices"
+      scheme: "ComparePrices_Develop"
     )
   end
 

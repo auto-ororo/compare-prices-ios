@@ -5,13 +5,18 @@
 //  Created by Ryo Narisawa on 2021/01/30.
 //
 
+import Firebase
 import SwiftUI
 
 @main
 struct ComparePricesApp: App {
-    var body: some Scene {
+    init() {
+        FirebaseApp.configure()
         MockModuleInjector().inject()
-        return WindowGroup {
+    }
+
+    var body: some Scene {
+        WindowGroup {
             ContentView().environmentObject(Navigator())
         }
     }

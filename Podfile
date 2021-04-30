@@ -8,6 +8,12 @@ target 'ComparePrices' do
   
   pod 'SwiftFormat/CLI'
   pod 'SwiftLint'
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Crashlytics'
 
   # Pods for ComparePrices
 
@@ -21,3 +27,9 @@ target 'ComparePrices' do
   end
 
 end
+
+# post_install do |installer|
+#   installer.pods_project.build_configurations.each do |config|
+#     config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+#   end
+# end

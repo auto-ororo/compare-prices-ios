@@ -5,7 +5,10 @@
 //  Created by Ryo Narisawa on 2021/01/30.
 //
 
-@testable import ComparePrices
+#if DEVELOP_DEBUG
+    @testable import ComparePricesDevDebug
+#endif
+
 import XCTest
 
 class ComparePricesTests: XCTestCase {
