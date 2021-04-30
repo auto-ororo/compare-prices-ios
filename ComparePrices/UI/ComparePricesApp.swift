@@ -10,8 +10,9 @@ import SwiftUI
 @main
 struct ComparePricesApp: App {
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+        MockModuleInjector().inject()
+        return WindowGroup {
+            ContentView().environmentObject(Navigator())
         }
     }
 }
