@@ -19,7 +19,7 @@ platform :ios do
   desc "test"
   lane :test do
     run_tests(
-      workspace: "ComparePrices.xcworkspace",
+      project: "ComparePrices.xcodeproj",
       output_directory: "fastlane/output",
       output_types: "html",
       devices: ["iPhone 12"],
