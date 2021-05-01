@@ -32,7 +32,7 @@ platform :ios do
     swiftlint(
       mode: :lint,      
       reporter: "html",
-      executable: "Pods/SwiftLint/swiftlint", 
+      executable: "swiftlint", 
       output_file: "fastlane/output/swiftlint.result.html", 
       config_file: ".swiftlint.yml",
       strict: true
