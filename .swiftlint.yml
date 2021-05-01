@@ -2,6 +2,7 @@ excluded:
 - Carthage
 - Pods
 - vendor/bundle
+- BuildTools
 disabled_rules:
 - line_length
 - trailing_whitespace

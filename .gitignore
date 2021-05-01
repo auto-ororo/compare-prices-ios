@@ -25,3 +25,6 @@ vendor/bundle
 
 # Firebase
 GoogleService-*
+
+# SwiftPM
+BuildTools/.build
