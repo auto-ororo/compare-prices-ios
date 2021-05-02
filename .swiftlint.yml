@@ -3,6 +3,7 @@ excluded:
 - Pods
 - vendor/bundle
 - BuildTools
+- ComparePrices/Resources/R.generated.swift
 disabled_rules:
 - line_length
 - trailing_whitespace

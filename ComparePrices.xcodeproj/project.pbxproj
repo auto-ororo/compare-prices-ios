@@ -51,6 +51,10 @@
 		7CF965E7263DB99F00775320 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 7CF965E6263DB99F00775320 /* FirebaseAnalytics */; };
 		7CF965E9263DB99F00775320 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 7CF965E8263DB99F00775320 /* FirebaseCrashlytics */; };
 		7CF965EB263DB99F00775320 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7CF965EA263DB99F00775320 /* FirebaseAuth */; };
+		7CF965F6263EC09900775320 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CF965F4263EC09900775320 /* Localizable.strings */; };
+		7CF965FD263EEBEA00775320 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF965FC263EEBEA00775320 /* R.generated.swift */; };
+		7CF96601263EECEB00775320 /* Rswift in Frameworks */ = {isa = PBXBuildFile; productRef = 7CF96600263EECEB00775320 /* Rswift */; };
+		7CF96603263EF0F600775320 /* RswiftResourceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF96602263EF0F600775320 /* RswiftResourceExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,7 +121,12 @@
 		7CA67019263C63D4007FCF10 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		7CC79C8F263C6AF4008536A0 /* GoogleService-Develop-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Develop-Info.plist"; sourceTree = "<group>"; };
 		7CC79C91263C6AFE008536A0 /* GoogleService-Production-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Production-Info.plist"; sourceTree = "<group>"; };
-		7CF965DA263DB6A300775320 /* BuildTools */ = {isa = PBXFileReference; lastKnownFileType = folder; path = BuildTools; sourceTree = "<group>"; };
+		7CF965DA263DB6A300775320 /* BuildTools */ = {isa = PBXFileReference; lastKnownFileType = text; path = BuildTools; sourceTree = "<group>"; };
+		7CF965F5263EC09900775320 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7CF965F7263EC09D00775320 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7CF965F8263EC09E00775320 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7CF965FC263EEBEA00775320 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		7CF96602263EF0F600775320 /* RswiftResourceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RswiftResourceExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +139,7 @@
 				7CF965E5263DB99F00775320 /* FirebaseAnalyticsSwift-Beta in Frameworks */,
 				7CF965E9263DB99F00775320 /* FirebaseCrashlytics in Frameworks */,
 				7CF965E7263DB99F00775320 /* FirebaseAnalytics in Frameworks */,
+				7CF96601263EECEB00775320 /* Rswift in Frameworks */,
 				7CF965EB263DB99F00775320 /* FirebaseAuth in Frameworks */,
 				7CF965E1263DB99F00775320 /* FirebaseAppDistribution-Beta in Frameworks */,
 			);
@@ -155,8 +165,8 @@
 		2A9363E125C56D4A00BD4FEA = {
 			isa = PBXGroup;
 			children = (
-				7CF965DA263DB6A300775320 /* BuildTools */,
 				2A93641B25C56E3700BD4FEA /* README.md */,
+				7CF965DA263DB6A300775320 /* BuildTools */,
 				2A9363EC25C56D4A00BD4FEA /* ComparePrices */,
 				2A9363FE25C56D4A00BD4FEA /* ComparePricesTests */,
 				2A93640925C56D4A00BD4FEA /* ComparePricesUITests */,
@@ -177,13 +187,13 @@
 		2A9363EC25C56D4A00BD4FEA /* ComparePrices */ = {
 			isa = PBXGroup;
 			children = (
+				7CF965EC263EBA0C00775320 /* Resources */,
 				7CA67018263C63BE007FCF10 /* Config */,
 				2AC3EA4A25EB966000E81AD5 /* Util */,
 				2AF14CFA25E3E806004E901C /* Repository */,
 				2AF14CEC25E3D7C4004E901C /* DI */,
 				2A93643525C598F300BD4FEA /* Model */,
 				2A93641C25C56FD700BD4FEA /* UI */,
-				2A9363F125C56D4A00BD4FEA /* Assets.xcassets */,
 				2A9363F625C56D4A00BD4FEA /* Info.plist */,
 				2A9363F325C56D4A00BD4FEA /* Preview Content */,
 			);
@@ -256,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				2AC3EA4B25EB967A00E81AD5 /* IntExtensions.swift */,
+				7CF96602263EF0F600775320 /* RswiftResourceExtensions.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -325,6 +336,16 @@
 			path = Production;
 			sourceTree = "<group>";
 		};
+		7CF965EC263EBA0C00775320 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7CF965FC263EEBEA00775320 /* R.generated.swift */,
+				2A9363F125C56D4A00BD4FEA /* Assets.xcassets */,
+				7CF965F4263EC09900775320 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -334,6 +355,7 @@
 			buildPhases = (
 				7CF965D7263D82BE00775320 /* SwiftFormat */,
 				7CF965D9263DB3F100775320 /* SwiftLint */,
+				7CF965F9263EE6C800775320 /* R.Swift */,
 				7CC79C93263C6DDE008536A0 /* GoogleService-Info */,
 				2A9363E625C56D4A00BD4FEA /* Sources */,
 				2A9363E725C56D4A00BD4FEA /* Frameworks */,
@@ -352,6 +374,7 @@
 				7CF965E6263DB99F00775320 /* FirebaseAnalytics */,
 				7CF965E8263DB99F00775320 /* FirebaseCrashlytics */,
 				7CF965EA263DB99F00775320 /* FirebaseAuth */,
+				7CF96600263EECEB00775320 /* Rswift */,
 			);
 			productName = ComparePrices;
 			productReference = 2A9363EA25C56D4A00BD4FEA /* ComparePricesDevDebug.app */;
@@ -422,10 +445,12 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 2A9363E125C56D4A00BD4FEA;
 			packageReferences = (
 				7CF965DD263DB99F00775320 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				7CF965FF263EECEB00775320 /* XCRemoteSwiftPackageReference "R.swift.Library" */,
 			);
 			productRefGroup = 2A9363EB25C56D4A00BD4FEA /* Products */;
 			projectDirPath = "";
@@ -444,6 +469,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A9363F525C56D4A00BD4FEA /* Preview Assets.xcassets in Resources */,
+				7CF965F6263EC09900775320 /* Localizable.strings in Resources */,
 				2A9363F225C56D4A00BD4FEA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -519,6 +545,26 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nxcrun --sdk macosx swift run --package-path BuildTools swiftlint \n";
 		};
+		7CF965F9263EE6C800775320 /* R.Swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			name = R.Swift;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/$PROJECT_NAME/Resources/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path. \nxcrun --sdk macosx swift run --package-path BuildTools rswift generate \"$SRCROOT/$PROJECT_NAME/Resources/R.generated.swift\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -551,6 +597,8 @@
 				2A64666425F49CE000CE770E /* CommodityPrice.swift in Sources */,
 				2A93642125C5723000BD4FEA /* CommodityListView.swift in Sources */,
 				7C292C4A26354BF00041CC7F /* AddShopPriceViewModel.swift in Sources */,
+				7CF96603263EF0F600775320 /* RswiftResourceExtensions.swift in Sources */,
+				7CF965FD263EEBEA00775320 /* R.generated.swift in Sources */,
 				2AC3EA5125EBD56900E81AD5 /* SubmitButton.swift in Sources */,
 				2A64666925F4A34C00CE770E /* CommodityPriceRepository.swift in Sources */,
 				2A64664F25F4894B00CE770E /* Commodity.swift in Sources */,
@@ -592,6 +640,19 @@
 			targetProxy = 2A93640725C56D4A00BD4FEA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7CF965F4263EC09900775320 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7CF965F5263EC09900775320 /* Base */,
+				7CF965F7263EC09D00775320 /* en */,
+				7CF965F8263EC09E00775320 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		2A93640E25C56D4A00BD4FEA /* Develop_Release */ = {
@@ -1023,6 +1084,14 @@
 				minimumVersion = 7.11.1;
 			};
 		};
+		7CF965FF263EECEB00775320 /* XCRemoteSwiftPackageReference "R.swift.Library" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mac-cain13/R.swift.Library.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1060,6 +1129,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7CF965DD263DB99F00775320 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		7CF96600263EECEB00775320 /* Rswift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CF965FF263EECEB00775320 /* XCRemoteSwiftPackageReference "R.swift.Library" */;
+			productName = Rswift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

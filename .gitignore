@@ -13,9 +13,6 @@ xcuserdata/
 timeline.xctimeline
 playground.xcworkspace
 
-# CocoaPod
-Pods/*
-
 # Bundler
 vendor/bundle
 
@@ -28,3 +25,7 @@ GoogleService-*
 
 # SwiftPM
 BuildTools/.build
+
+# Generated Files
+*.generated.swift
+.DS_Store
