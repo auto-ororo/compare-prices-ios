@@ -121,7 +121,6 @@
 		7CA67019263C63D4007FCF10 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		7CC79C8F263C6AF4008536A0 /* GoogleService-Develop-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Develop-Info.plist"; sourceTree = "<group>"; };
 		7CC79C91263C6AFE008536A0 /* GoogleService-Production-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Production-Info.plist"; sourceTree = "<group>"; };
-		7CF965DA263DB6A300775320 /* BuildTools */ = {isa = PBXFileReference; lastKnownFileType = text; path = BuildTools; sourceTree = "<group>"; };
 		7CF965F5263EC09900775320 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7CF965F7263EC09D00775320 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7CF965F8263EC09E00775320 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -166,7 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				2A93641B25C56E3700BD4FEA /* README.md */,
-				7CF965DA263DB6A300775320 /* BuildTools */,
 				2A9363EC25C56D4A00BD4FEA /* ComparePrices */,
 				2A9363FE25C56D4A00BD4FEA /* ComparePricesTests */,
 				2A93640925C56D4A00BD4FEA /* ComparePricesUITests */,
