@@ -41,6 +41,7 @@
 		7C3048CF2634128E00D1FBFE /* CommodityDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3048CE2634128E00D1FBFE /* CommodityDetailViewModel.swift */; };
 		7C3048D4263415CF00D1FBFE /* ShopPriceListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3048D3263415CF00D1FBFE /* ShopPriceListRow.swift */; };
 		7C44730F263BEB650001F9EB /* AddCircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44730E263BEB650001F9EB /* AddCircleButton.swift */; };
+		7C497346263F04BB0051091B /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 7C497345263F04BB0051091B /* SFSafeSymbols */; };
 		7C7801A8263AF82D00E8B571 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7801A7263AF82D00E8B571 /* Navigator.swift */; };
 		7C7801AA263B182700E8B571 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7801A9263B182700E8B571 /* Header.swift */; };
 		7CA6701A263C63D4007FCF10 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA67019263C63D4007FCF10 /* Environment.swift */; };
@@ -136,6 +137,7 @@
 				7CF965E3263DB99F00775320 /* FirebaseFirestoreSwift-Beta in Frameworks */,
 				7CF965DF263DB99F00775320 /* FirebaseFirestore in Frameworks */,
 				7CF965E5263DB99F00775320 /* FirebaseAnalyticsSwift-Beta in Frameworks */,
+				7C497346263F04BB0051091B /* SFSafeSymbols in Frameworks */,
 				7CF965E9263DB99F00775320 /* FirebaseCrashlytics in Frameworks */,
 				7CF965E7263DB99F00775320 /* FirebaseAnalytics in Frameworks */,
 				7CF96601263EECEB00775320 /* Rswift in Frameworks */,
@@ -373,6 +375,7 @@
 				7CF965E8263DB99F00775320 /* FirebaseCrashlytics */,
 				7CF965EA263DB99F00775320 /* FirebaseAuth */,
 				7CF96600263EECEB00775320 /* Rswift */,
+				7C497345263F04BB0051091B /* SFSafeSymbols */,
 			);
 			productName = ComparePrices;
 			productReference = 2A9363EA25C56D4A00BD4FEA /* ComparePricesDevDebug.app */;
@@ -449,6 +452,7 @@
 			packageReferences = (
 				7CF965DD263DB99F00775320 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				7CF965FF263EECEB00775320 /* XCRemoteSwiftPackageReference "R.swift.Library" */,
+				7C497344263F04BB0051091B /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
 			);
 			productRefGroup = 2A9363EB25C56D4A00BD4FEA /* Products */;
 			projectDirPath = "";
@@ -1074,6 +1078,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7C497344263F04BB0051091B /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/piknotech/SFSafeSymbols";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.3;
+			};
+		};
 		7CF965DD263DB99F00775320 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -1093,6 +1105,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7C497345263F04BB0051091B /* SFSafeSymbols */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7C497344263F04BB0051091B /* XCRemoteSwiftPackageReference "SFSafeSymbols" */;
+			productName = SFSafeSymbols;
+		};
 		7CF965DE263DB99F00775320 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7CF965DD263DB99F00775320 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

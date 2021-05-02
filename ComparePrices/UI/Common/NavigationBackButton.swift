@@ -5,6 +5,7 @@
 //  Created by Ryo Narisawa on 2021/02/14.
 //
 
+import SFSafeSymbols
 import SwiftUI
 
 struct NavigationBackButton: View {
@@ -13,7 +14,7 @@ struct NavigationBackButton: View {
     var body: some View {
         Button(action: action, label: {
             HStack {
-                Image(systemName: "arrow.left")
+                Image(systemSymbol: SFSymbol.arrowLeft)
             }
         })
     }
