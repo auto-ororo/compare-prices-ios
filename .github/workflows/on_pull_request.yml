@@ -1,7 +1,7 @@
 name: iOS CI
 
 on:
-  push:
+  pull_request:
     paths-ignore:
       - '**.md'
       - '**.pbxproj'
