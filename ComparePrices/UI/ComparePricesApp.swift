@@ -12,7 +12,7 @@ import SwiftUI
 struct ComparePricesApp: App {
     init() {
         FirebaseApp.configure()
-        MockModuleInjector().inject()
+        DefaultModuleInjector().inject()
     }
 
     var body: some Scene {

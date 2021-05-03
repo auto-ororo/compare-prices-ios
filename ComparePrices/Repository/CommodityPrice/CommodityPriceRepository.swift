@@ -15,9 +15,5 @@ protocol CommodityPriceRepository {
     
     func getLowestCommodityPrice(_ commodityId: UUID) -> Future<CommodityPrice?, Error>
     
-    func getAllCommodityPrices() -> Future<[CommodityPrice], Error>
-    
-    func getCommodityPrices(_ commodityId: UUID) -> Future<[CommodityPrice]?, Error>
-    
-    func observeCommodityPrices() -> AnyPublisher<[CommodityPrice], Error>
+    func getCommodityPrices(_ commodityId: UUID) -> Future<[CommodityPrice], Error>
 }

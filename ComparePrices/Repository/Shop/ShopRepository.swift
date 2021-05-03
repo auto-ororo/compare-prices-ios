@@ -13,8 +13,6 @@ protocol ShopRepository {
     
     func removeShop(_ shop: Shop) -> Future<Void, Error>
 
-    func observeShops() -> AnyPublisher<[Shop], Error>
-    
     func getShop(_ shopId: UUID) -> Future<Shop, Error>
     
     func getShops() -> Future<[Shop], Error>

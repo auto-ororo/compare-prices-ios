@@ -41,10 +41,6 @@ final class MockCommodityRepository: CommodityRepository {
         private init() {}
     }
 
-    func observeCommodities() -> AnyPublisher<[Commodity], Error> {
-        SingletonCommodities.shared.$commodities.tryMap { $0 }.eraseToAnyPublisher()
-    }
-    
     func addCommodity(_ commodity: Commodity) -> Future<Void, Error> {
         .init { promise in
             SingletonCommodities.shared.commodities.append(commodity)

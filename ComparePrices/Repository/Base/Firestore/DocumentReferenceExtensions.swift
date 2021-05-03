@@ -11,6 +11,24 @@ import FirebaseFirestoreSwift
 import Foundation
 
 extension DocumentReference {
+    func getDocument<T: Codable>() -> Future<T, Error> {
+        .init { [weak self] promise in
+            self?.getDocument { document, error in
+                if let err = error {
+                    promise(.failure(err))
+                }
+                
+                let decodedDocument: T
+                do {
+                    try decodedDocument = document!.data(as: T.self)!
+                    promise(.success(decodedDocument))
+                } catch {
+                    promise(.failure(error))
+                }
+            }
+        }
+    }
+    
     func setData<T: Codable>(document: T) -> Future<Void, Error> {
         .init { [weak self] promise in
             let encodedItem: [String: Any]

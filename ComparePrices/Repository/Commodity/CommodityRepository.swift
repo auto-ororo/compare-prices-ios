@@ -12,7 +12,5 @@ protocol CommodityRepository {
     
     func removeCommodity(_ commodity: Commodity) -> Future<Void, Error>
 
-    func observeCommodities() -> AnyPublisher<[Commodity], Error>
-    
     func getCommodities() -> Future<[Commodity], Error>
 }

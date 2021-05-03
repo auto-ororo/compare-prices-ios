@@ -52,20 +52,10 @@ final class MockCommodityPriceRepository: CommodityPriceRepository {
             promise(.success(commodityPrice))
         }
     }
-    
-    func getAllCommodityPrices() -> Future<[CommodityPrice], Error> {
-        .init { promise in
-            promise(.success(SingletonCommodities.shared.commoditiyPrices))
-        }
-    }
-    
-    func getCommodityPrices(_ commodityId: UUID) -> Future<[CommodityPrice]?, Error> {
+
+    func getCommodityPrices(_ commodityId: UUID) -> Future<[CommodityPrice], Error> {
         .init { promise in
             promise(.success(SingletonCommodities.shared.commoditiyPrices.filter { $0.commodityId == commodityId }))
         }
-    }
-    
-    func observeCommodityPrices() -> AnyPublisher<[CommodityPrice], Error> {
-        SingletonCommodities.shared.$commoditiyPrices.tryMap { $0 }.eraseToAnyPublisher()
     }
 }

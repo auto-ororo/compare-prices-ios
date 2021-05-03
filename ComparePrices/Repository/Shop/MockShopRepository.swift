@@ -29,10 +29,6 @@ final class MockShopRepository: ShopRepository {
         private init() {}
     }
 
-    func observeShops() -> AnyPublisher<[Shop], Error> {
-        SingletonShops.shared.$shops.tryMap { $0 }.eraseToAnyPublisher()
-    }
-    
     func addShop(_ shop: Shop) -> Future<Void, Error> {
         .init { promise in
             SingletonShops.shared.shops.append(shop)
