@@ -5,14 +5,13 @@
 //  Created by Ryo Narisawa on 2021/03/07.
 //
 
-import Foundation
 import Combine
+import Foundation
 
-protocol ShopRepository{
-
-    func addShop(_ shop:Shop) -> Future<Void, Error>
+protocol ShopRepository {
+    func addShop(_ shop: Shop) -> Future<Void, Error>
     
-    func removeShop(_ shop:Shop) -> Future<Void, Error>
+    func removeShop(_ shop: Shop) -> Future<Void, Error>
 
     func observeShops() -> AnyPublisher<[Shop], Error>
     
@@ -21,8 +20,7 @@ protocol ShopRepository{
     func getShops() -> Future<[Shop], Error>
 }
 
-final class MockShopRepository : ShopRepository {
-    
+final class MockShopRepository: ShopRepository {
     static let tairayaUUID = UUID()
     static let gyomuSuperUUID = UUID()
     static let sevenElevenUUID = UUID()
@@ -32,7 +30,6 @@ final class MockShopRepository : ShopRepository {
     private class SingletonShops {
         static let shared = SingletonShops()
         
-
         @Published var shops: [Shop] = [
             Shop(id: tairayaUUID, name: "タイラヤ"),
             Shop(id: gyomuSuperUUID, name: "業務スーパー"),
@@ -45,19 +42,19 @@ final class MockShopRepository : ShopRepository {
     }
 
     func observeShops() -> AnyPublisher<[Shop], Error> {
-        return SingletonShops.shared.$shops.tryMap{ $0 }.eraseToAnyPublisher()
+        SingletonShops.shared.$shops.tryMap { $0 }.eraseToAnyPublisher()
     }
     
     func addShop(_ shop: Shop) -> Future<Void, Error> {
-        return .init {  promise in
+        .init { promise in
             SingletonShops.shared.shops.append(shop)
             promise(.success(()))
         }
     }
     
     func removeShop(_ shop: Shop) -> Future<Void, Error> {
-        return Future<Void, Error> {  promise in
-            guard let index = SingletonShops.shared.shops.firstIndex(where: { $0.id == shop.id}) else {
+        Future<Void, Error> { promise in
+            guard let index = SingletonShops.shared.shops.firstIndex(where: { $0.id == shop.id }) else {
                 print("shop not found")
                 promise(.failure(NSError()))
                 return
@@ -69,8 +66,8 @@ final class MockShopRepository : ShopRepository {
     }
     
     func getShop(_ shopId: UUID) -> Future<Shop, Error> {
-        return Future<Shop, Error> { promise in
-            guard let shop = SingletonShops.shared.shops.first(where: { $0.id == shopId}) else {
+        Future<Shop, Error> { promise in
+            guard let shop = SingletonShops.shared.shops.first(where: { $0.id == shopId }) else {
                 print("shop not found")
                 promise(.failure(NSError()))
                 return
@@ -80,7 +77,7 @@ final class MockShopRepository : ShopRepository {
     }
 
     func getShops() -> Future<[Shop], Error> {
-        return .init {  promise in
+        .init { promise in
             promise(.success(SingletonShops.shared.shops))
         }
     }

@@ -5,23 +5,20 @@
 //  Created by Ryo Narisawa on 2021/02/22.
 //
 
-import Foundation
 import Combine
+import Foundation
 
-
-protocol CommodityRepository{
-
-    func addCommodity(_ commodity:Commodity) -> Future<Void, Error>
+protocol CommodityRepository {
+    func addCommodity(_ commodity: Commodity) -> Future<Void, Error>
     
-    func removeCommodity(_ commodity:Commodity) -> Future<Void, Error>
+    func removeCommodity(_ commodity: Commodity) -> Future<Void, Error>
 
     func observeCommodities() -> AnyPublisher<[Commodity], Error>
     
     func getCommodities() -> Future<[Commodity], Error>
 }
 
-final class MockCommodityRepository : CommodityRepository {
-    
+final class MockCommodityRepository: CommodityRepository {
     static let ninzinUUID = UUID()
     static let zyagaimoUUID = UUID()
     static let tamanegiUUID = UUID()
@@ -38,15 +35,15 @@ final class MockCommodityRepository : CommodityRepository {
         static let shared = SingletonCommodities()
         
         @Published var commodities: [Commodity] = [
-            Commodity(id: ninzinUUID,name: "にんじん"),
-            Commodity(id: zyagaimoUUID,name: "じゃがいも"),
-            Commodity(id: tamanegiUUID,name: "玉ねぎ"),
-            Commodity(id: kyabetsuUUID,name: "キャベツ"),
-            Commodity(id: curryUUID,name: "カレールー"),
-            Commodity(id: hakusaiUUID,name: "白菜"),
-            Commodity(id: naganegiUUID,name: "長ネギ"),
-            Commodity(id: satoimoUUID,name: "さといも"),
-            Commodity(id: asparaUUID,name: "アスパラガス"),
+            Commodity(id: ninzinUUID, name: "にんじん"),
+            Commodity(id: zyagaimoUUID, name: "じゃがいも"),
+            Commodity(id: tamanegiUUID, name: "玉ねぎ"),
+            Commodity(id: kyabetsuUUID, name: "キャベツ"),
+            Commodity(id: curryUUID, name: "カレールー"),
+            Commodity(id: hakusaiUUID, name: "白菜"),
+            Commodity(id: naganegiUUID, name: "長ネギ"),
+            Commodity(id: satoimoUUID, name: "さといも"),
+            Commodity(id: asparaUUID, name: "アスパラガス"),
             Commodity(id: ringoUUID, name: "りんご"),
             Commodity(id: nattoUUID, name: "納豆")
         ]
@@ -55,11 +52,11 @@ final class MockCommodityRepository : CommodityRepository {
     }
 
     func observeCommodities() -> AnyPublisher<[Commodity], Error> {
-        return SingletonCommodities.shared.$commodities.tryMap{ $0 }.eraseToAnyPublisher()
+        SingletonCommodities.shared.$commodities.tryMap { $0 }.eraseToAnyPublisher()
     }
     
     func addCommodity(_ commodity: Commodity) -> Future<Void, Error> {
-        return .init {  promise in
+        .init { promise in
             SingletonCommodities.shared.commodities.append(commodity)
             print("addCommodity finished")
             promise(.success(()))
@@ -67,8 +64,8 @@ final class MockCommodityRepository : CommodityRepository {
     }
     
     func removeCommodity(_ commodity: Commodity) -> Future<Void, Error> {
-        return Future<Void, Error> {  promise in
-            guard let index = SingletonCommodities.shared.commodities.firstIndex(where: { $0.id == commodity.id}) else {
+        Future<Void, Error> { promise in
+            guard let index = SingletonCommodities.shared.commodities.firstIndex(where: { $0.id == commodity.id }) else {
                 print("not found")
                 promise(.failure(NSError()))
                 return
@@ -80,7 +77,7 @@ final class MockCommodityRepository : CommodityRepository {
     }
 
     func getCommodities() -> Future<[Commodity], Error> {
-        return .init {  promise in
+        .init { promise in
             promise(.success(SingletonCommodities.shared.commodities))
         }
     }

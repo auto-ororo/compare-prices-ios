@@ -12,3 +12,20 @@ xcuserdata/
 ## Playgrounds
 timeline.xctimeline
 playground.xcworkspace
+
+# Bundler
+vendor/bundle
+
+# Fastlane
+**/fastlane/report.xml
+**/fastlane/output
+
+# Firebase
+GoogleService-*
+
+# SwiftPM
+BuildTools/.build
+
+# Generated Files
+*.generated.swift
+.DS_Store

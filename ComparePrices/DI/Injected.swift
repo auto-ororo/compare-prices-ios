@@ -9,7 +9,6 @@ import Foundation
 
 @propertyWrapper
 struct Injected<Dependency> {
-
     var dependency: Dependency!
 
     var wrappedValue: Dependency {

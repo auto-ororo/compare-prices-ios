@@ -8,13 +8,12 @@
 import Foundation
 import SwiftUI
 
-struct SubmitButton : View {
+struct SubmitButton: View {
+    var text: String
     
-    var text : String
+    var action: () -> Void
     
-    var action : () -> Void
-    
-    var isActive : Bool = true
+    var isActive: Bool = true
     
     var body: some View {
         Button(action: action) {
@@ -24,7 +23,6 @@ struct SubmitButton : View {
                 Spacer()
             }
         }.background(isActive ? Color.pink : Color.gray)
-        .cornerRadius(20).disabled(!isActive)
+            .cornerRadius(20).disabled(!isActive)
     }
 }
-

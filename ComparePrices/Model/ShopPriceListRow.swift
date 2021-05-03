@@ -9,7 +9,7 @@ import Foundation
 
 struct ShopPriceListRow: Identifiable {
     var id = UUID()
-    var rank : Int
+    var rank: Int
     var shop: Shop
     var price: Int
 }

@@ -8,8 +8,9 @@
 import Foundation
 import SwiftUI
 
-enum MoveTo : Equatable {
+enum MoveTo: Equatable {
     case none
+    case splash
     case commodityList
     case addCommodity
     case commodityDetail(Commodity)
@@ -19,14 +20,16 @@ enum MoveTo : Equatable {
         switch (lhs, rhs) {
         case (.none, .none):
             return true
+        case (.splash, .splash):
+            return true
         case (.commodityList, .commodityList):
             return true
         case (.addCommodity, .addCommodity):
             return true
-        case (.commodityDetail(_), .commodityDetail(_)):
-            return true
-        case (.addShopPrice(_), .addShopPrice(_)):
-            return true
+        case let (.commodityDetail(commodity1), .commodityDetail(commodity2)):
+            return commodity1 == commodity2
+        case let (.addShopPrice(shop1), .addShopPrice(shop2)):
+            return shop1 == shop2
         default:
             return false
         }
@@ -34,20 +37,21 @@ enum MoveTo : Equatable {
 }
 
 enum Direction {
+    case splash
+    case first
     case next
     case back
-    case none
 }
 
 struct NavigationRequest {
-    var moveTo : MoveTo
-    var direction : Direction
+    var moveTo: MoveTo
+    var direction: Direction
 }
 
-class Navigator : ObservableObject {
-    @Published private(set) var request : NavigationRequest = NavigationRequest(moveTo: .none, direction: .none)
+class Navigator: ObservableObject {
+    @Published private(set) var request = NavigationRequest(moveTo: .splash, direction: .splash)
     
-    private var stack : [NavigationRequest] = []
+    private var stack: [NavigationRequest] = []
     
     func navigate(to: MoveTo, direction: Direction) {
         stack.append(request)
@@ -55,9 +59,7 @@ class Navigator : ObservableObject {
     }
     
     func getLastStack() -> NavigationRequest {
-        let req = stack.last
-        
-        guard let req = req else {
+        guard let req = stack.last else {
             fatalError("スタックが存在しない")
         }
         
@@ -65,9 +67,11 @@ class Navigator : ObservableObject {
     }
 
     func getTransitionAnimation() -> AnyTransition {
-        switch self.request.direction {
-        case .none:
-            return .asymmetric(insertion: .identity, removal: .move(edge: .leading))
+        switch request.direction {
+        case .splash:
+            return .asymmetric(insertion: .identity, removal: .opacity)
+        case .first:
+            return .asymmetric(insertion: .opacity, removal: .move(edge: .leading))
         case .next:
             return .asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading))
         case .back:

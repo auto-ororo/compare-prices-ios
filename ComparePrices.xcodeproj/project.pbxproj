@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -41,8 +41,23 @@
 		7C3048CF2634128E00D1FBFE /* CommodityDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3048CE2634128E00D1FBFE /* CommodityDetailViewModel.swift */; };
 		7C3048D4263415CF00D1FBFE /* ShopPriceListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3048D3263415CF00D1FBFE /* ShopPriceListRow.swift */; };
 		7C44730F263BEB650001F9EB /* AddCircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44730E263BEB650001F9EB /* AddCircleButton.swift */; };
+		7C497346263F04BB0051091B /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 7C497345263F04BB0051091B /* SFSafeSymbols */; };
+		7C545667263F9DC10089B4CE /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C545666263F9DC10089B4CE /* AuthRepository.swift */; };
+		7C545669263FAA8F0089B4CE /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C545668263FAA8F0089B4CE /* SplashView.swift */; };
+		7C54566B263FAB600089B4CE /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C54566A263FAB600089B4CE /* SplashViewModel.swift */; };
 		7C7801A8263AF82D00E8B571 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7801A7263AF82D00E8B571 /* Navigator.swift */; };
 		7C7801AA263B182700E8B571 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7801A9263B182700E8B571 /* Header.swift */; };
+		7CA6701A263C63D4007FCF10 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA67019263C63D4007FCF10 /* Environment.swift */; };
+		7CF965DF263DB99F00775320 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 7CF965DE263DB99F00775320 /* FirebaseFirestore */; };
+		7CF965E1263DB99F00775320 /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 7CF965E0263DB99F00775320 /* FirebaseAppDistribution-Beta */; };
+		7CF965E3263DB99F00775320 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 7CF965E2263DB99F00775320 /* FirebaseFirestoreSwift-Beta */; };
+		7CF965E7263DB99F00775320 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 7CF965E6263DB99F00775320 /* FirebaseAnalytics */; };
+		7CF965E9263DB99F00775320 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 7CF965E8263DB99F00775320 /* FirebaseCrashlytics */; };
+		7CF965EB263DB99F00775320 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7CF965EA263DB99F00775320 /* FirebaseAuth */; };
+		7CF965F6263EC09900775320 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CF965F4263EC09900775320 /* Localizable.strings */; };
+		7CF965FD263EEBEA00775320 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF965FC263EEBEA00775320 /* R.generated.swift */; };
+		7CF96601263EECEB00775320 /* Rswift in Frameworks */ = {isa = PBXBuildFile; productRef = 7CF96600263EECEB00775320 /* Rswift */; };
+		7CF96603263EF0F600775320 /* RswiftResourceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF96602263EF0F600775320 /* RswiftResourceExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +88,7 @@
 		2A64665825F48F9700CE770E /* ShopRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopRepository.swift; sourceTree = "<group>"; };
 		2A64666325F49CE000CE770E /* CommodityPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityPrice.swift; sourceTree = "<group>"; };
 		2A64666825F4A34C00CE770E /* CommodityPriceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityPriceRepository.swift; sourceTree = "<group>"; };
-		2A9363EA25C56D4A00BD4FEA /* ComparePrices.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComparePrices.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A9363EA25C56D4A00BD4FEA /* ComparePricesDevDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComparePricesDevDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A9363ED25C56D4A00BD4FEA /* ComparePricesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparePricesApp.swift; sourceTree = "<group>"; };
 		2A9363EF25C56D4A00BD4FEA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2A9363F125C56D4A00BD4FEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -104,8 +119,19 @@
 		7C3048CE2634128E00D1FBFE /* CommodityDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityDetailViewModel.swift; sourceTree = "<group>"; };
 		7C3048D3263415CF00D1FBFE /* ShopPriceListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopPriceListRow.swift; sourceTree = "<group>"; };
 		7C44730E263BEB650001F9EB /* AddCircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCircleButton.swift; sourceTree = "<group>"; };
+		7C545666263F9DC10089B4CE /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
+		7C545668263FAA8F0089B4CE /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		7C54566A263FAB600089B4CE /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		7C7801A7263AF82D00E8B571 /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		7C7801A9263B182700E8B571 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		7CA67019263C63D4007FCF10 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		7CC79C8F263C6AF4008536A0 /* GoogleService-Develop-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Develop-Info.plist"; sourceTree = "<group>"; };
+		7CC79C91263C6AFE008536A0 /* GoogleService-Production-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Production-Info.plist"; sourceTree = "<group>"; };
+		7CF965F5263EC09900775320 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7CF965F7263EC09D00775320 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7CF965F8263EC09E00775320 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7CF965FC263EEBEA00775320 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		7CF96602263EF0F600775320 /* RswiftResourceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RswiftResourceExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +139,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CF965E3263DB99F00775320 /* FirebaseFirestoreSwift-Beta in Frameworks */,
+				7CF965DF263DB99F00775320 /* FirebaseFirestore in Frameworks */,
+				7C497346263F04BB0051091B /* SFSafeSymbols in Frameworks */,
+				7CF965E9263DB99F00775320 /* FirebaseCrashlytics in Frameworks */,
+				7CF965E7263DB99F00775320 /* FirebaseAnalytics in Frameworks */,
+				7CF96601263EECEB00775320 /* Rswift in Frameworks */,
+				7CF965EB263DB99F00775320 /* FirebaseAuth in Frameworks */,
+				7CF965E1263DB99F00775320 /* FirebaseAppDistribution-Beta in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,7 +181,7 @@
 		2A9363EB25C56D4A00BD4FEA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2A9363EA25C56D4A00BD4FEA /* ComparePrices.app */,
+				2A9363EA25C56D4A00BD4FEA /* ComparePricesDevDebug.app */,
 				2A9363FB25C56D4A00BD4FEA /* ComparePricesTests.xctest */,
 				2A93640625C56D4A00BD4FEA /* ComparePricesUITests.xctest */,
 			);
@@ -157,12 +191,13 @@
 		2A9363EC25C56D4A00BD4FEA /* ComparePrices */ = {
 			isa = PBXGroup;
 			children = (
+				7CF965EC263EBA0C00775320 /* Resources */,
+				7CA67018263C63BE007FCF10 /* Config */,
 				2AC3EA4A25EB966000E81AD5 /* Util */,
 				2AF14CFA25E3E806004E901C /* Repository */,
 				2AF14CEC25E3D7C4004E901C /* DI */,
 				2A93643525C598F300BD4FEA /* Model */,
 				2A93641C25C56FD700BD4FEA /* UI */,
-				2A9363F125C56D4A00BD4FEA /* Assets.xcassets */,
 				2A9363F625C56D4A00BD4FEA /* Info.plist */,
 				2A9363F325C56D4A00BD4FEA /* Preview Content */,
 			);
@@ -198,22 +233,17 @@
 		2A93641C25C56FD700BD4FEA /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				7C7801A6263AF7DD00E8B571 /* Navigation */,
 				2AE4A97225D961230022D873 /* Common */,
+				7C7801A6263AF7DD00E8B571 /* Navigation */,
+				7C545671263FD1F30089B4CE /* Splash */,
+				7C545670263FD1D90089B4CE /* AddShopPrice */,
+				7C54566F263FD1CA0089B4CE /* SelectShop */,
+				7C54566E263FD1A50089B4CE /* CommodityDetail */,
+				7C54566D263FD18B0089B4CE /* AddCommodity */,
+				7C54566C263FD15B0089B4CE /* CommodityList */,
 				2A9363ED25C56D4A00BD4FEA /* ComparePricesApp.swift */,
 				2A9363EF25C56D4A00BD4FEA /* ContentView.swift */,
-				2A93642025C5723000BD4FEA /* CommodityListView.swift */,
-				2A93642B25C5974A00BD4FEA /* CommodityRowView.swift */,
-				2A93644C25C6BA6500BD4FEA /* CommodityListViewModel.swift */,
-				2AC3EA4525EB66E900E81AD5 /* AddCommodityViewModel.swift */,
-				2AC3EA4025EB61DF00E81AD5 /* AddCommodityView.swift */,
-				2AC3EA5525EBEDF400E81AD5 /* CommodityDetailView.swift */,
 				2A64664325F3530700CE770E /* ContentViewModel.swift */,
-				2A29C2D726078D1D00953618 /* SelectShopSheetView.swift */,
-				2A29C2DF2607907B00953618 /* SelectShopSheetViewModel.swift */,
-				7C3048CE2634128E00D1FBFE /* CommodityDetailViewModel.swift */,
-				7C292C4926354BF00041CC7F /* AddShopPriceViewModel.swift */,
-				7C292C4E26354C4B0041CC7F /* AddShopPriceView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -235,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				2AC3EA4B25EB967A00E81AD5 /* IntExtensions.swift */,
+				7CF96602263EF0F600775320 /* RswiftResourceExtensions.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -266,8 +297,64 @@
 				2AF14CFB25E3E821004E901C /* CommodityRepository.swift */,
 				2A64665825F48F9700CE770E /* ShopRepository.swift */,
 				2A64666825F4A34C00CE770E /* CommodityPriceRepository.swift */,
+				7C545666263F9DC10089B4CE /* AuthRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		7C54566C263FD15B0089B4CE /* CommodityList */ = {
+			isa = PBXGroup;
+			children = (
+				2A93642025C5723000BD4FEA /* CommodityListView.swift */,
+				2A93642B25C5974A00BD4FEA /* CommodityRowView.swift */,
+				2A93644C25C6BA6500BD4FEA /* CommodityListViewModel.swift */,
+			);
+			path = CommodityList;
+			sourceTree = "<group>";
+		};
+		7C54566D263FD18B0089B4CE /* AddCommodity */ = {
+			isa = PBXGroup;
+			children = (
+				2AC3EA4525EB66E900E81AD5 /* AddCommodityViewModel.swift */,
+				2AC3EA4025EB61DF00E81AD5 /* AddCommodityView.swift */,
+			);
+			path = AddCommodity;
+			sourceTree = "<group>";
+		};
+		7C54566E263FD1A50089B4CE /* CommodityDetail */ = {
+			isa = PBXGroup;
+			children = (
+				2AC3EA5525EBEDF400E81AD5 /* CommodityDetailView.swift */,
+				7C3048CE2634128E00D1FBFE /* CommodityDetailViewModel.swift */,
+			);
+			path = CommodityDetail;
+			sourceTree = "<group>";
+		};
+		7C54566F263FD1CA0089B4CE /* SelectShop */ = {
+			isa = PBXGroup;
+			children = (
+				2A29C2D726078D1D00953618 /* SelectShopSheetView.swift */,
+				2A29C2DF2607907B00953618 /* SelectShopSheetViewModel.swift */,
+			);
+			path = SelectShop;
+			sourceTree = "<group>";
+		};
+		7C545670263FD1D90089B4CE /* AddShopPrice */ = {
+			isa = PBXGroup;
+			children = (
+				7C292C4926354BF00041CC7F /* AddShopPriceViewModel.swift */,
+				7C292C4E26354C4B0041CC7F /* AddShopPriceView.swift */,
+			);
+			path = AddShopPrice;
+			sourceTree = "<group>";
+		};
+		7C545671263FD1F30089B4CE /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				7C545668263FAA8F0089B4CE /* SplashView.swift */,
+				7C54566A263FAB600089B4CE /* SplashViewModel.swift */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 		7C7801A6263AF7DD00E8B571 /* Navigation */ = {
@@ -278,6 +365,42 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
+		7CA67018263C63BE007FCF10 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				7CC79C8E263C6999008536A0 /* Production */,
+				7CC79C8D263C698B008536A0 /* Develop */,
+				7CA67019263C63D4007FCF10 /* Environment.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		7CC79C8D263C698B008536A0 /* Develop */ = {
+			isa = PBXGroup;
+			children = (
+				7CC79C8F263C6AF4008536A0 /* GoogleService-Develop-Info.plist */,
+			);
+			path = Develop;
+			sourceTree = "<group>";
+		};
+		7CC79C8E263C6999008536A0 /* Production */ = {
+			isa = PBXGroup;
+			children = (
+				7CC79C91263C6AFE008536A0 /* GoogleService-Production-Info.plist */,
+			);
+			path = Production;
+			sourceTree = "<group>";
+		};
+		7CF965EC263EBA0C00775320 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7CF965FC263EEBEA00775320 /* R.generated.swift */,
+				2A9363F125C56D4A00BD4FEA /* Assets.xcassets */,
+				7CF965F4263EC09900775320 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -285,6 +408,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2A93640F25C56D4A00BD4FEA /* Build configuration list for PBXNativeTarget "ComparePrices" */;
 			buildPhases = (
+				7CF965D7263D82BE00775320 /* SwiftFormat */,
+				7CF965D9263DB3F100775320 /* SwiftLint */,
+				7CF965F9263EE6C800775320 /* R.Swift */,
+				7CC79C93263C6DDE008536A0 /* GoogleService-Info */,
 				2A9363E625C56D4A00BD4FEA /* Sources */,
 				2A9363E725C56D4A00BD4FEA /* Frameworks */,
 				2A9363E825C56D4A00BD4FEA /* Resources */,
@@ -294,8 +421,18 @@
 			dependencies = (
 			);
 			name = ComparePrices;
+			packageProductDependencies = (
+				7CF965DE263DB99F00775320 /* FirebaseFirestore */,
+				7CF965E0263DB99F00775320 /* FirebaseAppDistribution-Beta */,
+				7CF965E2263DB99F00775320 /* FirebaseFirestoreSwift-Beta */,
+				7CF965E6263DB99F00775320 /* FirebaseAnalytics */,
+				7CF965E8263DB99F00775320 /* FirebaseCrashlytics */,
+				7CF965EA263DB99F00775320 /* FirebaseAuth */,
+				7CF96600263EECEB00775320 /* Rswift */,
+				7C497345263F04BB0051091B /* SFSafeSymbols */,
+			);
 			productName = ComparePrices;
-			productReference = 2A9363EA25C56D4A00BD4FEA /* ComparePrices.app */;
+			productReference = 2A9363EA25C56D4A00BD4FEA /* ComparePricesDevDebug.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2A9363FA25C56D4A00BD4FEA /* ComparePricesTests */ = {
@@ -363,8 +500,14 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 2A9363E125C56D4A00BD4FEA;
+			packageReferences = (
+				7CF965DD263DB99F00775320 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				7CF965FF263EECEB00775320 /* XCRemoteSwiftPackageReference "R.swift.Library" */,
+				7C497344263F04BB0051091B /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
+			);
 			productRefGroup = 2A9363EB25C56D4A00BD4FEA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -382,6 +525,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A9363F525C56D4A00BD4FEA /* Preview Assets.xcassets in Resources */,
+				7CF965F6263EC09900775320 /* Localizable.strings in Resources */,
 				2A9363F225C56D4A00BD4FEA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,18 +546,97 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7CC79C93263C6DDE008536A0 /* GoogleService-Info */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "GoogleService-Info";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [ \"${CONFIGURATION}\" == \"Production\" ]; then\n  cp \"${PROJECT_DIR}/${PROJECT_NAME}/Config/Production/GoogleService-Production-Info.plist\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\"\nelse\n  cp \"${PROJECT_DIR}/${PROJECT_NAME}/Config/Develop/GoogleService-Develop-Info.plist\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\"\nfi\n";
+		};
+		7CF965D7263D82BE00775320 /* SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#swift package update #Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\nxcrun --sdk macosx swift run -c release --package-path BuildTools swiftformat .\n";
+		};
+		7CF965D9263DB3F100775320 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nxcrun --sdk macosx swift run --package-path BuildTools swiftlint \n";
+		};
+		7CF965F9263EE6C800775320 /* R.Swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			name = R.Swift;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/$PROJECT_NAME/Resources/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path. \nxcrun --sdk macosx swift run --package-path BuildTools rswift generate \"$SRCROOT/$PROJECT_NAME/Resources/R.generated.swift\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2A9363E625C56D4A00BD4FEA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				2A93644825C6A30500BD4FEA /* CommodityListRow.swift in Sources */,
+				7C54566B263FAB600089B4CE /* SplashViewModel.swift in Sources */,
 				7C3048D4263415CF00D1FBFE /* ShopPriceListRow.swift in Sources */,
 				7C7801AA263B182700E8B571 /* Header.swift in Sources */,
 				2A9363F025C56D4A00BD4FEA /* ContentView.swift in Sources */,
 				2AF14CF325E3DD40004E901C /* Injected.swift in Sources */,
 				2A64665425F48A5A00CE770E /* Shop.swift in Sources */,
 				2A29C2E02607907B00953618 /* SelectShopSheetViewModel.swift in Sources */,
+				7CA6701A263C63D4007FCF10 /* Environment.swift in Sources */,
 				7C44730F263BEB650001F9EB /* AddCircleButton.swift in Sources */,
 				2A93644D25C6BA6500BD4FEA /* CommodityListViewModel.swift in Sources */,
 				2A93642C25C5974A00BD4FEA /* CommodityRowView.swift in Sources */,
@@ -427,16 +650,20 @@
 				2AE4A97425D961510022D873 /* NavigationBackButton.swift in Sources */,
 				2AC3EA4625EB66E900E81AD5 /* AddCommodityViewModel.swift in Sources */,
 				2A29C2D826078D1D00953618 /* SelectShopSheetView.swift in Sources */,
+				7C545669263FAA8F0089B4CE /* SplashView.swift in Sources */,
 				2AC3EA5625EBEDF400E81AD5 /* CommodityDetailView.swift in Sources */,
 				2A64666425F49CE000CE770E /* CommodityPrice.swift in Sources */,
 				2A93642125C5723000BD4FEA /* CommodityListView.swift in Sources */,
 				7C292C4A26354BF00041CC7F /* AddShopPriceViewModel.swift in Sources */,
+				7CF96603263EF0F600775320 /* RswiftResourceExtensions.swift in Sources */,
+				7CF965FD263EEBEA00775320 /* R.generated.swift in Sources */,
 				2AC3EA5125EBD56900E81AD5 /* SubmitButton.swift in Sources */,
 				2A64666925F4A34C00CE770E /* CommodityPriceRepository.swift in Sources */,
 				2A64664F25F4894B00CE770E /* Commodity.swift in Sources */,
 				2A9363EE25C56D4A00BD4FEA /* ComparePricesApp.swift in Sources */,
 				7C3048CF2634128E00D1FBFE /* CommodityDetailViewModel.swift in Sources */,
 				7C7801A8263AF82D00E8B571 /* Navigator.swift in Sources */,
+				7C545667263F9DC10089B4CE /* AuthRepository.swift in Sources */,
 				2AF14CFC25E3E821004E901C /* CommodityRepository.swift in Sources */,
 				2A64665925F48F9700CE770E /* ShopRepository.swift in Sources */,
 			);
@@ -473,69 +700,21 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin XCBuildConfiguration section */
-		2A93640D25C56D4A00BD4FEA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
+/* Begin PBXVariantGroup section */
+		7CF965F4263EC09900775320 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7CF965F5263EC09900775320 /* Base */,
+				7CF965F7263EC09D00775320 /* en */,
+				7CF965F8263EC09E00775320 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
 		};
-		2A93640E25C56D4A00BD4FEA /* Release */ = {
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2A93640E25C56D4A00BD4FEA /* Develop_Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -572,6 +751,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -580,20 +760,23 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				OTHER_SWIFT_FLAGS = "-D DEVELOP_RELEASE";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = Develop_Release;
 		};
-		2A93641025C56D4A00BD4FEA /* Debug */ = {
+		2A93641125C56D4A00BD4FEA /* Develop_Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Develop-Release";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -606,39 +789,16 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ororoauto.ComparePrices;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ororoauto.ComparePrices.develop;
+				PRODUCT_NAME = "$(TARGET_NAME)DevRelease";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
-			name = Debug;
+			name = Develop_Release;
 		};
-		2A93641125C56D4A00BD4FEA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"ComparePrices/Preview Content\"";
-				DEVELOPMENT_TEAM = V93B98246Y;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = ComparePrices/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ororoauto.ComparePrices;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		2A93641325C56D4A00BD4FEA /* Debug */ = {
+		2A93641425C56D4A00BD4FEA /* Develop_Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -654,12 +814,121 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ororoauto.ComparePricesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ComparePrices.app/ComparePrices";
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ComparePricesDevRelease.app/ComparePricesDevRelease";
 			};
-			name = Debug;
+			name = Develop_Release;
 		};
-		2A93641425C56D4A00BD4FEA /* Release */ = {
+		2A93641725C56D4A00BD4FEA /* Develop_Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ComparePricesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ororoauto.ComparePricesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = ComparePrices;
+			};
+			name = Develop_Release;
+		};
+		7CA6700C263C5EAD007FCF10 /* Develop_Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				OTHER_SWIFT_FLAGS = "-D DEVELOP_DEBUG";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Develop_Debug;
+		};
+		7CA6700D263C5EAD007FCF10 /* Develop_Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Develop-Debug";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"ComparePrices/Preview Content\"";
+				DEVELOPMENT_TEAM = V93B98246Y;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = ComparePrices/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ororoauto.ComparePrices.develop;
+				PRODUCT_NAME = "$(TARGET_NAME)DevDebug";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Develop_Debug;
+		};
+		7CA6700E263C5EAD007FCF10 /* Develop_Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -675,12 +944,137 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ororoauto.ComparePricesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ComparePricesDevDebug.app/ComparePricesDevDebug";
+			};
+			name = Develop_Debug;
+		};
+		7CA6700F263C5EAD007FCF10 /* Develop_Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ComparePricesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ororoauto.ComparePricesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = ComparePrices;
+			};
+			name = Develop_Debug;
+		};
+		7CA67014263C5EF7007FCF10 /* Production */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				OTHER_SWIFT_FLAGS = "-D DEVELOP_RELEASE";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Production;
+		};
+		7CA67015263C5EF7007FCF10 /* Production */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Production-Release";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"ComparePrices/Preview Content\"";
+				DEVELOPMENT_TEAM = V93B98246Y;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = ComparePrices/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ororoauto.ComparePrices;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Production;
+		};
+		7CA67016263C5EF7007FCF10 /* Production */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ComparePricesTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ororoauto.ComparePricesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ComparePrices.app/ComparePrices";
 			};
-			name = Release;
+			name = Production;
 		};
-		2A93641625C56D4A00BD4FEA /* Debug */ = {
+		7CA67017263C5EF7007FCF10 /* Production */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -694,29 +1088,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ororoauto.ComparePricesUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = ComparePrices;
 			};
-			name = Debug;
-		};
-		2A93641725C56D4A00BD4FEA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ComparePricesUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ororoauto.ComparePricesUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ComparePrices;
-			};
-			name = Release;
+			name = Production;
 		};
 /* End XCBuildConfiguration section */
 
@@ -724,40 +1099,114 @@
 		2A9363E525C56D4A00BD4FEA /* Build configuration list for PBXProject "ComparePrices" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2A93640D25C56D4A00BD4FEA /* Debug */,
-				2A93640E25C56D4A00BD4FEA /* Release */,
+				7CA6700C263C5EAD007FCF10 /* Develop_Debug */,
+				2A93640E25C56D4A00BD4FEA /* Develop_Release */,
+				7CA67014263C5EF7007FCF10 /* Production */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Develop_Debug;
 		};
 		2A93640F25C56D4A00BD4FEA /* Build configuration list for PBXNativeTarget "ComparePrices" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2A93641025C56D4A00BD4FEA /* Debug */,
-				2A93641125C56D4A00BD4FEA /* Release */,
+				7CA6700D263C5EAD007FCF10 /* Develop_Debug */,
+				2A93641125C56D4A00BD4FEA /* Develop_Release */,
+				7CA67015263C5EF7007FCF10 /* Production */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Develop_Debug;
 		};
 		2A93641225C56D4A00BD4FEA /* Build configuration list for PBXNativeTarget "ComparePricesTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2A93641325C56D4A00BD4FEA /* Debug */,
-				2A93641425C56D4A00BD4FEA /* Release */,
+				7CA6700E263C5EAD007FCF10 /* Develop_Debug */,
+				2A93641425C56D4A00BD4FEA /* Develop_Release */,
+				7CA67016263C5EF7007FCF10 /* Production */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Develop_Debug;
 		};
 		2A93641525C56D4A00BD4FEA /* Build configuration list for PBXNativeTarget "ComparePricesUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2A93641625C56D4A00BD4FEA /* Debug */,
-				2A93641725C56D4A00BD4FEA /* Release */,
+				7CA6700F263C5EAD007FCF10 /* Develop_Debug */,
+				2A93641725C56D4A00BD4FEA /* Develop_Release */,
+				7CA67017263C5EF7007FCF10 /* Production */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Develop_Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7C497344263F04BB0051091B /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/piknotech/SFSafeSymbols";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.3;
+			};
+		};
+		7CF965DD263DB99F00775320 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.1;
+			};
+		};
+		7CF965FF263EECEB00775320 /* XCRemoteSwiftPackageReference "R.swift.Library" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mac-cain13/R.swift.Library.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7C497345263F04BB0051091B /* SFSafeSymbols */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7C497344263F04BB0051091B /* XCRemoteSwiftPackageReference "SFSafeSymbols" */;
+			productName = SFSafeSymbols;
+		};
+		7CF965DE263DB99F00775320 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CF965DD263DB99F00775320 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		7CF965E0263DB99F00775320 /* FirebaseAppDistribution-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CF965DD263DB99F00775320 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAppDistribution-Beta";
+		};
+		7CF965E2263DB99F00775320 /* FirebaseFirestoreSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CF965DD263DB99F00775320 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreSwift-Beta";
+		};
+		7CF965E6263DB99F00775320 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CF965DD263DB99F00775320 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		7CF965E8263DB99F00775320 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CF965DD263DB99F00775320 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		7CF965EA263DB99F00775320 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CF965DD263DB99F00775320 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		7CF96600263EECEB00775320 /* Rswift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CF965FF263EECEB00775320 /* XCRemoteSwiftPackageReference "R.swift.Library" */;
+			productName = Rswift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2A9363E225C56D4A00BD4FEA /* Project object */;
 }

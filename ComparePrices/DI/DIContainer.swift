@@ -13,7 +13,6 @@ protocol DIContainerProtocol {
 }
 
 final class DIContainer: DIContainerProtocol {
-    
     static let shared = DIContainer()
     
     private init() {}
@@ -25,6 +24,10 @@ final class DIContainer: DIContainerProtocol {
     }
     
     func resolve<Component>(type: Component.Type) -> Component {
-        return components["\(type)"] as! Component
+        guard let component = components["\(type)"] as? Component else {
+            fatalError("依存性が解決できません")
+        }
+        
+        return component
     }
 }

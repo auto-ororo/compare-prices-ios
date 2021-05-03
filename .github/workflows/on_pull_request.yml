@@ -1,0 +1,73 @@
+name: iOS CI
+
+on:
+  pull_request:
+    paths-ignore:
+      - '**.md'
+      - '**.pbxproj'
+      - '**.xcscheme'
+    branches:
+      - '**'
+
+env:
+  DEV_GOOGLE_SERVICE_INFO_PLIST: ${{ secrets.DEV_GOOGLE_SERVICE_INFO_PLIST }}
+
+jobs:
+  test:
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Cache bundle directory
+      uses: actions/cache@v2
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gem-
+    - name: Access DEV_GOOGLE_SERVICE_INFO_PLIST 
+      run: |
+        mkdir ComparePrices/Config/Develop
+        echo $DEV_GOOGLE_SERVICE_INFO_PLIST | base64 --decode > ./ComparePrices/Config/Develop/GoogleService-Develop-Info.plist
+    - name: Setup Environment
+      run: |
+        bundle install
+    - name: Show Xcode version
+      run: xcodebuild -version
+    - name: Run Test
+      run: bundle exec fastlane test
+    - name: Upload TestFailureReport If Failure
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: TestFailureReport 
+        path: fastlane/output 
+      if: failure()
+
+  lint:
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Cache bundle directory
+      uses: actions/cache@v2
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gem-
+    - name: Setup Environment
+      run: |
+        bundle install
+    - name: Show Xcode version
+      run: xcodebuild -version
+    - name: Run Lint
+      run: |
+        mkdir fastlane/output
+        touch fastlane/output/swiftlint.result.html  
+        bundle exec fastlane lint
+    - name: Upload TestFailureReport If Failure
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: LintFailureReport 
+        path: fastlane/output/swiftlint.result.html 
+      if: failure()
