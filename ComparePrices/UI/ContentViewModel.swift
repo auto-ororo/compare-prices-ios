@@ -12,9 +12,6 @@ final class ContentViewModel: ObservableObject {
     static let shared = ContentViewModel()
     
     @Published var alert = Alert()
-    @Injected private var authRepository: AuthRepository
-    
-    private var cancellables: [AnyCancellable] = []
 
     private init() {}
 

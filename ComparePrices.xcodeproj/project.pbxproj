@@ -233,24 +233,17 @@
 		2A93641C25C56FD700BD4FEA /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				7C7801A6263AF7DD00E8B571 /* Navigation */,
 				2AE4A97225D961230022D873 /* Common */,
+				7C7801A6263AF7DD00E8B571 /* Navigation */,
+				7C545671263FD1F30089B4CE /* Splash */,
+				7C545670263FD1D90089B4CE /* AddShopPrice */,
+				7C54566F263FD1CA0089B4CE /* SelectShop */,
+				7C54566E263FD1A50089B4CE /* CommodityDetail */,
+				7C54566D263FD18B0089B4CE /* AddCommodity */,
+				7C54566C263FD15B0089B4CE /* CommodityList */,
 				2A9363ED25C56D4A00BD4FEA /* ComparePricesApp.swift */,
 				2A9363EF25C56D4A00BD4FEA /* ContentView.swift */,
-				2A93642025C5723000BD4FEA /* CommodityListView.swift */,
-				2A93642B25C5974A00BD4FEA /* CommodityRowView.swift */,
-				2A93644C25C6BA6500BD4FEA /* CommodityListViewModel.swift */,
-				2AC3EA4525EB66E900E81AD5 /* AddCommodityViewModel.swift */,
-				2AC3EA4025EB61DF00E81AD5 /* AddCommodityView.swift */,
-				2AC3EA5525EBEDF400E81AD5 /* CommodityDetailView.swift */,
 				2A64664325F3530700CE770E /* ContentViewModel.swift */,
-				2A29C2D726078D1D00953618 /* SelectShopSheetView.swift */,
-				2A29C2DF2607907B00953618 /* SelectShopSheetViewModel.swift */,
-				7C3048CE2634128E00D1FBFE /* CommodityDetailViewModel.swift */,
-				7C292C4926354BF00041CC7F /* AddShopPriceViewModel.swift */,
-				7C292C4E26354C4B0041CC7F /* AddShopPriceView.swift */,
-				7C545668263FAA8F0089B4CE /* SplashView.swift */,
-				7C54566A263FAB600089B4CE /* SplashViewModel.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -307,6 +300,61 @@
 				7C545666263F9DC10089B4CE /* AuthRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		7C54566C263FD15B0089B4CE /* CommodityList */ = {
+			isa = PBXGroup;
+			children = (
+				2A93642025C5723000BD4FEA /* CommodityListView.swift */,
+				2A93642B25C5974A00BD4FEA /* CommodityRowView.swift */,
+				2A93644C25C6BA6500BD4FEA /* CommodityListViewModel.swift */,
+			);
+			path = CommodityList;
+			sourceTree = "<group>";
+		};
+		7C54566D263FD18B0089B4CE /* AddCommodity */ = {
+			isa = PBXGroup;
+			children = (
+				2AC3EA4525EB66E900E81AD5 /* AddCommodityViewModel.swift */,
+				2AC3EA4025EB61DF00E81AD5 /* AddCommodityView.swift */,
+			);
+			path = AddCommodity;
+			sourceTree = "<group>";
+		};
+		7C54566E263FD1A50089B4CE /* CommodityDetail */ = {
+			isa = PBXGroup;
+			children = (
+				2AC3EA5525EBEDF400E81AD5 /* CommodityDetailView.swift */,
+				7C3048CE2634128E00D1FBFE /* CommodityDetailViewModel.swift */,
+			);
+			path = CommodityDetail;
+			sourceTree = "<group>";
+		};
+		7C54566F263FD1CA0089B4CE /* SelectShop */ = {
+			isa = PBXGroup;
+			children = (
+				2A29C2D726078D1D00953618 /* SelectShopSheetView.swift */,
+				2A29C2DF2607907B00953618 /* SelectShopSheetViewModel.swift */,
+			);
+			path = SelectShop;
+			sourceTree = "<group>";
+		};
+		7C545670263FD1D90089B4CE /* AddShopPrice */ = {
+			isa = PBXGroup;
+			children = (
+				7C292C4926354BF00041CC7F /* AddShopPriceViewModel.swift */,
+				7C292C4E26354C4B0041CC7F /* AddShopPriceView.swift */,
+			);
+			path = AddShopPrice;
+			sourceTree = "<group>";
+		};
+		7C545671263FD1F30089B4CE /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				7C545668263FAA8F0089B4CE /* SplashView.swift */,
+				7C54566A263FAB600089B4CE /* SplashViewModel.swift */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 		7C7801A6263AF7DD00E8B571 /* Navigation */ = {
