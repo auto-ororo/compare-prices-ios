@@ -9,13 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var navigation: Navigator
-    @State private var moveTo: MoveTo = .commodityList
+    @State private var moveTo: MoveTo = .splash
     
     @StateObject var contentViewModel = ContentViewModel.shared
     
     var body: some View {
         Group {
             switch moveTo {
+            case .splash:
+                SplashView().transition(navigation.getTransitionAnimation())
             case .commodityList:
                 CommodityListView().transition(navigation.getTransitionAnimation())
             case .addCommodity:
@@ -25,7 +27,7 @@ struct ContentView: View {
             case let .addShopPrice(commodity):
                 AddShopPriceView(commodity: commodity).transition(navigation.getTransitionAnimation())
             default:
-                CommodityListView().transition(navigation.getTransitionAnimation())
+                SplashView().transition(navigation.getTransitionAnimation())
             }
         }.onReceive(navigation.$request) { request in
             withAnimation {

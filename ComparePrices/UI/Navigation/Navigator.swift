@@ -10,6 +10,7 @@ import SwiftUI
 
 enum MoveTo: Equatable {
     case none
+    case splash
     case commodityList
     case addCommodity
     case commodityDetail(Commodity)
@@ -18,6 +19,8 @@ enum MoveTo: Equatable {
     static func == (lhs: MoveTo, rhs: MoveTo) -> Bool {
         switch (lhs, rhs) {
         case (.none, .none):
+            return true
+        case (.splash, .splash):
             return true
         case (.commodityList, .commodityList):
             return true
@@ -34,9 +37,10 @@ enum MoveTo: Equatable {
 }
 
 enum Direction {
+    case splash
+    case first
     case next
     case back
-    case none
 }
 
 struct NavigationRequest {
@@ -45,7 +49,7 @@ struct NavigationRequest {
 }
 
 class Navigator: ObservableObject {
-    @Published private(set) var request = NavigationRequest(moveTo: .none, direction: .none)
+    @Published private(set) var request = NavigationRequest(moveTo: .splash, direction: .splash)
     
     private var stack: [NavigationRequest] = []
     
@@ -64,8 +68,10 @@ class Navigator: ObservableObject {
 
     func getTransitionAnimation() -> AnyTransition {
         switch request.direction {
-        case .none:
-            return .asymmetric(insertion: .identity, removal: .move(edge: .leading))
+        case .splash:
+            return .asymmetric(insertion: .identity, removal: .opacity)
+        case .first:
+            return .asymmetric(insertion: .opacity, removal: .move(edge: .leading))
         case .next:
             return .asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading))
         case .back:
