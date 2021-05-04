@@ -1,26 +1,12 @@
 //
-//  CommodityPriceRepository .swift
+//  MockCommodityPriceRepository.swift
 //  ComparePrices
 //
-//  Created by Ryo Narisawa on 2021/03/07.
+//  Created by ororo on 2021/05/03.
 //
 
 import Combine
 import Foundation
-
-protocol CommodityPriceRepository {
-    func addCommodityPrice(_ purchaseResult: CommodityPrice) -> Future<Void, Error>
-    
-    func removeCommodityPrice(_ purchaseResult: CommodityPrice) -> Future<Void, Error>
-    
-    func getLowestCommodityPrice(_ commodityId: UUID) -> Future<CommodityPrice?, Error>
-    
-    func getAllCommodityPrices() -> Future<[CommodityPrice], Error>
-    
-    func getCommodityPrices(_ commodityId: UUID) -> Future<[CommodityPrice]?, Error>
-    
-    func observeCommodityPrices() -> AnyPublisher<[CommodityPrice], Error>
-}
 
 final class MockCommodityPriceRepository: CommodityPriceRepository {
     private class SingletonCommodities {
@@ -66,20 +52,10 @@ final class MockCommodityPriceRepository: CommodityPriceRepository {
             promise(.success(commodityPrice))
         }
     }
-    
-    func getAllCommodityPrices() -> Future<[CommodityPrice], Error> {
-        .init { promise in
-            promise(.success(SingletonCommodities.shared.commoditiyPrices))
-        }
-    }
-    
-    func getCommodityPrices(_ commodityId: UUID) -> Future<[CommodityPrice]?, Error> {
+
+    func getCommodityPrices(_ commodityId: UUID) -> Future<[CommodityPrice], Error> {
         .init { promise in
             promise(.success(SingletonCommodities.shared.commoditiyPrices.filter { $0.commodityId == commodityId }))
         }
-    }
-    
-    func observeCommodityPrices() -> AnyPublisher<[CommodityPrice], Error> {
-        SingletonCommodities.shared.$commoditiyPrices.tryMap { $0 }.eraseToAnyPublisher()
     }
 }

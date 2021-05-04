@@ -45,7 +45,7 @@ struct CommodityDetailView: View {
                 HStack {
                     Spacer()
                     AddCircleButton(action: {
-                        navigator.navigate(to: .addCommodity, direction: .next)
+                        navigator.navigate(to: .addShopPrice(commodity), direction: .next)
                     })
                 }
             }

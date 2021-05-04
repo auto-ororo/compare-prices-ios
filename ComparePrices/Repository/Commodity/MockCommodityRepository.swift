@@ -1,22 +1,12 @@
 //
-//  CommodityRepository.swift
+//  MockCommodityRepository.swift
 //  ComparePrices
 //
-//  Created by Ryo Narisawa on 2021/02/22.
+//  Created by ororo on 2021/05/03.
 //
 
 import Combine
 import Foundation
-
-protocol CommodityRepository {
-    func addCommodity(_ commodity: Commodity) -> Future<Void, Error>
-    
-    func removeCommodity(_ commodity: Commodity) -> Future<Void, Error>
-
-    func observeCommodities() -> AnyPublisher<[Commodity], Error>
-    
-    func getCommodities() -> Future<[Commodity], Error>
-}
 
 final class MockCommodityRepository: CommodityRepository {
     static let ninzinUUID = UUID()
@@ -51,10 +41,6 @@ final class MockCommodityRepository: CommodityRepository {
         private init() {}
     }
 
-    func observeCommodities() -> AnyPublisher<[Commodity], Error> {
-        SingletonCommodities.shared.$commodities.tryMap { $0 }.eraseToAnyPublisher()
-    }
-    
     func addCommodity(_ commodity: Commodity) -> Future<Void, Error> {
         .init { promise in
             SingletonCommodities.shared.commodities.append(commodity)

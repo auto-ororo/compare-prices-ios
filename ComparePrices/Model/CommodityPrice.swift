@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CommodityPrice {
+struct CommodityPrice: Codable {
     var id = UUID()
     var commodityId: UUID
     var shopId: UUID

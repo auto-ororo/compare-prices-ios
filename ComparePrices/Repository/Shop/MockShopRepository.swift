@@ -1,24 +1,12 @@
 //
-//  StoreRepository.swift
+//  MockShopRepository.swift
 //  ComparePrices
 //
-//  Created by Ryo Narisawa on 2021/03/07.
+//  Created by ororo on 2021/05/03.
 //
 
 import Combine
 import Foundation
-
-protocol ShopRepository {
-    func addShop(_ shop: Shop) -> Future<Void, Error>
-    
-    func removeShop(_ shop: Shop) -> Future<Void, Error>
-
-    func observeShops() -> AnyPublisher<[Shop], Error>
-    
-    func getShop(_ shopId: UUID) -> Future<Shop, Error>
-    
-    func getShops() -> Future<[Shop], Error>
-}
 
 final class MockShopRepository: ShopRepository {
     static let tairayaUUID = UUID()
@@ -41,10 +29,6 @@ final class MockShopRepository: ShopRepository {
         private init() {}
     }
 
-    func observeShops() -> AnyPublisher<[Shop], Error> {
-        SingletonShops.shared.$shops.tryMap { $0 }.eraseToAnyPublisher()
-    }
-    
     func addShop(_ shop: Shop) -> Future<Void, Error> {
         .init { promise in
             SingletonShops.shared.shops.append(shop)

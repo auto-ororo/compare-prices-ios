@@ -42,9 +42,21 @@
 		7C3048D4263415CF00D1FBFE /* ShopPriceListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3048D3263415CF00D1FBFE /* ShopPriceListRow.swift */; };
 		7C44730F263BEB650001F9EB /* AddCircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44730E263BEB650001F9EB /* AddCircleButton.swift */; };
 		7C497346263F04BB0051091B /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 7C497345263F04BB0051091B /* SFSafeSymbols */; };
+		7C4A8D7326404119003E86B1 /* DocumentReferenceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4A8D7226404119003E86B1 /* DocumentReferenceExtensions.swift */; };
+		7C4A8D7526404AFB003E86B1 /* FirestoreShopRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4A8D7426404AFB003E86B1 /* FirestoreShopRepository.swift */; };
+		7C4A8D77264050F6003E86B1 /* FirestoreCommodityPriceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4A8D76264050F6003E86B1 /* FirestoreCommodityPriceRepository.swift */; };
 		7C545667263F9DC10089B4CE /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C545666263F9DC10089B4CE /* AuthRepository.swift */; };
 		7C545669263FAA8F0089B4CE /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C545668263FAA8F0089B4CE /* SplashView.swift */; };
 		7C54566B263FAB600089B4CE /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C54566A263FAB600089B4CE /* SplashViewModel.swift */; };
+		7C545674263FD80F0089B4CE /* MockShopRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C545673263FD80F0089B4CE /* MockShopRepository.swift */; };
+		7C545677263FD84B0089B4CE /* MockCommodityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C545676263FD84B0089B4CE /* MockCommodityRepository.swift */; };
+		7C54567A263FD9440089B4CE /* MockCommodityPriceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C545679263FD9440089B4CE /* MockCommodityPriceRepository.swift */; };
+		7C54567D263FD9760089B4CE /* MockAuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C54567C263FD9760089B4CE /* MockAuthRepository.swift */; };
+		7C54567F263FD9810089B4CE /* FirebaseAuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C54567E263FD9810089B4CE /* FirebaseAuthRepository.swift */; };
+		7C545681263FDC8D0089B4CE /* FirestoreCommodityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C545680263FDC8D0089B4CE /* FirestoreCommodityRepository.swift */; };
+		7C545685263FDFD10089B4CE /* FirestoreExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C545684263FDFD10089B4CE /* FirestoreExtensions.swift */; };
+		7C545687263FE2690089B4CE /* FirestoreCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C545686263FE2690089B4CE /* FirestoreCollections.swift */; };
+		7C5456892640027F0089B4CE /* QueryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5456882640027F0089B4CE /* QueryExtensions.swift */; };
 		7C7801A8263AF82D00E8B571 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7801A7263AF82D00E8B571 /* Navigator.swift */; };
 		7C7801AA263B182700E8B571 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7801A9263B182700E8B571 /* Header.swift */; };
 		7CA6701A263C63D4007FCF10 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA67019263C63D4007FCF10 /* Environment.swift */; };
@@ -119,9 +131,21 @@
 		7C3048CE2634128E00D1FBFE /* CommodityDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityDetailViewModel.swift; sourceTree = "<group>"; };
 		7C3048D3263415CF00D1FBFE /* ShopPriceListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopPriceListRow.swift; sourceTree = "<group>"; };
 		7C44730E263BEB650001F9EB /* AddCircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCircleButton.swift; sourceTree = "<group>"; };
+		7C4A8D7226404119003E86B1 /* DocumentReferenceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentReferenceExtensions.swift; sourceTree = "<group>"; };
+		7C4A8D7426404AFB003E86B1 /* FirestoreShopRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreShopRepository.swift; sourceTree = "<group>"; };
+		7C4A8D76264050F6003E86B1 /* FirestoreCommodityPriceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreCommodityPriceRepository.swift; sourceTree = "<group>"; };
 		7C545666263F9DC10089B4CE /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
 		7C545668263FAA8F0089B4CE /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		7C54566A263FAB600089B4CE /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		7C545673263FD80F0089B4CE /* MockShopRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockShopRepository.swift; sourceTree = "<group>"; };
+		7C545676263FD84B0089B4CE /* MockCommodityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCommodityRepository.swift; sourceTree = "<group>"; };
+		7C545679263FD9440089B4CE /* MockCommodityPriceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCommodityPriceRepository.swift; sourceTree = "<group>"; };
+		7C54567C263FD9760089B4CE /* MockAuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthRepository.swift; sourceTree = "<group>"; };
+		7C54567E263FD9810089B4CE /* FirebaseAuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthRepository.swift; sourceTree = "<group>"; };
+		7C545680263FDC8D0089B4CE /* FirestoreCommodityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreCommodityRepository.swift; sourceTree = "<group>"; };
+		7C545684263FDFD10089B4CE /* FirestoreExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreExtensions.swift; sourceTree = "<group>"; };
+		7C545686263FE2690089B4CE /* FirestoreCollections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreCollections.swift; sourceTree = "<group>"; };
+		7C5456882640027F0089B4CE /* QueryExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryExtensions.swift; sourceTree = "<group>"; };
 		7C7801A7263AF82D00E8B571 /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		7C7801A9263B182700E8B571 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		7CA67019263C63D4007FCF10 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
@@ -294,10 +318,11 @@
 		2AF14CFA25E3E806004E901C /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				2AF14CFB25E3E821004E901C /* CommodityRepository.swift */,
-				2A64665825F48F9700CE770E /* ShopRepository.swift */,
-				2A64666825F4A34C00CE770E /* CommodityPriceRepository.swift */,
-				7C545666263F9DC10089B4CE /* AuthRepository.swift */,
+				7C545682263FDFB40089B4CE /* Base */,
+				7C54567B263FD9610089B4CE /* Auth */,
+				7C545678263FD8F80089B4CE /* CommodityPrice */,
+				7C545675263FD82E0089B4CE /* Commodity */,
+				7C545672263FD7E10089B4CE /* Shop */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -355,6 +380,65 @@
 				7C54566A263FAB600089B4CE /* SplashViewModel.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		7C545672263FD7E10089B4CE /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				2A64665825F48F9700CE770E /* ShopRepository.swift */,
+				7C545673263FD80F0089B4CE /* MockShopRepository.swift */,
+				7C4A8D7426404AFB003E86B1 /* FirestoreShopRepository.swift */,
+			);
+			path = Shop;
+			sourceTree = "<group>";
+		};
+		7C545675263FD82E0089B4CE /* Commodity */ = {
+			isa = PBXGroup;
+			children = (
+				2AF14CFB25E3E821004E901C /* CommodityRepository.swift */,
+				7C545676263FD84B0089B4CE /* MockCommodityRepository.swift */,
+				7C545680263FDC8D0089B4CE /* FirestoreCommodityRepository.swift */,
+			);
+			path = Commodity;
+			sourceTree = "<group>";
+		};
+		7C545678263FD8F80089B4CE /* CommodityPrice */ = {
+			isa = PBXGroup;
+			children = (
+				2A64666825F4A34C00CE770E /* CommodityPriceRepository.swift */,
+				7C545679263FD9440089B4CE /* MockCommodityPriceRepository.swift */,
+				7C4A8D76264050F6003E86B1 /* FirestoreCommodityPriceRepository.swift */,
+			);
+			path = CommodityPrice;
+			sourceTree = "<group>";
+		};
+		7C54567B263FD9610089B4CE /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				7C545666263F9DC10089B4CE /* AuthRepository.swift */,
+				7C54567C263FD9760089B4CE /* MockAuthRepository.swift */,
+				7C54567E263FD9810089B4CE /* FirebaseAuthRepository.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		7C545682263FDFB40089B4CE /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				7C545683263FDFBC0089B4CE /* Firestore */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		7C545683263FDFBC0089B4CE /* Firestore */ = {
+			isa = PBXGroup;
+			children = (
+				7C545684263FDFD10089B4CE /* FirestoreExtensions.swift */,
+				7C545686263FE2690089B4CE /* FirestoreCollections.swift */,
+				7C5456882640027F0089B4CE /* QueryExtensions.swift */,
+				7C4A8D7226404119003E86B1 /* DocumentReferenceExtensions.swift */,
+			);
+			path = Firestore;
 			sourceTree = "<group>";
 		};
 		7C7801A6263AF7DD00E8B571 /* Navigation */ = {
@@ -632,6 +716,7 @@
 				7C54566B263FAB600089B4CE /* SplashViewModel.swift in Sources */,
 				7C3048D4263415CF00D1FBFE /* ShopPriceListRow.swift in Sources */,
 				7C7801AA263B182700E8B571 /* Header.swift in Sources */,
+				7C545674263FD80F0089B4CE /* MockShopRepository.swift in Sources */,
 				2A9363F025C56D4A00BD4FEA /* ContentView.swift in Sources */,
 				2AF14CF325E3DD40004E901C /* Injected.swift in Sources */,
 				2A64665425F48A5A00CE770E /* Shop.swift in Sources */,
@@ -641,31 +726,42 @@
 				2A93644D25C6BA6500BD4FEA /* CommodityListViewModel.swift in Sources */,
 				2A93642C25C5974A00BD4FEA /* CommodityRowView.swift in Sources */,
 				2AF14CEE25E3D7F0004E901C /* DIContainer.swift in Sources */,
+				7C4A8D7326404119003E86B1 /* DocumentReferenceExtensions.swift in Sources */,
 				2AC3EA4125EB61DF00E81AD5 /* AddCommodityView.swift in Sources */,
+				7C545687263FE2690089B4CE /* FirestoreCollections.swift in Sources */,
 				2AC3EA4C25EB967A00E81AD5 /* IntExtensions.swift in Sources */,
 				2A29C2E5260791A800953618 /* ShopListRow.swift in Sources */,
 				2A4BD9F4262C684200BEC349 /* ModuleInjector.swift in Sources */,
 				2A64664425F3530700CE770E /* ContentViewModel.swift in Sources */,
+				7C54567D263FD9760089B4CE /* MockAuthRepository.swift in Sources */,
+				7C54567F263FD9810089B4CE /* FirebaseAuthRepository.swift in Sources */,
 				7C292C4F26354C4B0041CC7F /* AddShopPriceView.swift in Sources */,
 				2AE4A97425D961510022D873 /* NavigationBackButton.swift in Sources */,
 				2AC3EA4625EB66E900E81AD5 /* AddCommodityViewModel.swift in Sources */,
 				2A29C2D826078D1D00953618 /* SelectShopSheetView.swift in Sources */,
 				7C545669263FAA8F0089B4CE /* SplashView.swift in Sources */,
 				2AC3EA5625EBEDF400E81AD5 /* CommodityDetailView.swift in Sources */,
+				7C54567A263FD9440089B4CE /* MockCommodityPriceRepository.swift in Sources */,
+				7C545685263FDFD10089B4CE /* FirestoreExtensions.swift in Sources */,
 				2A64666425F49CE000CE770E /* CommodityPrice.swift in Sources */,
 				2A93642125C5723000BD4FEA /* CommodityListView.swift in Sources */,
 				7C292C4A26354BF00041CC7F /* AddShopPriceViewModel.swift in Sources */,
 				7CF96603263EF0F600775320 /* RswiftResourceExtensions.swift in Sources */,
+				7C4A8D7526404AFB003E86B1 /* FirestoreShopRepository.swift in Sources */,
 				7CF965FD263EEBEA00775320 /* R.generated.swift in Sources */,
 				2AC3EA5125EBD56900E81AD5 /* SubmitButton.swift in Sources */,
 				2A64666925F4A34C00CE770E /* CommodityPriceRepository.swift in Sources */,
+				7C4A8D77264050F6003E86B1 /* FirestoreCommodityPriceRepository.swift in Sources */,
 				2A64664F25F4894B00CE770E /* Commodity.swift in Sources */,
 				2A9363EE25C56D4A00BD4FEA /* ComparePricesApp.swift in Sources */,
 				7C3048CF2634128E00D1FBFE /* CommodityDetailViewModel.swift in Sources */,
 				7C7801A8263AF82D00E8B571 /* Navigator.swift in Sources */,
 				7C545667263F9DC10089B4CE /* AuthRepository.swift in Sources */,
 				2AF14CFC25E3E821004E901C /* CommodityRepository.swift in Sources */,
+				7C5456892640027F0089B4CE /* QueryExtensions.swift in Sources */,
+				7C545681263FDC8D0089B4CE /* FirestoreCommodityRepository.swift in Sources */,
 				2A64665925F48F9700CE770E /* ShopRepository.swift in Sources */,
+				7C545677263FD84B0089B4CE /* MockCommodityRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
