@@ -11,9 +11,9 @@ import FirebaseFirestoreSwift
 import Foundation
 
 extension DocumentReference {
-    func getDocument<T: Codable>() -> Future<T, Error> {
+    func getDocument<T: Codable>(_ source: FirestoreSource = .cache) -> Future<T, Error> {
         .init { [weak self] promise in
-            self?.getDocument { document, error in
+            self?.getDocument(source: source) { document, error in
                 if let err = error {
                     promise(.failure(err))
                 }
