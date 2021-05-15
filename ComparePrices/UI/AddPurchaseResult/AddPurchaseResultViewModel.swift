@@ -20,6 +20,7 @@ final class AddPurchaseResultViewModel: ObservableObject, Identifiable {
     
     @Published var selectedCommodity: Commodity?
     var isNewCommodity = false
+    
     @Published var selectedShop: Shop?
     var isNewShop = false
     
@@ -44,13 +45,14 @@ final class AddPurchaseResultViewModel: ObservableObject, Identifiable {
             isNewShop ? addShopPublisher : .init { promise in promise(.success(())) },
             addCommodityPricePublisher
         )
-        .sink(receiveCompletion: { result in
+        .sink(receiveCompletion: { [weak self] result in
             switch result {
             case let .failure(error):
                 print(error)
             case .finished:
-                self.finishedAddShopPrice.send(())
+                self?.finishedAddShopPrice.send(())
             }
+            self?.isUpdatingPurchaseResult = true
         }, receiveValue: { _ in }).store(in: &cancellables)
     }
     
