@@ -33,12 +33,12 @@ final class AddShopPriceViewModel: ObservableObject, Identifiable {
                 if let commodityRepository = self?.commodityRepository, optionalCommodity == nil {
                     return commodityRepository.addCommodity(commodity)
                 }
-                return Future<Void, Error> { promise in promise(.success(())) }
+                return .init { promise in promise(.success(())) }
             }.flatMap { [weak self] _ -> Future<Void, Error> in
                 if let commodityPriceRepository = self?.commodityPriceRepository, let selectedShop = self?.selectedShop, let price = self?.price {
                     return commodityPriceRepository.addCommodityPrice(CommodityPrice(commodityId: commodity.id, shopId: selectedShop.id, price: price))
                 }
-                return Future<Void, Error> { promise in promise(.success(())) }
+                return .init { promise in promise(.success(())) }
             }.sink(receiveCompletion: { result in
                 switch result {
                 case let .failure(error):
