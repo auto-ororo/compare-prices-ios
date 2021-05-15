@@ -22,14 +22,15 @@ struct SubmitButton: View {
                 Text(text).font(.title2).accentColor(.white).padding()
                 Spacer()
             }
-        }.background(isActive ? R.color.primary.color : Color.gray)
+        }.background(R.color.primary.color)
             .cornerRadius(8).disabled(!isActive)
+            .opacity(isActive ? 1.0 : 0.8)
     }
 }
 
 struct SubmitButton_Previews: PreviewProvider {
     static var previews: some View {
         MockModuleInjector().inject()
-        return SubmitButton(text: "登録", action: { print("submitted") })
+        return SubmitButton(text: "登録", action: {})
     }
 }

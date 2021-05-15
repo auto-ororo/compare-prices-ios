@@ -665,7 +665,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#swift package update #Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\nxcrun --sdk macosx swift run -c release --package-path BuildTools swiftformat .\n";
+			shellScript = "#swift package update #Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\nif [ $ENABLE_PREVIEWS == \"NO\" ]\nthen\n  xcrun --sdk macosx swift run -c release --package-path BuildTools swiftformat .\nelse\n  echo \"Skipping the script because of preview mode\"\nfi\n";
 		};
 		7CF965D9263DB3F100775320 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -683,7 +683,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nxcrun --sdk macosx swift run --package-path BuildTools swiftlint \n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [ $ENABLE_PREVIEWS == \"NO\" ] \nthen\n  xcrun --sdk macosx swift run --package-path BuildTools swiftlint \nelse\n  echo \"Skipping the script because of preview mode\"\nfi\n";
 		};
 		7CF965F9263EE6C800775320 /* R.Swift */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -703,7 +703,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path. \nxcrun --sdk macosx swift run --package-path BuildTools rswift generate \"$SRCROOT/$PROJECT_NAME/Resources/R.generated.swift\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path. \nif [ $ENABLE_PREVIEWS == \"NO\" ] \nthen\n  xcrun --sdk macosx swift run --package-path BuildTools rswift generate \"$SRCROOT/$PROJECT_NAME/Resources/R.generated.swift\"\nelse\n  echo \"Skipping the script because of preview mode\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
