@@ -26,3 +26,10 @@ struct SubmitButton: View {
             .cornerRadius(8).disabled(!isActive)
     }
 }
+
+struct SubmitButton_Previews: PreviewProvider {
+    static var previews: some View {
+        MockModuleInjector().inject()
+        return SubmitButton(text: "登録", action: { print("submitted") })
+    }
+}
