@@ -30,9 +30,9 @@ struct SelectCommoditySheetView: View {
                     }
                 ).padding(8).overlay(
                     RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.blue, lineWidth: 2)
+                        .stroke(Color.blue, lineWidth: 2).disabled(!viewModel.isEnabledAddButton)
                 ).padding(.trailing, 8)
-                    .disabled(!viewModel.isEnabledAddButton)
+                    
             }.padding(.top, 8)
             
             ScrollView {

@@ -60,7 +60,7 @@ final class SelectShopSheetViewModel: ObservableObject, Identifiable {
     }
     
     func validateAddButton() {
-        $searchWord.map(\.isEmpty).assign(to: \.isEnabledAddButton, on: self).store(in: &cancellables)
+        $searchWord.map { !$0.isEmpty }.assign(to: \.isEnabledAddButton, on: self).store(in: &cancellables)
     }
 
     func filterShopListFromSearchWord() {
