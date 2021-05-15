@@ -1,4 +1,3 @@
-//
 //  AddShopPriceViewModel.swift
 //  ComparePrices
 //
@@ -10,6 +9,7 @@ import Foundation
 
 final class AddShopPriceViewModel: ObservableObject, Identifiable {
     @Injected var commodityPriceRepository: CommodityPriceRepository
+    @Injected var commodityRepository: CommodityRepository
     
     @Published private(set) var isButtonEnabled: Bool = false
     
@@ -25,11 +25,21 @@ final class AddShopPriceViewModel: ObservableObject, Identifiable {
     
     private var cancellables: [AnyCancellable] = []
     
-    func addShopPrice(commodityId: UUID) {
+    func addShopPrice(commodity: Commodity) {
         isButtonEnabled = false
         
-        commodityPriceRepository.addCommodityPrice(CommodityPrice(commodityId: commodityId, shopId: selectedShop!.id, price: price!))
-            .sink(receiveCompletion: { result in
+        commodityRepository.getCommodity(id: commodity.id)
+            .map { [weak self] optionalCommodity -> Future<Void, Error> in
+                if let commodityRepository = self?.commodityRepository, optionalCommodity == nil {
+                    return commodityRepository.addCommodity(commodity)
+                }
+                return Future<Void, Error> { promise in promise(.success(())) }
+            }.flatMap { [weak self] _ -> Future<Void, Error> in
+                if let commodityPriceRepository = self?.commodityPriceRepository, let selectedShop = self?.selectedShop, let price = self?.price {
+                    return commodityPriceRepository.addCommodityPrice(CommodityPrice(commodityId: commodity.id, shopId: selectedShop.id, price: price))
+                }
+                return Future<Void, Error> { promise in promise(.success(())) }
+            }.sink(receiveCompletion: { result in
                 switch result {
                 case let .failure(error):
                     print(error)
@@ -40,7 +50,7 @@ final class AddShopPriceViewModel: ObservableObject, Identifiable {
             }, receiveValue: {})
             .store(in: &cancellables)
     }
-    
+
     init() {
         // Validation
         Publishers.CombineLatest($selectedShop, $price)

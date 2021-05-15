@@ -37,7 +37,7 @@ struct AddShopPriceView: View {
             }
             InputPriceLayout(label: "価格", bindingPrice: $viewModel.price)
             Spacer()
-            SubmitButton(text: "店舗・値段を追加", action: { viewModel.addShopPrice(commodityId: commodity.id) }, isActive: viewModel.isButtonEnabled).padding()
+            SubmitButton(text: "店舗・値段を追加", action: { viewModel.addShopPrice(commodity: commodity) }, isActive: viewModel.isButtonEnabled).padding()
             
         }.onReceive(viewModel.finishedAddShopPrice) {
             back()

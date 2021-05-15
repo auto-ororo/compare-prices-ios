@@ -24,7 +24,7 @@ struct SubmitButton: View {
             }
         }.background(R.color.primary.color)
             .cornerRadius(8).disabled(!isActive)
-            .opacity(isActive ? 1.0 : 0.8)
+            .opacity(isActive ? 1.0 : 0.7)
     }
 }
 

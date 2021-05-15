@@ -26,4 +26,14 @@ final class FirestoreCommodityRepository: CommodityRepository {
         let userId = Auth.auth().currentUser!.uid
         return Firestore.commodityColRef(userId: userId).getDocuments()
     }
+    
+    func getCommodity(id: UUID) -> Future<Commodity?, Error> {
+        let userId = Auth.auth().currentUser!.uid
+        return Firestore.commodityColRef(userId: userId).whereField("id", isEqualTo: id.uuidString).getDocument()
+    }
+    
+    func getCommodity(name: String) -> Future<Commodity?, Error> {
+        let userId = Auth.auth().currentUser!.uid
+        return Firestore.commodityColRef(userId: userId).whereField("name", isEqualTo: name).getDocument()
+    }
 }
