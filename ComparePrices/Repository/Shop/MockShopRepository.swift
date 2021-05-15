@@ -65,4 +65,10 @@ final class MockShopRepository: ShopRepository {
             promise(.success(SingletonShops.shared.shops))
         }
     }
+    
+    func getShop(_ name: String) -> Future<Shop?, Error> {
+        .init { promise in
+            promise(.success(SingletonShops.shared.shops.first { $0.name == name }))
+        }
+    }
 }

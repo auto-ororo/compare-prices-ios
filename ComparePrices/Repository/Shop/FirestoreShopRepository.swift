@@ -26,6 +26,11 @@ final class FirestoreShopRepository: ShopRepository {
         let userId = Auth.auth().currentUser!.uid
         return Firestore.shopDocRef(userId: userId, shipId: shopId.uuidString).getDocument()
     }
+    
+    func getShop(_ name: String) -> Future<Shop?, Error> {
+        let userId = Auth.auth().currentUser!.uid
+        return Firestore.shopColRef(userId: userId).whereField("name", isEqualTo: name).getDocument()
+    }
 
     func getShops() -> Future<[Shop], Error> {
         let userId = Auth.auth().currentUser!.uid

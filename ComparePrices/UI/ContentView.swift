@@ -24,8 +24,8 @@ struct ContentView: View {
                 AddCommodityView().transition(navigation.getTransitionAnimation())
             case let .commodityDetail(commodity):
                 CommodityDetailView(commodity: commodity).transition(navigation.getTransitionAnimation())
-            case let .addShopPrice(commodity):
-                AddShopPriceView(commodity: commodity).transition(navigation.getTransitionAnimation())
+            case let .addPurchaseResult(commodity):
+                AddPurchaseResultView(commodity: commodity).transition(navigation.getTransitionAnimation())
             default:
                 SplashView().transition(navigation.getTransitionAnimation())
             }

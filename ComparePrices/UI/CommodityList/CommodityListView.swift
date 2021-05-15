@@ -43,7 +43,7 @@ struct CommodityListView: View {
                 HStack {
                     Spacer()
                     AddCircleButton(action: {
-                        navigator.navigate(to: .addCommodity, direction: .next)
+                        navigator.navigate(to: .addPurchaseResult(nil), direction: .next)
                     })
                 }
             }

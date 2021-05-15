@@ -23,7 +23,7 @@ struct AddCommodityView: View {
             SubmitButton(text: "商品を追加", action: { viewModel.selectCommodity() }, isActive: viewModel.isButtonEnabled).padding()
         }.onReceive(viewModel.$selectedCommodity) { commodity in
             commodity.map {
-                navigator.navigate(to: .addShopPrice($0), direction: .next)
+                navigator.navigate(to: .addPurchaseResult($0), direction: .next)
             }
         }
     }

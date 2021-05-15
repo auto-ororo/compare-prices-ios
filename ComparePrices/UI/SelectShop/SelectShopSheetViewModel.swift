@@ -14,12 +14,14 @@ final class SelectShopSheetViewModel: ObservableObject, Identifiable {
     private var cancellables: [AnyCancellable] = []
     
     @Published var searchWord: String = ""
-    private(set) var shopSelected = PassthroughSubject<Shop, Never>()
+    private(set) var shopSelected = PassthroughSubject<(shop: Shop, isNew: Bool), Never>()
     @Published private var shopList: [Shop] = []
     @Published private(set) var filteredShopList: [Shop] = []
     
+    @Published private(set) var isEnabledAddButton: Bool = false
+    
     func selectShop(shop: Shop) {
-        shopSelected.send(shop)
+        shopSelected.send((shop: shop, isNew: false))
     }
     
     func getShops() {
@@ -38,12 +40,8 @@ final class SelectShopSheetViewModel: ObservableObject, Identifiable {
             .store(in: &cancellables)
     }
     
-    func addShop() {
-        let uuid = UUID()
-        shopRepository.addShop(Shop(id: uuid, name: searchWord))
-            .compactMap { [weak self] _ in
-                self?.shopRepository.getShop(uuid)
-            }.flatMap { $0 }
+    func selectNewShop() {
+        shopRepository.getShop(searchWord)
             .sink(receiveCompletion: { result in
                 switch result {
                 case let .failure(error):
@@ -51,12 +49,20 @@ final class SelectShopSheetViewModel: ObservableObject, Identifiable {
                 default:
                     break
                 }
-            }, receiveValue: { [weak self] shop in
-                self?.shopSelected.send(shop)
-            })
-            .store(in: &cancellables)
+            }, receiveValue: { [weak self] optionalShop in
+                if let shop = optionalShop {
+                    self?.shopSelected.send((shop: shop, isNew: false))
+                } else {
+                    guard let searchWord = self?.searchWord else { return }
+                    self?.shopSelected.send((shop: Shop(name: searchWord), isNew: true))
+                }
+            }).store(in: &cancellables)
     }
     
+    func validateAddButton() {
+        $searchWord.map(\.isEmpty).assign(to: \.isEnabledAddButton, on: self).store(in: &cancellables)
+    }
+
     func filterShopListFromSearchWord() {
         $shopList.combineLatest($searchWord).map { commodities, searchWord in
             if searchWord.isEmpty { return commodities }
@@ -65,6 +71,7 @@ final class SelectShopSheetViewModel: ObservableObject, Identifiable {
     }
     
     init() {
+        validateAddButton()
         filterShopListFromSearchWord()
     }
 }

@@ -36,8 +36,10 @@
 		2AF14CEE25E3D7F0004E901C /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF14CED25E3D7F0004E901C /* DIContainer.swift */; };
 		2AF14CF325E3DD40004E901C /* Injected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF14CF225E3DD40004E901C /* Injected.swift */; };
 		2AF14CFC25E3E821004E901C /* CommodityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF14CFB25E3E821004E901C /* CommodityRepository.swift */; };
-		7C292C4A26354BF00041CC7F /* AddShopPriceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C292C4926354BF00041CC7F /* AddShopPriceViewModel.swift */; };
-		7C292C4F26354C4B0041CC7F /* AddShopPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C292C4E26354C4B0041CC7F /* AddShopPriceView.swift */; };
+		7C0AAF3F264FE6FD00FC8B24 /* AddPurchaseResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0AAF3E264FE6FD00FC8B24 /* AddPurchaseResultView.swift */; };
+		7C0AAF41264FE8C700FC8B24 /* AddPurchaseResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0AAF40264FE8C700FC8B24 /* AddPurchaseResultViewModel.swift */; };
+		7C0AAF462650378900FC8B24 /* SelectCommoditySheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0AAF452650378900FC8B24 /* SelectCommoditySheetView.swift */; };
+		7C0AAF48265037F900FC8B24 /* SelectCommoditySheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0AAF47265037F900FC8B24 /* SelectCommoditySheetViewModel.swift */; };
 		7C3048CF2634128E00D1FBFE /* CommodityDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3048CE2634128E00D1FBFE /* CommodityDetailViewModel.swift */; };
 		7C3048D4263415CF00D1FBFE /* ShopPriceListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3048D3263415CF00D1FBFE /* ShopPriceListRow.swift */; };
 		7C44730F263BEB650001F9EB /* AddCircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44730E263BEB650001F9EB /* AddCircleButton.swift */; };
@@ -126,8 +128,10 @@
 		2AF14CED25E3D7F0004E901C /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		2AF14CF225E3DD40004E901C /* Injected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injected.swift; sourceTree = "<group>"; };
 		2AF14CFB25E3E821004E901C /* CommodityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityRepository.swift; sourceTree = "<group>"; };
-		7C292C4926354BF00041CC7F /* AddShopPriceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShopPriceViewModel.swift; sourceTree = "<group>"; };
-		7C292C4E26354C4B0041CC7F /* AddShopPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShopPriceView.swift; sourceTree = "<group>"; };
+		7C0AAF3E264FE6FD00FC8B24 /* AddPurchaseResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPurchaseResultView.swift; sourceTree = "<group>"; };
+		7C0AAF40264FE8C700FC8B24 /* AddPurchaseResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPurchaseResultViewModel.swift; sourceTree = "<group>"; };
+		7C0AAF452650378900FC8B24 /* SelectCommoditySheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCommoditySheetView.swift; sourceTree = "<group>"; };
+		7C0AAF47265037F900FC8B24 /* SelectCommoditySheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCommoditySheetViewModel.swift; sourceTree = "<group>"; };
 		7C3048CE2634128E00D1FBFE /* CommodityDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityDetailViewModel.swift; sourceTree = "<group>"; };
 		7C3048D3263415CF00D1FBFE /* ShopPriceListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopPriceListRow.swift; sourceTree = "<group>"; };
 		7C44730E263BEB650001F9EB /* AddCircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCircleButton.swift; sourceTree = "<group>"; };
@@ -257,10 +261,11 @@
 		2A93641C25C56FD700BD4FEA /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				7C0AAF442650375F00FC8B24 /* SelectCommodity */,
+				7C0AAF3D264FE67800FC8B24 /* AddPurchaseResult */,
 				2AE4A97225D961230022D873 /* Common */,
 				7C7801A6263AF7DD00E8B571 /* Navigation */,
 				7C545671263FD1F30089B4CE /* Splash */,
-				7C545670263FD1D90089B4CE /* AddShopPrice */,
 				7C54566F263FD1CA0089B4CE /* SelectShop */,
 				7C54566E263FD1A50089B4CE /* CommodityDetail */,
 				7C54566D263FD18B0089B4CE /* AddCommodity */,
@@ -327,6 +332,24 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
+		7C0AAF3D264FE67800FC8B24 /* AddPurchaseResult */ = {
+			isa = PBXGroup;
+			children = (
+				7C0AAF3E264FE6FD00FC8B24 /* AddPurchaseResultView.swift */,
+				7C0AAF40264FE8C700FC8B24 /* AddPurchaseResultViewModel.swift */,
+			);
+			path = AddPurchaseResult;
+			sourceTree = "<group>";
+		};
+		7C0AAF442650375F00FC8B24 /* SelectCommodity */ = {
+			isa = PBXGroup;
+			children = (
+				7C0AAF452650378900FC8B24 /* SelectCommoditySheetView.swift */,
+				7C0AAF47265037F900FC8B24 /* SelectCommoditySheetViewModel.swift */,
+			);
+			path = SelectCommodity;
+			sourceTree = "<group>";
+		};
 		7C54566C263FD15B0089B4CE /* CommodityList */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,15 +385,6 @@
 				2A29C2DF2607907B00953618 /* SelectShopSheetViewModel.swift */,
 			);
 			path = SelectShop;
-			sourceTree = "<group>";
-		};
-		7C545670263FD1D90089B4CE /* AddShopPrice */ = {
-			isa = PBXGroup;
-			children = (
-				7C292C4926354BF00041CC7F /* AddShopPriceViewModel.swift */,
-				7C292C4E26354C4B0041CC7F /* AddShopPriceView.swift */,
-			);
-			path = AddShopPrice;
 			sourceTree = "<group>";
 		};
 		7C545671263FD1F30089B4CE /* Splash */ = {
@@ -716,6 +730,7 @@
 				7C54566B263FAB600089B4CE /* SplashViewModel.swift in Sources */,
 				7C3048D4263415CF00D1FBFE /* ShopPriceListRow.swift in Sources */,
 				7C7801AA263B182700E8B571 /* Header.swift in Sources */,
+				7C0AAF41264FE8C700FC8B24 /* AddPurchaseResultViewModel.swift in Sources */,
 				7C545674263FD80F0089B4CE /* MockShopRepository.swift in Sources */,
 				2A9363F025C56D4A00BD4FEA /* ContentView.swift in Sources */,
 				2AF14CF325E3DD40004E901C /* Injected.swift in Sources */,
@@ -728,14 +743,15 @@
 				2AF14CEE25E3D7F0004E901C /* DIContainer.swift in Sources */,
 				7C4A8D7326404119003E86B1 /* DocumentReferenceExtensions.swift in Sources */,
 				2AC3EA4125EB61DF00E81AD5 /* AddCommodityView.swift in Sources */,
+				7C0AAF462650378900FC8B24 /* SelectCommoditySheetView.swift in Sources */,
 				7C545687263FE2690089B4CE /* FirestoreCollections.swift in Sources */,
 				2AC3EA4C25EB967A00E81AD5 /* IntExtensions.swift in Sources */,
 				2A29C2E5260791A800953618 /* ShopListRow.swift in Sources */,
 				2A4BD9F4262C684200BEC349 /* ModuleInjector.swift in Sources */,
 				2A64664425F3530700CE770E /* ContentViewModel.swift in Sources */,
 				7C54567D263FD9760089B4CE /* MockAuthRepository.swift in Sources */,
+				7C0AAF48265037F900FC8B24 /* SelectCommoditySheetViewModel.swift in Sources */,
 				7C54567F263FD9810089B4CE /* FirebaseAuthRepository.swift in Sources */,
-				7C292C4F26354C4B0041CC7F /* AddShopPriceView.swift in Sources */,
 				2AE4A97425D961510022D873 /* NavigationBackButton.swift in Sources */,
 				2AC3EA4625EB66E900E81AD5 /* AddCommodityViewModel.swift in Sources */,
 				2A29C2D826078D1D00953618 /* SelectShopSheetView.swift in Sources */,
@@ -745,12 +761,12 @@
 				7C545685263FDFD10089B4CE /* FirestoreExtensions.swift in Sources */,
 				2A64666425F49CE000CE770E /* CommodityPrice.swift in Sources */,
 				2A93642125C5723000BD4FEA /* CommodityListView.swift in Sources */,
-				7C292C4A26354BF00041CC7F /* AddShopPriceViewModel.swift in Sources */,
 				7CF96603263EF0F600775320 /* RswiftResourceExtensions.swift in Sources */,
 				7C4A8D7526404AFB003E86B1 /* FirestoreShopRepository.swift in Sources */,
 				7CF965FD263EEBEA00775320 /* R.generated.swift in Sources */,
 				2AC3EA5125EBD56900E81AD5 /* SubmitButton.swift in Sources */,
 				2A64666925F4A34C00CE770E /* CommodityPriceRepository.swift in Sources */,
+				7C0AAF3F264FE6FD00FC8B24 /* AddPurchaseResultView.swift in Sources */,
 				7C4A8D77264050F6003E86B1 /* FirestoreCommodityPriceRepository.swift in Sources */,
 				2A64664F25F4894B00CE770E /* Commodity.swift in Sources */,
 				2A9363EE25C56D4A00BD4FEA /* ComparePricesApp.swift in Sources */,

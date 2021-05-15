@@ -15,5 +15,7 @@ protocol ShopRepository {
 
     func getShop(_ shopId: UUID) -> Future<Shop, Error>
     
+    func getShop(_ name: String) -> Future<Shop?, Error>
+    
     func getShops() -> Future<[Shop], Error>
 }

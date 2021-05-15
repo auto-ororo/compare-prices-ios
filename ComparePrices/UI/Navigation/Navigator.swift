@@ -14,7 +14,7 @@ enum MoveTo: Equatable {
     case commodityList
     case addCommodity
     case commodityDetail(Commodity)
-    case addShopPrice(Commodity)
+    case addPurchaseResult(Commodity?)
     
     static func == (lhs: MoveTo, rhs: MoveTo) -> Bool {
         switch (lhs, rhs) {
@@ -28,8 +28,8 @@ enum MoveTo: Equatable {
             return true
         case let (.commodityDetail(commodity1), .commodityDetail(commodity2)):
             return commodity1 == commodity2
-        case let (.addShopPrice(shop1), .addShopPrice(shop2)):
-            return shop1 == shop2
+        case let (.addPurchaseResult(commodity1), .addPurchaseResult(commodity2)):
+            return commodity1 == commodity2
         default:
             return false
         }

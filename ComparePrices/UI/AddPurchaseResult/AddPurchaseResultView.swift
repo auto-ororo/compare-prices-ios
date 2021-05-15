@@ -1,34 +1,38 @@
 //
-//  AddShopPriceView.swift
+//  AddPurchaseResultView.swift
 //  ComparePrices
 //
-//  Created by ororo on 2021/04/25.
+//  Created by ororo on 2021/05/15.
 //
 
 import SwiftUI
 
-struct AddShopPriceView: View {
+struct AddPurchaseResultView: View {
     @EnvironmentObject var navigation: Navigator
 
-    var commodity: Commodity
+    @StateObject var viewModel = AddPurchaseResultViewModel()
     
-    @StateObject var viewModel = AddShopPriceViewModel()
+    let commodity: Commodity?
     
     var body: some View {
         VStack(alignment: .leading) {
             Header(backButtonAction:
                 back,
-                title: "店舗・値段設定")
+                title: "購買履歴を登録")
             
             HStack {
-                Spacer()
-                Text(commodity.name).padding().font(.title)
-                Spacer()
+                Text("商品").font(.headline).frame(width: 70, alignment: .trailing)
+                Button(action: { viewModel.showCommoditySheet.toggle() }, label: {
+                    Text(viewModel.selectedCommodity?.name ?? "選択して下さい").foregroundColor(.gray).padding(8).overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.gray, lineWidth: 1)
+                    )
+                }).padding().disabled(commodity != nil)
             }
             
             HStack {
                 Text("購入店").font(.headline).frame(width: 70, alignment: .trailing)
-                Button(action: { viewModel.showStoreSheet.toggle() }, label: {
+                Button(action: { viewModel.showShopSheet.toggle() }, label: {
                     Text(viewModel.selectedShop?.name ?? "選択して下さい").foregroundColor(.gray).padding(8).overlay(
                         RoundedRectangle(cornerRadius: 8)
                             .stroke(Color.gray, lineWidth: 1)
@@ -37,23 +41,27 @@ struct AddShopPriceView: View {
             }
             InputPriceLayout(label: "価格", bindingPrice: $viewModel.price)
             Spacer()
-            SubmitButton(text: "店舗・値段を追加", action: { viewModel.addShopPrice(commodity: commodity) }, isActive: viewModel.isButtonEnabled).padding()
+            SubmitButton(text: "登録", action: { viewModel.addPurchaseResult() }, isActive: viewModel.isButtonEnabled).padding()
             
         }.onReceive(viewModel.finishedAddShopPrice) {
             back()
         }
-        .sheet(isPresented: $viewModel.showStoreSheet) {
-            SelectShopSheetView(isPresent: $viewModel.showStoreSheet, selectedShop: $viewModel.selectedShop)
+        .onAppear {
+            viewModel.setSelectedCommodityIfParamExists(commodity: commodity)
+        }
+        .sheet(isPresented: $viewModel.showCommoditySheet) {
+            SelectCommoditySheetView(isPresent: $viewModel.showCommoditySheet, selectedCommodity: $viewModel.selectedCommodity, isNew: $viewModel.isNewCommodity)
+        }
+        .sheet(isPresented: $viewModel.showShopSheet) {
+            SelectShopSheetView(isPresent: $viewModel.showShopSheet, selectedShop: $viewModel.selectedShop, isNew: $viewModel.isNewShop)
         }
     }
     
     private func back() {
-        let lastView = navigation.getLastStack().moveTo
-        
-        if lastView != .commodityDetail(commodity) {
-            navigation.navigate(to: .commodityList, direction: .back)
-        } else {
+        if let commodity = self.commodity {
             navigation.navigate(to: .commodityDetail(commodity), direction: .back)
+        } else {
+            navigation.navigate(to: .commodityList, direction: .back)
         }
     }
     
@@ -85,9 +93,8 @@ struct AddShopPriceView: View {
     }
 }
 
-struct AddShopPriceView_Previews: PreviewProvider {
+struct AddPurchaseResultView_Previews: PreviewProvider {
     static var previews: some View {
-        MockModuleInjector().inject()
-        return AddShopPriceView(commodity: Commodity(id: MockCommodityRepository.asparaUUID, name: "アスパラ"))
+        AddPurchaseResultView(commodity: nil)
     }
 }
