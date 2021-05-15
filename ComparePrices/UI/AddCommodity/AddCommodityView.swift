@@ -20,8 +20,8 @@ struct AddCommodityView: View {
 
             InputTextLayout(label: "商品名", bindingText: $viewModel.commodityName)
             Spacer()
-            SubmitButton(text: "商品を追加", action: { viewModel.addCommotity() }, isActive: viewModel.isButtonEnabled).padding()
-        }.onReceive(viewModel.$addedCommodity) { commodity in
+            SubmitButton(text: "商品を追加", action: { viewModel.selectCommodity() }, isActive: viewModel.isButtonEnabled).padding()
+        }.onReceive(viewModel.$selectedCommodity) { commodity in
             commodity.map {
                 navigator.navigate(to: .addShopPrice($0), direction: .next)
             }

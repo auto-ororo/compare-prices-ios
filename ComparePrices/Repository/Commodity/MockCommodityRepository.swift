@@ -67,4 +67,16 @@ final class MockCommodityRepository: CommodityRepository {
             promise(.success(SingletonCommodities.shared.commodities))
         }
     }
+    
+    func getCommodity(id: UUID) -> Future<Commodity?, Error> {
+        .init { promise in
+            promise(.success(SingletonCommodities.shared.commodities.first { $0.id == id }))
+        }
+    }
+    
+    func getCommodity(name: String) -> Future<Commodity?, Error> {
+        .init { promise in
+            promise(.success(SingletonCommodities.shared.commodities.first { $0.name == name }))
+        }
+    }
 }

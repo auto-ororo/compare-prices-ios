@@ -12,28 +12,30 @@ final class AddCommodityViewModel: ObservableObject, Identifiable {
     @Injected var commodityRepository: CommodityRepository
     
     @Published private(set) var isButtonEnabled: Bool = false
-    @Published private(set) var addedCommodity: Commodity?
+    @Published private(set) var selectedCommodity: Commodity?
 
     @Published var commodityName: String = ""
 
     private var cancellables: [AnyCancellable] = []
     
-    func addCommotity() {
+    func selectCommodity() {
         isButtonEnabled = false
         
-        let commodity = Commodity(id: UUID(), name: commodityName)
-        
-        commodityRepository.addCommodity(commodity)
+        commodityRepository.getCommodity(name: commodityName)
             .sink(receiveCompletion: { [weak self] result in
                       switch result {
                       case let .failure(error):
                           print(error)
                       case .finished:
-                          self?.addedCommodity = commodity
+                          break
                       }
                       self?.isButtonEnabled = true
                   },
-                  receiveValue: { _ in })
+                  receiveValue: { [weak self] commodity in
+                      if let commodityName = self?.commodityName {
+                          self?.selectedCommodity = commodity ?? Commodity(id: UUID(), name: commodityName)
+                      }
+                  })
             .store(in: &cancellables)
     }
     

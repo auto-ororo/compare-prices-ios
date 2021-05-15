@@ -11,9 +11,9 @@ import FirebaseFirestoreSwift
 import Foundation
 
 extension Query {
-    func getDocuments<T: Codable>() -> Future<[T], Error> {
+    func getDocuments<T: Codable>(_ source: FirestoreSource = .cache) -> Future<[T], Error> {
         .init { [weak self] promise in
-            self?.getDocuments { snapshot, error in
+            self?.getDocuments(source: source) { snapshot, error in
                 if let err = error {
                     promise(.failure(err))
                 }
@@ -29,9 +29,9 @@ extension Query {
         }
     }
     
-    func getDocument<T: Codable>() -> Future<T?, Error> {
+    func getDocument<T: Codable>(_ source: FirestoreSource = .cache) -> Future<T?, Error> {
         .init { [weak self] promise in
-            self?.getDocuments { snapshot, error in
+            self?.getDocuments(source: source) { snapshot, error in
                 if let err = error {
                     promise(.failure(err))
                 }
