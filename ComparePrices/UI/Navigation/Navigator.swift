@@ -12,7 +12,6 @@ enum MoveTo: Equatable {
     case none
     case splash
     case commodityList
-    case addCommodity
     case commodityDetail(Commodity)
     case addPurchaseResult(Commodity?)
     
@@ -23,8 +22,6 @@ enum MoveTo: Equatable {
         case (.splash, .splash):
             return true
         case (.commodityList, .commodityList):
-            return true
-        case (.addCommodity, .addCommodity):
             return true
         case let (.commodityDetail(commodity1), .commodityDetail(commodity2)):
             return commodity1 == commodity2

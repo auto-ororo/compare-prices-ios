@@ -27,8 +27,6 @@
 		2A93642C25C5974A00BD4FEA /* CommodityRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93642B25C5974A00BD4FEA /* CommodityRowView.swift */; };
 		2A93644825C6A30500BD4FEA /* CommodityListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93644725C6A30500BD4FEA /* CommodityListRow.swift */; };
 		2A93644D25C6BA6500BD4FEA /* CommodityListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93644C25C6BA6500BD4FEA /* CommodityListViewModel.swift */; };
-		2AC3EA4125EB61DF00E81AD5 /* AddCommodityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3EA4025EB61DF00E81AD5 /* AddCommodityView.swift */; };
-		2AC3EA4625EB66E900E81AD5 /* AddCommodityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3EA4525EB66E900E81AD5 /* AddCommodityViewModel.swift */; };
 		2AC3EA4C25EB967A00E81AD5 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3EA4B25EB967A00E81AD5 /* IntExtensions.swift */; };
 		2AC3EA5125EBD56900E81AD5 /* SubmitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3EA5025EBD56900E81AD5 /* SubmitButton.swift */; };
 		2AC3EA5625EBEDF400E81AD5 /* CommodityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3EA5525EBEDF400E81AD5 /* CommodityDetailView.swift */; };
@@ -119,8 +117,6 @@
 		2A93642B25C5974A00BD4FEA /* CommodityRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityRowView.swift; sourceTree = "<group>"; };
 		2A93644725C6A30500BD4FEA /* CommodityListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityListRow.swift; sourceTree = "<group>"; };
 		2A93644C25C6BA6500BD4FEA /* CommodityListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityListViewModel.swift; sourceTree = "<group>"; };
-		2AC3EA4025EB61DF00E81AD5 /* AddCommodityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommodityView.swift; sourceTree = "<group>"; };
-		2AC3EA4525EB66E900E81AD5 /* AddCommodityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommodityViewModel.swift; sourceTree = "<group>"; };
 		2AC3EA4B25EB967A00E81AD5 /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
 		2AC3EA5025EBD56900E81AD5 /* SubmitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButton.swift; sourceTree = "<group>"; };
 		2AC3EA5525EBEDF400E81AD5 /* CommodityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityDetailView.swift; sourceTree = "<group>"; };
@@ -268,7 +264,6 @@
 				7C545671263FD1F30089B4CE /* Splash */,
 				7C54566F263FD1CA0089B4CE /* SelectShop */,
 				7C54566E263FD1A50089B4CE /* CommodityDetail */,
-				7C54566D263FD18B0089B4CE /* AddCommodity */,
 				7C54566C263FD15B0089B4CE /* CommodityList */,
 				2A9363ED25C56D4A00BD4FEA /* ComparePricesApp.swift */,
 				2A9363EF25C56D4A00BD4FEA /* ContentView.swift */,
@@ -358,15 +353,6 @@
 				2A93644C25C6BA6500BD4FEA /* CommodityListViewModel.swift */,
 			);
 			path = CommodityList;
-			sourceTree = "<group>";
-		};
-		7C54566D263FD18B0089B4CE /* AddCommodity */ = {
-			isa = PBXGroup;
-			children = (
-				2AC3EA4525EB66E900E81AD5 /* AddCommodityViewModel.swift */,
-				2AC3EA4025EB61DF00E81AD5 /* AddCommodityView.swift */,
-			);
-			path = AddCommodity;
 			sourceTree = "<group>";
 		};
 		7C54566E263FD1A50089B4CE /* CommodityDetail */ = {
@@ -742,7 +728,6 @@
 				2A93642C25C5974A00BD4FEA /* CommodityRowView.swift in Sources */,
 				2AF14CEE25E3D7F0004E901C /* DIContainer.swift in Sources */,
 				7C4A8D7326404119003E86B1 /* DocumentReferenceExtensions.swift in Sources */,
-				2AC3EA4125EB61DF00E81AD5 /* AddCommodityView.swift in Sources */,
 				7C0AAF462650378900FC8B24 /* SelectCommoditySheetView.swift in Sources */,
 				7C545687263FE2690089B4CE /* FirestoreCollections.swift in Sources */,
 				2AC3EA4C25EB967A00E81AD5 /* IntExtensions.swift in Sources */,
@@ -753,7 +738,6 @@
 				7C0AAF48265037F900FC8B24 /* SelectCommoditySheetViewModel.swift in Sources */,
 				7C54567F263FD9810089B4CE /* FirebaseAuthRepository.swift in Sources */,
 				2AE4A97425D961510022D873 /* NavigationBackButton.swift in Sources */,
-				2AC3EA4625EB66E900E81AD5 /* AddCommodityViewModel.swift in Sources */,
 				2A29C2D826078D1D00953618 /* SelectShopSheetView.swift in Sources */,
 				7C545669263FAA8F0089B4CE /* SplashView.swift in Sources */,
 				2AC3EA5625EBEDF400E81AD5 /* CommodityDetailView.swift in Sources */,
