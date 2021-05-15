@@ -22,7 +22,7 @@ struct SubmitButton: View {
                 Text(text).font(.title2).accentColor(.white).padding()
                 Spacer()
             }
-        }.background(isActive ? Color.pink : Color.gray)
-            .cornerRadius(20).disabled(!isActive)
+        }.background(isActive ? R.color.primary.color : Color.gray)
+            .cornerRadius(8).disabled(!isActive)
     }
 }
