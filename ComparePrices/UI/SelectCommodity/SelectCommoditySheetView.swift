@@ -19,7 +19,6 @@ struct SelectCommoditySheetView: View {
             // 検索欄
             HStack {
                 TextField("商品を入力", text: $viewModel.searchWord)
-                    .disabled(!viewModel.isEnabledAddButton)
                     .textFieldStyle(RoundedBorderTextFieldStyle()).padding(.leading, 8)
                 Button(
                     action: {
