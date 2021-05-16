@@ -16,7 +16,8 @@ final class AddPurchaseResultViewModel: ObservableObject, Identifiable {
     @Published private(set) var isButtonEnabled: Bool = false
     @Published private(set) var isUpdatingPurchaseResult: Bool = false
     
-    @Published var price: Int? = 0
+    @Published var priceString: String = ""
+    @Published private var price: Int? = nil
     
     @Published var selectedCommodity: Commodity?
     var isNewCommodity = false
@@ -63,11 +64,13 @@ final class AddPurchaseResultViewModel: ObservableObject, Identifiable {
     }
 
     init() {
+        $priceString.map { Int($0) }.assign(to: \.price, on: self).store(in: &cancellables)
+        
         // Validation
         Publishers.CombineLatest4($selectedCommodity, $selectedShop, $price, $isUpdatingPurchaseResult)
             .receive(on: RunLoop.main)
             .map { commodity, selectedShop, price, isUpdatingPurchaseResult in
-                commodity != nil && price != nil && price! > 0 && selectedShop != nil && !isUpdatingPurchaseResult
+                commodity != nil && price != nil && selectedShop != nil && !isUpdatingPurchaseResult
             }.print(isButtonEnabled.description).assign(to: \.isButtonEnabled, on: self).store(in: &cancellables)
     }
 }

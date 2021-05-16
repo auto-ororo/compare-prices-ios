@@ -18,7 +18,7 @@ struct AddPurchaseResultView: View {
         VStack(alignment: .leading) {
             Header(backButtonAction:
                 back,
-                title: "購買履歴を登録")
+                title: "履歴登録")
             
             HStack {
                 Text("商品").font(.headline).frame(width: 70, alignment: .trailing)
@@ -39,7 +39,12 @@ struct AddPurchaseResultView: View {
                     )
                 }).padding()
             }
-            InputPriceLayout(label: "価格", bindingPrice: $viewModel.price)
+            
+            HStack {
+                Text("価格").font(.headline).frame(width: 70, alignment: .trailing)
+                TextField("価格", text: $viewModel.priceString)
+                    .keyboardType(.numberPad).padding().textFieldStyle(RoundedBorderTextFieldStyle())
+            }
             Spacer()
             SubmitButton(text: "登録", action: { viewModel.addPurchaseResult() }, isActive: viewModel.isButtonEnabled).padding()
             
@@ -54,6 +59,12 @@ struct AddPurchaseResultView: View {
         }
         .sheet(isPresented: $viewModel.showShopSheet) {
             SelectShopSheetView(isPresent: $viewModel.showShopSheet, selectedShop: $viewModel.selectedShop, isNew: $viewModel.isNewShop)
+        }
+        // 画面全体をタップ検知可能にする
+        .contentShape(Rectangle())
+        // 画面タップ時にキーボードを閉じる
+        .onTapGesture {
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         }
     }
     
@@ -74,20 +85,6 @@ struct AddPurchaseResultView: View {
             HStack {
                 Text(label).font(.headline).frame(width: 70, alignment: .trailing)
                 TextField("", text: bindingText).padding().textFieldStyle(RoundedBorderTextFieldStyle())
-            }
-        }
-    }
-    
-    private struct InputPriceLayout: View {
-        var label: String
-        
-        var bindingPrice: Binding<Int?>
-        
-        var body: some View {
-            HStack {
-                Text(label).font(.headline).frame(width: 70, alignment: .trailing)
-                TextField("価格", value: bindingPrice, formatter: NumberFormatter())
-                    .keyboardType(.numbersAndPunctuation).padding().textFieldStyle(RoundedBorderTextFieldStyle())
             }
         }
     }
