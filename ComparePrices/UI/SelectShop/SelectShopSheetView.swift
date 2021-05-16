@@ -25,12 +25,12 @@ struct SelectShopSheetView: View {
                         viewModel.selectNewShop()
                     },
                     label: {
-                        Text("追加").font(.headline)
+                        Text("追加").foregroundColor(R.color.primary.color).font(.headline)
                     }
                 ).disabled(!viewModel.isEnabledAddButton).padding(8).overlay(
                     RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.blue, lineWidth: 2)
-                ).padding(.trailing, 8)
+                        .stroke(R.color.primary.color, lineWidth: 2)
+                ).padding(.trailing, 8).opacity(viewModel.isEnabledAddButton ? 1.0 : 0.7)
                     
             }.padding(.top, 8)
             
