@@ -12,8 +12,7 @@ struct SelectCommoditySheetView: View {
     
     @Binding var isPresent: Bool
     @Binding var selectedCommodity: Commodity?
-    @Binding var isNew: Bool
-    
+
     var body: some View {
         VStack {
             // 検索欄
@@ -32,7 +31,7 @@ struct SelectCommoditySheetView: View {
                         .stroke(R.color.primary.color, lineWidth: 2)
                 ).padding(.trailing, 8).opacity(viewModel.isEnabledAddButton ? 1.0 : 0.7)
                     
-            }.padding(.top, 8)
+            }.padding(.top, 16)
             
             ScrollView {
                 LazyVStack(pinnedViews: .sectionHeaders) {
@@ -51,8 +50,7 @@ struct SelectCommoditySheetView: View {
         }.onAppear {
             viewModel.getCommodities()
         }.onReceive(viewModel.commoditySelected) { result in
-            self.selectedCommodity = result.commodity
-            self.isNew = result.isNew
+            self.selectedCommodity = result
             isPresent = false
         }
     }
@@ -62,6 +60,6 @@ struct SelectCommodityView_Previews: PreviewProvider {
     static var previews: some View {
         MockModuleInjector().inject()
         
-        return SelectCommoditySheetView(isPresent: .constant(false), selectedCommodity: .constant(nil), isNew: .constant(false))
+        return SelectCommoditySheetView(isPresent: .constant(false), selectedCommodity: .constant(nil))
     }
 }

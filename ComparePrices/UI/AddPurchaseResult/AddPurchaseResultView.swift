@@ -22,7 +22,7 @@ struct AddPurchaseResultView: View {
             
             HStack {
                 Text("商品").font(.headline).frame(width: 70, alignment: .trailing)
-                Button(action: { viewModel.showCommoditySheet.toggle() }, label: {
+                Button(action: { viewModel.showSelectCommoditySheet() }, label: {
                     Text(viewModel.selectedCommodity?.name ?? "選択して下さい").foregroundColor(.gray).padding(8).overlay(
                         RoundedRectangle(cornerRadius: 8)
                             .stroke(Color.gray, lineWidth: 1)
@@ -32,7 +32,7 @@ struct AddPurchaseResultView: View {
             
             HStack {
                 Text("購入店").font(.headline).frame(width: 70, alignment: .trailing)
-                Button(action: { viewModel.showShopSheet.toggle() }, label: {
+                Button(action: { viewModel.showSelectShopSheet() }, label: {
                     Text(viewModel.selectedShop?.name ?? "選択して下さい").foregroundColor(.gray).padding(8).overlay(
                         RoundedRectangle(cornerRadius: 8)
                             .stroke(Color.gray, lineWidth: 1)
@@ -54,11 +54,13 @@ struct AddPurchaseResultView: View {
         .onAppear {
             viewModel.setSelectedCommodityIfParamExists(commodity: commodity)
         }
-        .sheet(isPresented: $viewModel.showCommoditySheet) {
-            SelectCommoditySheetView(isPresent: $viewModel.showCommoditySheet, selectedCommodity: $viewModel.selectedCommodity, isNew: $viewModel.isNewCommodity)
-        }
-        .sheet(isPresented: $viewModel.showShopSheet) {
-            SelectShopSheetView(isPresent: $viewModel.showShopSheet, selectedShop: $viewModel.selectedShop, isNew: $viewModel.isNewShop)
+        .sheet(isPresented: $viewModel.sheet.isShown) {
+            switch viewModel.sheet.targetItem {
+            case .commodity:
+                SelectCommoditySheetView(isPresent: $viewModel.sheet.isShown, selectedCommodity: $viewModel.selectedCommodity)
+            case .shop:
+                SelectShopSheetView(isPresent: $viewModel.sheet.isShown, selectedShop: $viewModel.selectedShop)
+            }
         }
         // 画面全体をタップ検知可能にする
         .contentShape(Rectangle())
@@ -91,6 +93,10 @@ struct AddPurchaseResultView: View {
 }
 
 struct AddPurchaseResultView_Previews: PreviewProvider {
+    init() {
+        MockModuleInjector().inject()
+    }
+    
     static var previews: some View {
         AddPurchaseResultView(commodity: nil)
     }

@@ -12,8 +12,7 @@ struct SelectShopSheetView: View {
     
     @Binding var isPresent: Bool
     @Binding var selectedShop: Shop?
-    @Binding var isNew: Bool
-    
+
     var body: some View {
         VStack {
             // 検索欄
@@ -32,7 +31,7 @@ struct SelectShopSheetView: View {
                         .stroke(R.color.primary.color, lineWidth: 2)
                 ).padding(.trailing, 8).opacity(viewModel.isEnabledAddButton ? 1.0 : 0.7)
                     
-            }.padding(.top, 8)
+            }.padding(.top, 16)
             
             ScrollView {
                 LazyVStack(pinnedViews: .sectionHeaders) {
@@ -51,8 +50,7 @@ struct SelectShopSheetView: View {
         }.onAppear {
             viewModel.getShops()
         }.onReceive(viewModel.shopSelected) { result in
-            self.selectedShop = result.shop
-            self.isNew = result.isNew
+            self.selectedShop = result
             isPresent = false
         }
     }
@@ -62,6 +60,6 @@ struct SelectShopView_Previews: PreviewProvider {
     static var previews: some View {
         MockModuleInjector().inject()
         
-        return SelectShopSheetView(isPresent: .constant(false), selectedShop: .constant(nil), isNew: .constant(false))
+        return SelectShopSheetView(isPresent: .constant(false), selectedShop: .constant(nil))
     }
 }

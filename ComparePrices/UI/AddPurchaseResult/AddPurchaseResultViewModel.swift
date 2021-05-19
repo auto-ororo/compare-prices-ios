@@ -17,16 +17,31 @@ final class AddPurchaseResultViewModel: ObservableObject, Identifiable {
     @Published private(set) var isUpdatingPurchaseResult: Bool = false
     
     @Published var priceString: String = ""
-    @Published private var price: Int? = nil
-    
+    @Published private var price: Int?
+
     @Published var selectedCommodity: Commodity?
-    var isNewCommodity = false
-    
+
     @Published var selectedShop: Shop?
-    var isNewShop = false
+
+    @Published var sheet = SelectSheet()
     
-    @Published var showShopSheet = false
-    @Published var showCommoditySheet = false
+    struct SelectSheet {
+        var isShown = false
+        private(set) var targetItem = TargetItem.commodity
+    }
+    
+    enum TargetItem {
+        case commodity
+        case shop
+    }
+    
+    func showSelectCommoditySheet() {
+        sheet = SelectSheet(isShown: true, targetItem: .commodity)
+    }
+
+    func showSelectShopSheet() {
+        sheet = SelectSheet(isShown: true, targetItem: .shop)
+    }
 
     private(set) var finishedAddShopPrice = PassthroughSubject<Void, Never>()
     
@@ -37,30 +52,21 @@ final class AddPurchaseResultViewModel: ObservableObject, Identifiable {
         
         guard let selectedCommodity = selectedCommodity, let selectedShop = selectedShop, let price = self.price else { return }
         
-        let addCommodityPublisher = commodityRepository.addCommodity(selectedCommodity)
-        let addShopPublisher = shopRepository.addShop(selectedShop)
-        let addCommodityPricePublisher = commodityPriceRepository.addCommodityPrice(CommodityPrice(commodityId: selectedCommodity.id, shopId: selectedShop.id, price: price))
-        
-        Publishers.Zip3(
-            isNewCommodity ? addCommodityPublisher : .init { promise in promise(.success(())) },
-            isNewShop ? addShopPublisher : .init { promise in promise(.success(())) },
-            addCommodityPricePublisher
-        )
-        .sink(receiveCompletion: { [weak self] result in
-            switch result {
-            case let .failure(error):
-                print(error)
-            case .finished:
-                self?.finishedAddShopPrice.send(())
-            }
-            self?.isUpdatingPurchaseResult = true
-        }, receiveValue: { _ in }).store(in: &cancellables)
+        commodityPriceRepository.addCommodityPrice(CommodityPrice(commodityId: selectedCommodity.id, shopId: selectedShop.id, price: price))
+            .sink(receiveCompletion: { [weak self] result in
+                switch result {
+                case let .failure(error):
+                    print(error)
+                case .finished:
+                    self?.finishedAddShopPrice.send(())
+                }
+                self?.isUpdatingPurchaseResult = true
+            }, receiveValue: { _ in }).store(in: &cancellables)
     }
     
     func setSelectedCommodityIfParamExists(commodity: Commodity?) {
         guard let commodity = commodity else { return }
         selectedCommodity = commodity
-        isNewCommodity = false
     }
 
     init() {

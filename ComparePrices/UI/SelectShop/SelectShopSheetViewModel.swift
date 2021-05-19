@@ -14,14 +14,14 @@ final class SelectShopSheetViewModel: ObservableObject, Identifiable {
     private var cancellables: [AnyCancellable] = []
     
     @Published var searchWord: String = ""
-    private(set) var shopSelected = PassthroughSubject<(shop: Shop, isNew: Bool), Never>()
+    private(set) var shopSelected = PassthroughSubject<Shop, Never>()
     @Published private var shopList: [Shop] = []
     @Published private(set) var filteredShopList: [Shop] = []
     
     @Published private(set) var isEnabledAddButton: Bool = false
     
     func selectShop(shop: Shop) {
-        shopSelected.send((shop: shop, isNew: false))
+        shopSelected.send(shop)
     }
     
     func getShops() {
@@ -42,6 +42,18 @@ final class SelectShopSheetViewModel: ObservableObject, Identifiable {
     
     func selectNewShop() {
         shopRepository.getShop(searchWord)
+            .flatMap { [weak self] optionalShop -> AnyPublisher<Shop?, Error> in
+                if let shop = optionalShop {
+                    return Just(shop).setFailureType(to: Error.self).eraseToAnyPublisher()
+                }
+                
+                if let shopRepository = self?.shopRepository, let searchWord = self?.searchWord {
+                    let newShop = Shop(name: searchWord)
+                    return shopRepository.addShop(newShop).map { _ in newShop }.eraseToAnyPublisher()
+                } else {
+                    return Just(nil).setFailureType(to: Error.self).eraseToAnyPublisher()
+                }
+            }
             .sink(receiveCompletion: { result in
                 switch result {
                 case let .failure(error):
@@ -51,10 +63,7 @@ final class SelectShopSheetViewModel: ObservableObject, Identifiable {
                 }
             }, receiveValue: { [weak self] optionalShop in
                 if let shop = optionalShop {
-                    self?.shopSelected.send((shop: shop, isNew: false))
-                } else {
-                    guard let searchWord = self?.searchWord else { return }
-                    self?.shopSelected.send((shop: Shop(name: searchWord), isNew: true))
+                    self?.shopSelected.send(shop)
                 }
             }).store(in: &cancellables)
     }
