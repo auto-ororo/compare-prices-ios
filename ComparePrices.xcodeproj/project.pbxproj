@@ -27,8 +27,6 @@
 		2A93642C25C5974A00BD4FEA /* CommodityRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93642B25C5974A00BD4FEA /* CommodityRowView.swift */; };
 		2A93644825C6A30500BD4FEA /* CommodityListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93644725C6A30500BD4FEA /* CommodityListRow.swift */; };
 		2A93644D25C6BA6500BD4FEA /* CommodityListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93644C25C6BA6500BD4FEA /* CommodityListViewModel.swift */; };
-		2AC3EA4125EB61DF00E81AD5 /* AddCommodityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3EA4025EB61DF00E81AD5 /* AddCommodityView.swift */; };
-		2AC3EA4625EB66E900E81AD5 /* AddCommodityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3EA4525EB66E900E81AD5 /* AddCommodityViewModel.swift */; };
 		2AC3EA4C25EB967A00E81AD5 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3EA4B25EB967A00E81AD5 /* IntExtensions.swift */; };
 		2AC3EA5125EBD56900E81AD5 /* SubmitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3EA5025EBD56900E81AD5 /* SubmitButton.swift */; };
 		2AC3EA5625EBEDF400E81AD5 /* CommodityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3EA5525EBEDF400E81AD5 /* CommodityDetailView.swift */; };
@@ -36,8 +34,11 @@
 		2AF14CEE25E3D7F0004E901C /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF14CED25E3D7F0004E901C /* DIContainer.swift */; };
 		2AF14CF325E3DD40004E901C /* Injected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF14CF225E3DD40004E901C /* Injected.swift */; };
 		2AF14CFC25E3E821004E901C /* CommodityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF14CFB25E3E821004E901C /* CommodityRepository.swift */; };
-		7C292C4A26354BF00041CC7F /* AddShopPriceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C292C4926354BF00041CC7F /* AddShopPriceViewModel.swift */; };
-		7C292C4F26354C4B0041CC7F /* AddShopPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C292C4E26354C4B0041CC7F /* AddShopPriceView.swift */; };
+		2AFDEE0A2654AB7100F77283 /* GoogleService-Develop-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AFDEE092654AB6E00F77283 /* GoogleService-Develop-Info.plist */; };
+		7C0AAF3F264FE6FD00FC8B24 /* AddPurchaseResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0AAF3E264FE6FD00FC8B24 /* AddPurchaseResultView.swift */; };
+		7C0AAF41264FE8C700FC8B24 /* AddPurchaseResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0AAF40264FE8C700FC8B24 /* AddPurchaseResultViewModel.swift */; };
+		7C0AAF462650378900FC8B24 /* SelectCommoditySheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0AAF452650378900FC8B24 /* SelectCommoditySheetView.swift */; };
+		7C0AAF48265037F900FC8B24 /* SelectCommoditySheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0AAF47265037F900FC8B24 /* SelectCommoditySheetViewModel.swift */; };
 		7C3048CF2634128E00D1FBFE /* CommodityDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3048CE2634128E00D1FBFE /* CommodityDetailViewModel.swift */; };
 		7C3048D4263415CF00D1FBFE /* ShopPriceListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3048D3263415CF00D1FBFE /* ShopPriceListRow.swift */; };
 		7C44730F263BEB650001F9EB /* AddCircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44730E263BEB650001F9EB /* AddCircleButton.swift */; };
@@ -117,8 +118,6 @@
 		2A93642B25C5974A00BD4FEA /* CommodityRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityRowView.swift; sourceTree = "<group>"; };
 		2A93644725C6A30500BD4FEA /* CommodityListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityListRow.swift; sourceTree = "<group>"; };
 		2A93644C25C6BA6500BD4FEA /* CommodityListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityListViewModel.swift; sourceTree = "<group>"; };
-		2AC3EA4025EB61DF00E81AD5 /* AddCommodityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommodityView.swift; sourceTree = "<group>"; };
-		2AC3EA4525EB66E900E81AD5 /* AddCommodityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommodityViewModel.swift; sourceTree = "<group>"; };
 		2AC3EA4B25EB967A00E81AD5 /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
 		2AC3EA5025EBD56900E81AD5 /* SubmitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButton.swift; sourceTree = "<group>"; };
 		2AC3EA5525EBEDF400E81AD5 /* CommodityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityDetailView.swift; sourceTree = "<group>"; };
@@ -126,8 +125,11 @@
 		2AF14CED25E3D7F0004E901C /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		2AF14CF225E3DD40004E901C /* Injected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injected.swift; sourceTree = "<group>"; };
 		2AF14CFB25E3E821004E901C /* CommodityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityRepository.swift; sourceTree = "<group>"; };
-		7C292C4926354BF00041CC7F /* AddShopPriceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShopPriceViewModel.swift; sourceTree = "<group>"; };
-		7C292C4E26354C4B0041CC7F /* AddShopPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShopPriceView.swift; sourceTree = "<group>"; };
+		2AFDEE092654AB6E00F77283 /* GoogleService-Develop-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Develop-Info.plist"; sourceTree = "<group>"; };
+		7C0AAF3E264FE6FD00FC8B24 /* AddPurchaseResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPurchaseResultView.swift; sourceTree = "<group>"; };
+		7C0AAF40264FE8C700FC8B24 /* AddPurchaseResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPurchaseResultViewModel.swift; sourceTree = "<group>"; };
+		7C0AAF452650378900FC8B24 /* SelectCommoditySheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCommoditySheetView.swift; sourceTree = "<group>"; };
+		7C0AAF47265037F900FC8B24 /* SelectCommoditySheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCommoditySheetViewModel.swift; sourceTree = "<group>"; };
 		7C3048CE2634128E00D1FBFE /* CommodityDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommodityDetailViewModel.swift; sourceTree = "<group>"; };
 		7C3048D3263415CF00D1FBFE /* ShopPriceListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopPriceListRow.swift; sourceTree = "<group>"; };
 		7C44730E263BEB650001F9EB /* AddCircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCircleButton.swift; sourceTree = "<group>"; };
@@ -149,7 +151,6 @@
 		7C7801A7263AF82D00E8B571 /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		7C7801A9263B182700E8B571 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		7CA67019263C63D4007FCF10 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
-		7CC79C8F263C6AF4008536A0 /* GoogleService-Develop-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Develop-Info.plist"; sourceTree = "<group>"; };
 		7CC79C91263C6AFE008536A0 /* GoogleService-Production-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Production-Info.plist"; sourceTree = "<group>"; };
 		7CF965F5263EC09900775320 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7CF965F7263EC09D00775320 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -257,13 +258,13 @@
 		2A93641C25C56FD700BD4FEA /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				7C0AAF442650375F00FC8B24 /* SelectCommodity */,
+				7C0AAF3D264FE67800FC8B24 /* AddPurchaseResult */,
 				2AE4A97225D961230022D873 /* Common */,
 				7C7801A6263AF7DD00E8B571 /* Navigation */,
 				7C545671263FD1F30089B4CE /* Splash */,
-				7C545670263FD1D90089B4CE /* AddShopPrice */,
 				7C54566F263FD1CA0089B4CE /* SelectShop */,
 				7C54566E263FD1A50089B4CE /* CommodityDetail */,
-				7C54566D263FD18B0089B4CE /* AddCommodity */,
 				7C54566C263FD15B0089B4CE /* CommodityList */,
 				2A9363ED25C56D4A00BD4FEA /* ComparePricesApp.swift */,
 				2A9363EF25C56D4A00BD4FEA /* ContentView.swift */,
@@ -327,6 +328,24 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
+		7C0AAF3D264FE67800FC8B24 /* AddPurchaseResult */ = {
+			isa = PBXGroup;
+			children = (
+				7C0AAF3E264FE6FD00FC8B24 /* AddPurchaseResultView.swift */,
+				7C0AAF40264FE8C700FC8B24 /* AddPurchaseResultViewModel.swift */,
+			);
+			path = AddPurchaseResult;
+			sourceTree = "<group>";
+		};
+		7C0AAF442650375F00FC8B24 /* SelectCommodity */ = {
+			isa = PBXGroup;
+			children = (
+				7C0AAF452650378900FC8B24 /* SelectCommoditySheetView.swift */,
+				7C0AAF47265037F900FC8B24 /* SelectCommoditySheetViewModel.swift */,
+			);
+			path = SelectCommodity;
+			sourceTree = "<group>";
+		};
 		7C54566C263FD15B0089B4CE /* CommodityList */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,15 +354,6 @@
 				2A93644C25C6BA6500BD4FEA /* CommodityListViewModel.swift */,
 			);
 			path = CommodityList;
-			sourceTree = "<group>";
-		};
-		7C54566D263FD18B0089B4CE /* AddCommodity */ = {
-			isa = PBXGroup;
-			children = (
-				2AC3EA4525EB66E900E81AD5 /* AddCommodityViewModel.swift */,
-				2AC3EA4025EB61DF00E81AD5 /* AddCommodityView.swift */,
-			);
-			path = AddCommodity;
 			sourceTree = "<group>";
 		};
 		7C54566E263FD1A50089B4CE /* CommodityDetail */ = {
@@ -362,15 +372,6 @@
 				2A29C2DF2607907B00953618 /* SelectShopSheetViewModel.swift */,
 			);
 			path = SelectShop;
-			sourceTree = "<group>";
-		};
-		7C545670263FD1D90089B4CE /* AddShopPrice */ = {
-			isa = PBXGroup;
-			children = (
-				7C292C4926354BF00041CC7F /* AddShopPriceViewModel.swift */,
-				7C292C4E26354C4B0041CC7F /* AddShopPriceView.swift */,
-			);
-			path = AddShopPrice;
 			sourceTree = "<group>";
 		};
 		7C545671263FD1F30089B4CE /* Splash */ = {
@@ -462,7 +463,7 @@
 		7CC79C8D263C698B008536A0 /* Develop */ = {
 			isa = PBXGroup;
 			children = (
-				7CC79C8F263C6AF4008536A0 /* GoogleService-Develop-Info.plist */,
+				2AFDEE092654AB6E00F77283 /* GoogleService-Develop-Info.plist */,
 			);
 			path = Develop;
 			sourceTree = "<group>";
@@ -562,7 +563,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					2A9363E925C56D4A00BD4FEA = {
 						CreatedOnToolsVersion = 12.4;
@@ -610,6 +611,7 @@
 			files = (
 				2A9363F525C56D4A00BD4FEA /* Preview Assets.xcassets in Resources */,
 				7CF965F6263EC09900775320 /* Localizable.strings in Resources */,
+				2AFDEE0A2654AB7100F77283 /* GoogleService-Develop-Info.plist in Resources */,
 				2A9363F225C56D4A00BD4FEA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -716,6 +718,7 @@
 				7C54566B263FAB600089B4CE /* SplashViewModel.swift in Sources */,
 				7C3048D4263415CF00D1FBFE /* ShopPriceListRow.swift in Sources */,
 				7C7801AA263B182700E8B571 /* Header.swift in Sources */,
+				7C0AAF41264FE8C700FC8B24 /* AddPurchaseResultViewModel.swift in Sources */,
 				7C545674263FD80F0089B4CE /* MockShopRepository.swift in Sources */,
 				2A9363F025C56D4A00BD4FEA /* ContentView.swift in Sources */,
 				2AF14CF325E3DD40004E901C /* Injected.swift in Sources */,
@@ -727,17 +730,16 @@
 				2A93642C25C5974A00BD4FEA /* CommodityRowView.swift in Sources */,
 				2AF14CEE25E3D7F0004E901C /* DIContainer.swift in Sources */,
 				7C4A8D7326404119003E86B1 /* DocumentReferenceExtensions.swift in Sources */,
-				2AC3EA4125EB61DF00E81AD5 /* AddCommodityView.swift in Sources */,
+				7C0AAF462650378900FC8B24 /* SelectCommoditySheetView.swift in Sources */,
 				7C545687263FE2690089B4CE /* FirestoreCollections.swift in Sources */,
 				2AC3EA4C25EB967A00E81AD5 /* IntExtensions.swift in Sources */,
 				2A29C2E5260791A800953618 /* ShopListRow.swift in Sources */,
 				2A4BD9F4262C684200BEC349 /* ModuleInjector.swift in Sources */,
 				2A64664425F3530700CE770E /* ContentViewModel.swift in Sources */,
 				7C54567D263FD9760089B4CE /* MockAuthRepository.swift in Sources */,
+				7C0AAF48265037F900FC8B24 /* SelectCommoditySheetViewModel.swift in Sources */,
 				7C54567F263FD9810089B4CE /* FirebaseAuthRepository.swift in Sources */,
-				7C292C4F26354C4B0041CC7F /* AddShopPriceView.swift in Sources */,
 				2AE4A97425D961510022D873 /* NavigationBackButton.swift in Sources */,
-				2AC3EA4625EB66E900E81AD5 /* AddCommodityViewModel.swift in Sources */,
 				2A29C2D826078D1D00953618 /* SelectShopSheetView.swift in Sources */,
 				7C545669263FAA8F0089B4CE /* SplashView.swift in Sources */,
 				2AC3EA5625EBEDF400E81AD5 /* CommodityDetailView.swift in Sources */,
@@ -745,12 +747,12 @@
 				7C545685263FDFD10089B4CE /* FirestoreExtensions.swift in Sources */,
 				2A64666425F49CE000CE770E /* CommodityPrice.swift in Sources */,
 				2A93642125C5723000BD4FEA /* CommodityListView.swift in Sources */,
-				7C292C4A26354BF00041CC7F /* AddShopPriceViewModel.swift in Sources */,
 				7CF96603263EF0F600775320 /* RswiftResourceExtensions.swift in Sources */,
 				7C4A8D7526404AFB003E86B1 /* FirestoreShopRepository.swift in Sources */,
 				7CF965FD263EEBEA00775320 /* R.generated.swift in Sources */,
 				2AC3EA5125EBD56900E81AD5 /* SubmitButton.swift in Sources */,
 				2A64666925F4A34C00CE770E /* CommodityPriceRepository.swift in Sources */,
+				7C0AAF3F264FE6FD00FC8B24 /* AddPurchaseResultView.swift in Sources */,
 				7C4A8D77264050F6003E86B1 /* FirestoreCommodityPriceRepository.swift in Sources */,
 				2A64664F25F4894B00CE770E /* Commodity.swift in Sources */,
 				2A9363EE25C56D4A00BD4FEA /* ComparePricesApp.swift in Sources */,
@@ -814,6 +816,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -938,6 +941,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1068,6 +1072,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

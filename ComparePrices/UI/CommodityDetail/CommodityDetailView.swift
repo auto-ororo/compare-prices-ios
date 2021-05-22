@@ -33,6 +33,7 @@ struct CommodityDetailView: View {
                     HStack {
                         Text(shopPrice.rank.description)
                         Text(shopPrice.shop.name)
+                            .foregroundColor(shopPrice.shop.isEnabled ? .black : .gray)
                         Spacer()
                         Text(shopPrice.price.descriptionWithCurrency())
                     }
@@ -45,7 +46,7 @@ struct CommodityDetailView: View {
                 HStack {
                     Spacer()
                     AddCircleButton(action: {
-                        navigator.navigate(to: .addShopPrice(commodity), direction: .next)
+                        navigator.navigate(to: .addPurchaseResult(commodity), direction: .next)
                     })
                 }
             }

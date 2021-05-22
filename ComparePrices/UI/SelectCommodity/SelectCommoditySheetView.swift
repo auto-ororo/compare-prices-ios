@@ -1,29 +1,29 @@
 //
-//  SelectShopSheetView.swift
+//  SelectCommoditySheetView.swift
 //  ComparePrices
 //
-//  Created by Ryo Narisawa on 2021/03/21.
+//  Created by ororo on 2021/05/16.
 //
 
 import SwiftUI
 
-struct SelectShopSheetView: View {
-    @StateObject private var viewModel = SelectShopSheetViewModel()
+struct SelectCommoditySheetView: View {
+    @StateObject private var viewModel = SelectCommoditySheetViewModel()
     
     @Binding var isPresent: Bool
-    @Binding var selectedShop: Shop?
+    @Binding var selectedCommodity: Commodity?
     
-    @State private var targetShop: Shop?
+    @State private var targetCommodity: Commodity?
 
     var body: some View {
         VStack {
             // 検索欄
             HStack {
-                TextField("店舗名を入力", text: $viewModel.searchWord)
+                TextField("商品を入力", text: $viewModel.searchWord)
                     .textFieldStyle(RoundedBorderTextFieldStyle()).padding(.leading, 8)
                 Button(
                     action: {
-                        viewModel.addShop()
+                        viewModel.addCommodity()
                     },
                     label: {
                         Text("追加").foregroundColor(R.color.primary.color).font(.headline)
@@ -37,30 +37,30 @@ struct SelectShopSheetView: View {
             
             ScrollView {
                 LazyVStack(pinnedViews: .sectionHeaders) {
-                    ForEach(viewModel.filteredShopList) { shop in
+                    ForEach(viewModel.filteredCommodityList) { commodity in
                         HStack {
-                            Text(shop.name).font(.title3)
+                            Text(commodity.name).font(.title3)
                             Spacer()
                         }.padding(8).contentShape(Rectangle())
                             .onTapGesture {
-                                viewModel.selectShop(shop: shop)
+                                viewModel.selectCommodity(commodity: commodity)
                             }
                             .onLongPressGesture {
-                                targetShop = shop
+                                targetCommodity = commodity
                             }
                         Divider()
                     }
                 }
             }
         }.onAppear {
-            viewModel.observeShops()
-        }.onReceive(viewModel.shopSelected) { result in
-            self.selectedShop = result
+            viewModel.observeCommodities()
+        }.onReceive(viewModel.commoditySelected) { result in
+            self.selectedCommodity = result
             isPresent = false
-        }.actionSheet(item: $targetShop) { shop in
-            ActionSheet(title: Text(shop.name), message: nil, buttons: [
+        }.actionSheet(item: $targetCommodity) { commodity in
+            ActionSheet(title: Text(commodity.name), message: nil, buttons: [
                 .destructive(Text("削除")) {
-                    viewModel.deleteShop(shop: shop)
+                    viewModel.deleteCommodity(commodity: commodity)
                 },
                 .cancel()
             ])
@@ -68,10 +68,10 @@ struct SelectShopSheetView: View {
     }
 }
 
-struct SelectShopView_Previews: PreviewProvider {
+struct SelectCommodityView_Previews: PreviewProvider {
     static var previews: some View {
         MockModuleInjector().inject()
         
-        return SelectShopSheetView(isPresent: .constant(false), selectedShop: .constant(nil))
+        return SelectCommoditySheetView(isPresent: .constant(false), selectedCommodity: .constant(nil))
     }
 }
