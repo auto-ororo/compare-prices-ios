@@ -33,6 +33,7 @@ struct CommodityDetailView: View {
                     HStack {
                         Text(shopPrice.rank.description)
                         Text(shopPrice.shop.name)
+                            .foregroundColor(shopPrice.shop.isEnabled ? .black : .gray)
                         Spacer()
                         Text(shopPrice.price.descriptionWithCurrency())
                     }

@@ -18,7 +18,7 @@ struct AddPurchaseResultView: View {
         VStack(alignment: .leading) {
             Header(backButtonAction:
                 back,
-                title: "履歴登録")
+                title: "買い物登録")
             
             HStack {
                 Text("商品").font(.headline).frame(width: 70, alignment: .trailing)

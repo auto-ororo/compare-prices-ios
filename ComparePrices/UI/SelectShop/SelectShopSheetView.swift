@@ -12,16 +12,18 @@ struct SelectShopSheetView: View {
     
     @Binding var isPresent: Bool
     @Binding var selectedShop: Shop?
+    
+    @State private var targetShop: Shop?
 
     var body: some View {
         VStack {
             // 検索欄
             HStack {
-                TextField("店名を入力", text: $viewModel.searchWord)
+                TextField("店舗名を入力", text: $viewModel.searchWord)
                     .textFieldStyle(RoundedBorderTextFieldStyle()).padding(.leading, 8)
                 Button(
                     action: {
-                        viewModel.selectNewShop()
+                        viewModel.addShop()
                     },
                     label: {
                         Text("追加").foregroundColor(R.color.primary.color).font(.headline)
@@ -43,15 +45,25 @@ struct SelectShopSheetView: View {
                             .onTapGesture {
                                 viewModel.selectShop(shop: shop)
                             }
+                            .onLongPressGesture {
+                                targetShop = shop
+                            }
                         Divider()
                     }
                 }
             }
         }.onAppear {
-            viewModel.getShops()
+            viewModel.observeShops()
         }.onReceive(viewModel.shopSelected) { result in
             self.selectedShop = result
             isPresent = false
+        }.actionSheet(item: $targetShop) { shop in
+            ActionSheet(title: Text(shop.name), message: nil, buttons: [
+                .destructive(Text("削除")) {
+                    viewModel.deleteShop(shop: shop)
+                },
+                .cancel()
+            ])
         }
     }
 }

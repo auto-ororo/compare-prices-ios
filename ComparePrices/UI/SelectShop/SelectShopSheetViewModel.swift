@@ -24,8 +24,9 @@ final class SelectShopSheetViewModel: ObservableObject, Identifiable {
         shopSelected.send(shop)
     }
     
-    func getShops() {
-        shopRepository.getShops()
+    func observeShops() {
+        shopRepository.observeShops()
+            .map { $0.filter(\.isEnabled) }
             .sink(receiveCompletion: { result in
                       switch result {
                       case let .failure(error):
@@ -40,32 +41,45 @@ final class SelectShopSheetViewModel: ObservableObject, Identifiable {
             .store(in: &cancellables)
     }
     
-    func selectNewShop() {
+    func addShop() {
         shopRepository.getShop(searchWord)
-            .flatMap { [weak self] optionalShop -> AnyPublisher<Shop?, Error> in
-                if let shop = optionalShop {
-                    return Just(shop).setFailureType(to: Error.self).eraseToAnyPublisher()
-                }
-                
-                if let shopRepository = self?.shopRepository, let searchWord = self?.searchWord {
-                    let newShop = Shop(name: searchWord)
-                    return shopRepository.addShop(newShop).map { _ in newShop }.eraseToAnyPublisher()
+            .map { optionalShop -> Shop? in
+                if optionalShop?.isEnabled == true {
+                    return optionalShop
                 } else {
-                    return Just(nil).setFailureType(to: Error.self).eraseToAnyPublisher()
+                    return nil
                 }
             }
-            .sink(receiveCompletion: { result in
+            .flatMap { [weak self] optionalShop -> AnyPublisher<Void, Error> in
+                if optionalShop == nil, let shopRepository = self?.shopRepository, let searchWord = self?.searchWord {
+                    return shopRepository.addShop(Shop(name: searchWord)).eraseToAnyPublisher()
+                } else {
+                    return Just(()).setFailureType(to: Error.self).eraseToAnyPublisher()
+                }
+            }
+            .sink(receiveCompletion: { [weak self] result in
                 switch result {
                 case let .failure(error):
                     print(error)
                 default:
+                    self?.searchWord.removeAll()
+                }
+            }, receiveValue: { _ in }).store(in: &cancellables)
+    }
+    
+    func deleteShop(shop: Shop) {
+        var disabledShop = shop
+        disabledShop.isEnabled = false
+        shopRepository.updateShop(disabledShop)
+            .sink(receiveCompletion: { result in
+                switch result {
+                case let .failure(error):
+                    print(error)
+                case .finished:
                     break
                 }
-            }, receiveValue: { [weak self] optionalShop in
-                if let shop = optionalShop {
-                    self?.shopSelected.send(shop)
-                }
-            }).store(in: &cancellables)
+            }, receiveValue: {})
+            .store(in: &cancellables)
     }
     
     func validateAddButton() {

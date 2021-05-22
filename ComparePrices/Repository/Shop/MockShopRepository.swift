@@ -36,15 +36,15 @@ final class MockShopRepository: ShopRepository {
         }
     }
     
-    func removeShop(_ shop: Shop) -> Future<Void, Error> {
-        Future<Void, Error> { promise in
+    func updateShop(_ shop: Shop) -> Future<Void, Error> {
+        .init { promise in
             guard let index = SingletonShops.shared.shops.firstIndex(where: { $0.id == shop.id }) else {
                 print("shop not found")
                 promise(.failure(NSError()))
                 return
             }
 
-            SingletonShops.shared.shops.remove(at: index)
+            SingletonShops.shared.shops[index] = shop
             promise(.success(()))
         }
     }
@@ -70,5 +70,9 @@ final class MockShopRepository: ShopRepository {
         .init { promise in
             promise(.success(SingletonShops.shared.shops.first { $0.name == name }))
         }
+    }
+    
+    func observeShops() -> AnyPublisher<[Shop], Error> {
+        SingletonShops.shared.$shops.setFailureType(to: Error.self).eraseToAnyPublisher()
     }
 }
