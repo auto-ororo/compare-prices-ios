@@ -12,6 +12,8 @@ struct SelectCommoditySheetView: View {
     
     @Binding var isPresent: Bool
     @Binding var selectedCommodity: Commodity?
+    
+    @State private var targetCommodity: Commodity?
 
     var body: some View {
         VStack {
@@ -21,7 +23,7 @@ struct SelectCommoditySheetView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle()).padding(.leading, 8)
                 Button(
                     action: {
-                        viewModel.selectNewCommodity()
+                        viewModel.addCommodity()
                     },
                     label: {
                         Text("追加").foregroundColor(R.color.primary.color).font(.headline)
@@ -43,15 +45,25 @@ struct SelectCommoditySheetView: View {
                             .onTapGesture {
                                 viewModel.selectCommodity(commodity: commodity)
                             }
+                            .onLongPressGesture {
+                                targetCommodity = commodity
+                            }
                         Divider()
                     }
                 }
             }
         }.onAppear {
-            viewModel.getCommodities()
+            viewModel.observeCommodities()
         }.onReceive(viewModel.commoditySelected) { result in
             self.selectedCommodity = result
             isPresent = false
+        }.actionSheet(item: $targetCommodity) { commodity in
+            ActionSheet(title: Text(commodity.name), message: nil, buttons: [
+                .destructive(Text("削除")) {
+                    viewModel.deleteCommodity(commodity: commodity)
+                },
+                .cancel()
+            ])
         }
     }
 }

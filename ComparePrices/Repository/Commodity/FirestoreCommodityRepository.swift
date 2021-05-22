@@ -13,6 +13,14 @@ import Foundation
 
 final class FirestoreCommodityRepository: CommodityRepository {
     func addCommodity(_ commodity: Commodity) -> Future<Void, Error> {
+        setCommodity(commodity)
+    }
+    
+    func updateCommodity(_ commodity: Commodity) -> Future<Void, Error> {
+        setCommodity(commodity)
+    }
+
+    private func setCommodity(_ commodity: Commodity) -> Future<Void, Error> {
         let userId = Auth.auth().currentUser!.uid
         return Firestore.commodityDocRef(userId: userId, commodityId: commodity.id.uuidString).setData(document: commodity)
     }
@@ -35,5 +43,10 @@ final class FirestoreCommodityRepository: CommodityRepository {
     func getCommodity(name: String) -> Future<Commodity?, Error> {
         let userId = Auth.auth().currentUser!.uid
         return Firestore.commodityColRef(userId: userId).whereField("name", isEqualTo: name).getDocument()
+    }
+    
+    func observeCommodities() -> AnyPublisher<[Commodity], Error> {
+        let userId = Auth.auth().currentUser!.uid
+        return Firestore.commodityColRef(userId: userId).observeDocuments()
     }
 }

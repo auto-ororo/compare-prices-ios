@@ -79,4 +79,21 @@ final class MockCommodityRepository: CommodityRepository {
             promise(.success(SingletonCommodities.shared.commodities.first { $0.name == name }))
         }
     }
+    
+    func updateCommodity(_ commodity: Commodity) -> Future<Void, Error> {
+        .init { promise in
+            guard let index = SingletonCommodities.shared.commodities.firstIndex(where: { $0.id == commodity.id }) else {
+                print("not found")
+                promise(.failure(NSError()))
+                return
+            }
+
+            SingletonCommodities.shared.commodities[index] = commodity
+            promise(.success(()))
+        }
+    }
+    
+    func observeCommodities() -> AnyPublisher<[Commodity], Error> {
+        SingletonCommodities.shared.$commodities.setFailureType(to: Error.self).eraseToAnyPublisher()
+    }
 }

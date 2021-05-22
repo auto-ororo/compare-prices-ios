@@ -11,6 +11,8 @@ import Foundation
 protocol CommodityRepository {
     func addCommodity(_ commodity: Commodity) -> Future<Void, Error>
     
+    func updateCommodity(_ commodity: Commodity) -> Future<Void, Error>
+    
     func removeCommodity(_ commodity: Commodity) -> Future<Void, Error>
 
     func getCommodities() -> Future<[Commodity], Error>
@@ -18,4 +20,6 @@ protocol CommodityRepository {
     func getCommodity(id: UUID) -> Future<Commodity?, Error>
     
     func getCommodity(name: String) -> Future<Commodity?, Error>
+    
+    func observeCommodities() -> AnyPublisher<[Commodity], Error>
 }

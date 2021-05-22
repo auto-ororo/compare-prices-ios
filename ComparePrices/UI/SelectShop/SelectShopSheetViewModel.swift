@@ -44,11 +44,7 @@ final class SelectShopSheetViewModel: ObservableObject, Identifiable {
     func addShop() {
         shopRepository.getShop(searchWord)
             .map { optionalShop -> Shop? in
-                if optionalShop?.isEnabled == true {
-                    return optionalShop
-                } else {
-                    return nil
-                }
+                optionalShop?.isEnabled == true ? optionalShop : nil
             }
             .flatMap { [weak self] optionalShop -> AnyPublisher<Void, Error> in
                 if optionalShop == nil, let shopRepository = self?.shopRepository, let searchWord = self?.searchWord {
@@ -61,7 +57,7 @@ final class SelectShopSheetViewModel: ObservableObject, Identifiable {
                 switch result {
                 case let .failure(error):
                     print(error)
-                default:
+                case .finished:
                     self?.searchWord.removeAll()
                 }
             }, receiveValue: { _ in }).store(in: &cancellables)

@@ -24,8 +24,8 @@ final class SelectCommoditySheetViewModel: ObservableObject, Identifiable {
         commoditySelected.send(commodity)
     }
     
-    func getCommodities() {
-        commodityRepository.getCommodities()
+    func observeCommodities() {
+        commodityRepository.observeCommodities()
             .sink(receiveCompletion: { result in
                       switch result {
                       case let .failure(error):
@@ -40,32 +40,41 @@ final class SelectCommoditySheetViewModel: ObservableObject, Identifiable {
             .store(in: &cancellables)
     }
     
-    func selectNewCommodity() {
-        commodityRepository.getCommodity(name: searchWord).flatMap { [weak self] optionalCommodity -> AnyPublisher<Commodity?, Error> in
-            if let commodity = optionalCommodity {
-                return Just(commodity).setFailureType(to: Error.self).eraseToAnyPublisher()
+    func addCommodity() {
+        commodityRepository.getCommodity(name: searchWord)
+            .map { optionalCommodity -> Commodity? in
+                optionalCommodity?.isEnabled == true ? optionalCommodity : nil
             }
-                
-            if let commodityRepository = self?.commodityRepository, let searchWord = self?.searchWord {
-                let newCommodity = Commodity(name: searchWord)
-                return commodityRepository.addCommodity(newCommodity).map { _ in newCommodity }.eraseToAnyPublisher()
-                
-            } else {
-                return Just(nil).setFailureType(to: Error.self).eraseToAnyPublisher()
+            .flatMap { [weak self] optionalCommodity -> AnyPublisher<Void, Error> in
+                if optionalCommodity == nil, let commodityRepository = self?.commodityRepository, let searchWord = self?.searchWord {
+                    return commodityRepository.addCommodity(Commodity(name: searchWord)).eraseToAnyPublisher()
+                } else {
+                    return Just(()).setFailureType(to: Error.self).eraseToAnyPublisher()
+                }
             }
-        }
-        .sink(receiveCompletion: { result in
-            switch result {
-            case let .failure(error):
-                print(error)
-            default:
-                break
-            }
-        }, receiveValue: { [weak self] optionalCommodity in
-            if let commodity = optionalCommodity {
-                self?.commoditySelected.send(commodity)
-            }
-        }).store(in: &cancellables)
+            .sink(receiveCompletion: { [weak self] result in
+                switch result {
+                case let .failure(error):
+                    print(error)
+                case .finished:
+                    self?.searchWord.removeAll()
+                }
+            }, receiveValue: { _ in }).store(in: &cancellables)
+    }
+    
+    func deleteCommodity(commodity: Commodity) {
+        var disabledCommodity = commodity
+        disabledCommodity.isEnabled = false
+        commodityRepository.updateCommodity(disabledCommodity)
+            .sink(receiveCompletion: { result in
+                switch result {
+                case let .failure(error):
+                    print(error)
+                case .finished:
+                    break
+                }
+            }, receiveValue: {})
+            .store(in: &cancellables)
     }
     
     func validateAddButton() {
