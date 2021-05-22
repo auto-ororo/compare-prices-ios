@@ -26,6 +26,7 @@ final class SelectCommoditySheetViewModel: ObservableObject, Identifiable {
     
     func observeCommodities() {
         commodityRepository.observeCommodities()
+            .map { $0.filter(\.isEnabled) }
             .sink(receiveCompletion: { result in
                       switch result {
                       case let .failure(error):
