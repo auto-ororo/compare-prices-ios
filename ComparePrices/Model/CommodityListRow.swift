@@ -12,4 +12,5 @@ struct CommodityListRow: Identifiable {
     var commodity: Commodity
     var lowestPrice: Int
     var mostInexpensiveShop: Shop
+    var lastPurchaseDate: Date
 }

@@ -15,38 +15,28 @@ struct CommodityListView: View {
     @State var showAddView: Bool = false
     
     var body: some View {
-        ZStack {
-            VStack {
-                Header(title: "商品リスト")
+        VStack {
+            Header(title: "底値リスト")
                 
-                // 検索欄
-                HStack {
-                    Image(systemName: "magnifyingglass").foregroundColor(.blue).padding(8)
-                    TextField("商品名を入力", text: $viewModel.searchWord)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                }.padding(.horizontal, 8)
+            // 検索欄
+            HStack {
+                Image(systemName: "magnifyingglass").foregroundColor(.blue).padding(8)
+                TextField("商品名を入力", text: $viewModel.searchWord)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            }.padding(.horizontal, 8)
                 
-                // 品物リスト
-                List(viewModel.filteredCommodityList) { commodityListRow in
-                    Button(action: {
-                               navigator.navigate(to: .commodityDetail(commodityListRow.commodity), direction: .next)
-                           },
-                           label: {
-                               CommodityRowView(commodityListRow: commodityListRow)
-                           })
-                }.listStyle(PlainListStyle())
-            }
-            
-            // Floating Button
-            VStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    AddCircleButton(action: {
-                        navigator.navigate(to: .addPurchaseResult(nil), direction: .next)
-                    })
-                }
-            }
+            List(viewModel.filteredCommodityList) { commodityListRow in
+                Button(action: {
+                           navigator.navigate(to: .commodityDetail(commodityListRow.commodity), direction: .next)
+                       },
+                       label: {
+                           CommodityRowView(commodityListRow: commodityListRow)
+                       })
+            }.listStyle(PlainListStyle())
+                
+            SubmitButton(text: "買い物登録") {
+                navigator.navigate(to: .addPurchaseResult(nil), direction: .next)
+            }.padding()
         }.onAppear {
             viewModel.getCommodities()
         }

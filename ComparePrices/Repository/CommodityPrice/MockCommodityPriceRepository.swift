@@ -34,7 +34,7 @@ final class MockCommodityPriceRepository: CommodityPriceRepository {
     }
     
     func removeCommodityPrice(_ purchaseResult: CommodityPrice) -> Future<Void, Error> {
-        Future<Void, Error> { promise in
+        .init { promise in
             guard let index = SingletonCommodities.shared.commoditiyPrices.firstIndex(where: { $0.id == purchaseResult.id }) else {
                 print("CommodityPrice not found")
                 promise(.failure(NSError()))
@@ -47,8 +47,15 @@ final class MockCommodityPriceRepository: CommodityPriceRepository {
     }
     
     func getLowestCommodityPrice(_ commodityId: UUID) -> Future<CommodityPrice?, Error> {
-        Future<CommodityPrice?, Error> { promise in
+        .init { promise in
             let commodityPrice = SingletonCommodities.shared.commoditiyPrices.filter { $0.commodityId == commodityId }.min(by: { $1.price > $0.price })
+            promise(.success(commodityPrice))
+        }
+    }
+    
+    func getNewestCommodityPrice(_ commodityId: UUID) -> Future<CommodityPrice?, Error> {
+        .init { promise in
+            let commodityPrice = SingletonCommodities.shared.commoditiyPrices.filter { $0.commodityId == commodityId }.min(by: { $1.purchaseDate < $0.purchaseDate })
             promise(.success(commodityPrice))
         }
     }

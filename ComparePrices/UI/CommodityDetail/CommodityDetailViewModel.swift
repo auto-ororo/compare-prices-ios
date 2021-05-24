@@ -29,7 +29,7 @@ final class CommodityDetailViewModel: ObservableObject, Identifiable {
             .flatMap(maxPublishers: .max(1)) { commodities in commodities.publisher }
             .compactMap { [weak self] commodityPrice in
                 self?.shopRepository.getShop(commodityPrice.shopId).flatMap { shop in
-                    Just(ShopPriceListRow(rank: rank, shop: shop, price: commodityPrice.price))
+                    Just(ShopPriceListRow(rank: rank, shop: shop, price: commodityPrice.price, purchaseDate: commodityPrice.purchaseDate))
                 }
             }.flatMap { $0 }
             .handleEvents(receiveOutput: { _ in rank += 1 })

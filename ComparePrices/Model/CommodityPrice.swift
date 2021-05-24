@@ -12,6 +12,7 @@ struct CommodityPrice: Codable {
     var commodityId: UUID
     var shopId: UUID
     var price: Int
+    var purchaseDate = Date()
     var createdAt = Date()
     var updatedAt = Date()
 }

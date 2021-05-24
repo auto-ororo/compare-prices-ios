@@ -26,7 +26,12 @@ final class FirestoreCommodityPriceRepository: CommodityPriceRepository {
         let userId = Auth.auth().currentUser!.uid
         return Firestore.commodityPriceColRef(userId: userId, commodityId: commodityId.uuidString).order(by: "price").limit(to: 1).getDocument()
     }
-
+    
+    func getNewestCommodityPrice(_ commodityId: UUID) -> Future<CommodityPrice?, Error> {
+        let userId = Auth.auth().currentUser!.uid
+        return Firestore.commodityPriceColRef(userId: userId, commodityId: commodityId.uuidString).order(by: "purchaseDate", descending: true).limit(to: 1).getDocument()
+    }
+    
     func getCommodityPrices(_ commodityId: UUID) -> Future<[CommodityPrice], Error> {
         let userId = Auth.auth().currentUser!.uid
         return Firestore.commodityPriceColRef(userId: userId, commodityId: commodityId.uuidString).getDocuments()

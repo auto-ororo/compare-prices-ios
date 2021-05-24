@@ -14,21 +14,22 @@ struct Header: View {
     
     var body: some View {
         VStack(alignment: .center) {
+            Rectangle().frame(width: 0, height: 0, alignment: .center)
             HStack(alignment: .center) {
                 if let action = backButtonAction {
                     NavigationBackButton(action: action).frame(width: 50)
                 } else {
-                    Text("").frame(width: 50)
+                    Rectangle().frame(width: 50, height: 0)
                 }
                 
                 Spacer()
                 
-                Text(title).font(.title2)
+                Text(title).font(.title3)
                 
                 Spacer()
 
                 Text("").frame(width: 50)
-            }.padding(.vertical, 8)
+            }.padding(.vertical, 4)
             Divider().padding(0)
         }
     }
@@ -36,6 +37,6 @@ struct Header: View {
 
 struct Header_Previews: PreviewProvider {
     static var previews: some View {
-        Header(title: "タイトル")
+        Header(backButtonAction: {}, title: "タイトル")
     }
 }

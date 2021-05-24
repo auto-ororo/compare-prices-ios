@@ -12,4 +12,5 @@ struct ShopPriceListRow: Identifiable {
     var rank: Int
     var shop: Shop
     var price: Int
+    var purchaseDate: Date
 }

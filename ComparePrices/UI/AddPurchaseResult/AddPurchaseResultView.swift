@@ -45,6 +45,11 @@ struct AddPurchaseResultView: View {
                 TextField("価格", text: $viewModel.priceString)
                     .keyboardType(.numberPad).padding().textFieldStyle(RoundedBorderTextFieldStyle())
             }
+            
+            HStack {
+                Text("購入日時").font(.headline).frame(width: 70, alignment: .trailing)
+                DatePicker("", selection: $viewModel.purchaseDate).labelsHidden().padding()
+            }
             Spacer()
             SubmitButton(text: "登録", action: { viewModel.addPurchaseResult() }, isActive: viewModel.isButtonEnabled).padding()
             
@@ -54,7 +59,7 @@ struct AddPurchaseResultView: View {
         .onAppear {
             viewModel.setSelectedCommodityIfParamExists(commodity: commodity)
         }
-        .sheet(isPresented: $viewModel.sheet.isShown) {
+        .fullScreenCover(isPresented: $viewModel.sheet.isShown) {
             switch viewModel.sheet.targetItem {
             case .commodity:
                 SelectCommoditySheetView(isPresent: $viewModel.sheet.isShown, selectedCommodity: $viewModel.selectedCommodity)
@@ -75,19 +80,6 @@ struct AddPurchaseResultView: View {
             navigation.navigate(to: .commodityDetail(commodity), direction: .back)
         } else {
             navigation.navigate(to: .commodityList, direction: .back)
-        }
-    }
-    
-    private struct InputTextLayout: View {
-        var label: String
-        
-        var bindingText: Binding<String>
-        
-        var body: some View {
-            HStack {
-                Text(label).font(.headline).frame(width: 70, alignment: .trailing)
-                TextField("", text: bindingText).padding().textFieldStyle(RoundedBorderTextFieldStyle())
-            }
         }
     }
 }

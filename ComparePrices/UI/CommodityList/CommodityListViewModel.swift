@@ -24,15 +24,27 @@ final class CommodityListViewModel: ObservableObject, Identifiable {
         
         // ユーザーが登録した商品リスト、及び各商品の最安値・購入店を取得
         commodityRepository.getCommodities()
-            .flatMap { commodities in commodities.publisher }
-            .compactMap { [weak self] commodity in
-                self?.commodityPriceRepository.getLowestCommodityPrice(commodity.id).compactMap { $0 }
-                    .compactMap { [weak self] commodityPrice in
-                        self?.shopRepository.getShop(commodityPrice.shopId).flatMap { shop in
-                            Just(CommodityListRow(commodity: commodity, lowestPrice: commodityPrice.price, mostInexpensiveShop: shop))
-                        }
-                    }.flatMap { $0 }
-            }.flatMap { $0 }
+            .map { $0.filter(\.isEnabled) }
+            .flatMap(\.publisher)
+            .flatMap { commodity in
+                Publishers.Zip3(
+                    self.commodityPriceRepository.getLowestCommodityPrice(commodity.id),
+                    self.commodityPriceRepository.getNewestCommodityPrice(commodity.id),
+                    Just(commodity).setFailureType(to: Error.self)
+                )
+            }
+            .flatMap { result1, result2, commodity -> AnyPublisher<CommodityListRow?, Error> in
+                guard let result1 = result1, let result2 = result2 else {
+                    return Just(nil).setFailureType(to: Error.self).eraseToAnyPublisher()
+                }
+                
+                return self.shopRepository.getShop(result1.shopId)
+                    .filter(\.isEnabled)
+                    .map { shop in
+                        CommodityListRow(commodity: commodity, lowestPrice: result1.price, mostInexpensiveShop: shop, lastPurchaseDate: result2.purchaseDate)
+                    }.eraseToAnyPublisher()
+            }
+            .compactMap { $0 }
             .sink(
                 receiveCompletion: { [weak self] result in
                     switch result {
