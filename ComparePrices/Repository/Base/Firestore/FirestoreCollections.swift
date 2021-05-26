@@ -11,6 +11,6 @@ enum FirestoreCollections: String {
     case versions
     case users
     case commodities
-    case prices
+    case purchaseResults
     case shops
 }

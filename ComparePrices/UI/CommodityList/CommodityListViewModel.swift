@@ -10,7 +10,7 @@ import Foundation
 
 final class CommodityListViewModel: ObservableObject, Identifiable {
     @Injected private var commodityRepository: CommodityRepository
-    @Injected private var commodityPriceRepository: CommodityPriceRepository
+    @Injected private var purchaseResultRepository: PurchaseResultRepository
     @Injected private var shopRepository: ShopRepository
     
     private var cancellables: [AnyCancellable] = []
@@ -28,8 +28,8 @@ final class CommodityListViewModel: ObservableObject, Identifiable {
             .flatMap(\.publisher)
             .flatMap { commodity in
                 Publishers.Zip3(
-                    self.commodityPriceRepository.getLowestCommodityPrice(commodity.id),
-                    self.commodityPriceRepository.getNewestCommodityPrice(commodity.id),
+                    self.purchaseResultRepository.getLowestPricePurchaseResult(commodity.id),
+                    self.purchaseResultRepository.getNewestPurchaseResult(commodity.id),
                     Just(commodity).setFailureType(to: Error.self)
                 )
             }

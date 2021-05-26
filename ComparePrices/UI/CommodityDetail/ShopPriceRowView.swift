@@ -52,7 +52,7 @@ struct ShopPriceRowView: View {
 
 struct ShopPriceRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ShopPriceRowView(shopPrice: ShopPriceListRow(rank: 1, shop: Shop(name: "たいらや"), price: 200, purchaseDate: Date()))
+        ShopPriceRowView(shopPrice: ShopPriceListRow(purchaseResultId: UUID(), rank: 1, shop: Shop(name: "たいらや"), price: 200, purchaseDate: Date()))
             .previewLayout(.fixed(width: 400, height: 100))
     }
 }

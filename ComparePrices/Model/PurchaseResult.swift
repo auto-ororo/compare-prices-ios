@@ -7,12 +7,13 @@
 
 import Foundation
 
-struct CommodityPrice: Codable {
+struct PurchaseResult: Codable {
     var id = UUID()
     var commodityId: UUID
     var shopId: UUID
     var price: Int
     var purchaseDate = Date()
+    var isEnabled = true
     var createdAt = Date()
     var updatedAt = Date()
 }

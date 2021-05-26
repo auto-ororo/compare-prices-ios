@@ -10,26 +10,40 @@ import Foundation
 
 final class CommodityDetailViewModel: ObservableObject, Identifiable {
     @Injected private var commodityRepository: CommodityRepository
-    @Injected private var commodityPriceRepository: CommodityPriceRepository
+    @Injected private var purchaseResultRepository: PurchaseResultRepository
     @Injected private var shopRepository: ShopRepository
     
     private var cancellables: [AnyCancellable] = []
     
     @Published private(set) var shopPriceList: [ShopPriceListRow] = []
     
-    func getShopPrices(commodityId: UUID) {
-        var list: [ShopPriceListRow] = []
-        var rank = 1
-        
-        commodityPriceRepository.getCommodityPrices(commodityId)
+    func observeShopPrices(commodityId: UUID) {
+        purchaseResultRepository.observePurchaseResults(commodityId)
+            .map { $0.filter(\.isEnabled) }
             .compactMap { $0 }
             .map { $0.sorted(by: { lhs, rhs -> Bool in
                 lhs.price < rhs.price
             }) }
-            .flatMap(maxPublishers: .max(1)) { commodities in commodities.publisher }
+            .sink(receiveCompletion: { result in
+                switch result {
+                case let .failure(error):
+                    print(error)
+                default:
+                    break
+                }
+            }, receiveValue: { [weak self] purchaseResults in
+                self?.convertToShopPricesFromPurchaseResults(purchaseResults: purchaseResults)
+            }).store(in: &cancellables)
+    }
+    
+    private func convertToShopPricesFromPurchaseResults(purchaseResults: [PurchaseResult]) {
+        var list: [ShopPriceListRow] = []
+        var rank = 1
+        
+        purchaseResults.publisher
             .compactMap { [weak self] commodityPrice in
                 self?.shopRepository.getShop(commodityPrice.shopId).flatMap { shop in
-                    Just(ShopPriceListRow(rank: rank, shop: shop, price: commodityPrice.price, purchaseDate: commodityPrice.purchaseDate))
+                    Just(ShopPriceListRow(purchaseResultId: commodityPrice.id, rank: rank, shop: shop, price: commodityPrice.price, purchaseDate: commodityPrice.purchaseDate))
                 }
             }.flatMap { $0 }
             .handleEvents(receiveOutput: { _ in rank += 1 })
@@ -43,6 +57,24 @@ final class CommodityDetailViewModel: ObservableObject, Identifiable {
             }, receiveValue: { shopPriceListRow in
                 list.append(shopPriceListRow)
             }).store(in: &cancellables)
+    }
+    
+    func deletePurchaseResult(shopPriceListRow: ShopPriceListRow) {
+        purchaseResultRepository.getPurchaseResult(shopPriceListRow.purchaseResultId)
+            .compactMap { [weak self] purchaseResult -> AnyPublisher<Void, Error>? in
+                var newPurchaseResult = purchaseResult
+                newPurchaseResult.isEnabled = false
+                return self?.purchaseResultRepository.updatePurchaseResult(newPurchaseResult).eraseToAnyPublisher()
+            }
+            .flatMap { $0 }
+            .sink(receiveCompletion: { result in
+                switch result {
+                case .finished:
+                    break
+                case let .failure(error):
+                    print(error)
+                }
+            }, receiveValue: { _ in }).store(in: &cancellables)
     }
     
     init() {}

@@ -47,8 +47,8 @@ struct AddPurchaseResultView: View {
             }
             
             HStack {
-                Text("購入日時").font(.headline).frame(width: 70, alignment: .trailing)
-                DatePicker("", selection: $viewModel.purchaseDate).labelsHidden().padding()
+                Text("購入日").font(.headline).frame(width: 70, alignment: .trailing)
+                DatePicker("", selection: $viewModel.purchaseDate, displayedComponents: [.date]).labelsHidden().padding()
             }
             Spacer()
             SubmitButton(text: "登録", action: { viewModel.addPurchaseResult() }, isActive: viewModel.isButtonEnabled).padding()
