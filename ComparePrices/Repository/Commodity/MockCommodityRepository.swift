@@ -49,20 +49,7 @@ final class MockCommodityRepository: CommodityRepository {
         }
     }
     
-    func removeCommodity(_ commodity: Commodity) -> Future<Void, Error> {
-        Future<Void, Error> { promise in
-            guard let index = SingletonCommodities.shared.commodities.firstIndex(where: { $0.id == commodity.id }) else {
-                print("not found")
-                promise(.failure(NSError()))
-                return
-            }
-
-            SingletonCommodities.shared.commodities.remove(at: index)
-            promise(.success(()))
-        }
-    }
-
-    func getCommodities() -> Future<[Commodity], Error> {
+    func getAllCommodities() -> Future<[Commodity], Error> {
         .init { promise in
             promise(.success(SingletonCommodities.shared.commodities))
         }
@@ -93,7 +80,23 @@ final class MockCommodityRepository: CommodityRepository {
         }
     }
     
-    func observeCommodities() -> AnyPublisher<[Commodity], Error> {
+    func deleteCommodity(_ commodity: Commodity) -> Future<Void, Error> {
+        .init { promise in
+            guard let index = SingletonCommodities.shared.commodities.firstIndex(where: { $0.id == commodity.id }) else {
+                print("not found")
+                promise(.failure(NSError()))
+                return
+            }
+            
+            var target = commodity
+            target.isEnabled = false
+
+            SingletonCommodities.shared.commodities[index] = target
+            promise(.success(()))
+        }
+    }
+
+    func observeAllCommodities() -> AnyPublisher<[Commodity], Error> {
         SingletonCommodities.shared.$commodities.setFailureType(to: Error.self).eraseToAnyPublisher()
     }
 }

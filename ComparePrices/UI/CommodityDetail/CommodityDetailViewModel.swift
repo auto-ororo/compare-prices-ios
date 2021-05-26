@@ -19,7 +19,6 @@ final class CommodityDetailViewModel: ObservableObject, Identifiable {
     
     func observeShopPrices(commodityId: UUID) {
         purchaseResultRepository.observePurchaseResults(commodityId)
-            .map { $0.filter(\.isEnabled) }
             .compactMap { $0 }
             .map { $0.sorted(by: { lhs, rhs -> Bool in
                 lhs.price < rhs.price
@@ -61,10 +60,8 @@ final class CommodityDetailViewModel: ObservableObject, Identifiable {
     
     func deletePurchaseResult(shopPriceListRow: ShopPriceListRow) {
         purchaseResultRepository.getPurchaseResult(shopPriceListRow.purchaseResultId)
-            .compactMap { [weak self] purchaseResult -> AnyPublisher<Void, Error>? in
-                var newPurchaseResult = purchaseResult
-                newPurchaseResult.isEnabled = false
-                return self?.purchaseResultRepository.updatePurchaseResult(newPurchaseResult).eraseToAnyPublisher()
+            .compactMap { [weak self] purchaseResult in
+                return self?.purchaseResultRepository.deletePurchaseResult(purchaseResult).eraseToAnyPublisher()
             }
             .flatMap { $0 }
             .sink(receiveCompletion: { result in

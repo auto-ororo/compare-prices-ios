@@ -19,6 +19,12 @@ final class FirestoreCommodityRepository: CommodityRepository {
     func updateCommodity(_ commodity: Commodity) -> Future<Void, Error> {
         setCommodity(commodity)
     }
+    
+    func deleteCommodity(_ commodity: Commodity) -> Future<Void, Error> {
+        var target = commodity
+        target.isEnabled = false
+        return setCommodity(target)
+    }
 
     private func setCommodity(_ commodity: Commodity) -> Future<Void, Error> {
         let userId = Auth.auth().currentUser!.uid
@@ -30,7 +36,7 @@ final class FirestoreCommodityRepository: CommodityRepository {
         return Firestore.commodityDocRef(userId: userId, commodityId: commodity.id.uuidString).delete()
     }
     
-    func getCommodities() -> Future<[Commodity], Error> {
+    func getAllCommodities() -> Future<[Commodity], Error> {
         let userId = Auth.auth().currentUser!.uid
         return Firestore.commodityColRef(userId: userId).getDocuments()
     }
@@ -42,10 +48,12 @@ final class FirestoreCommodityRepository: CommodityRepository {
     
     func getCommodity(name: String) -> Future<Commodity?, Error> {
         let userId = Auth.auth().currentUser!.uid
-        return Firestore.commodityColRef(userId: userId).whereField("name", isEqualTo: name).getDocument()
+        return Firestore.commodityColRef(userId: userId).whereField("name", isEqualTo: name)
+            .whereField("isEnabled", isEqualTo: true)
+            .getDocument()
     }
     
-    func observeCommodities() -> AnyPublisher<[Commodity], Error> {
+    func observeAllCommodities() -> AnyPublisher<[Commodity], Error> {
         let userId = Auth.auth().currentUser!.uid
         return Firestore.commodityColRef(userId: userId).observeDocuments()
     }

@@ -23,7 +23,7 @@ final class CommodityListViewModel: ObservableObject, Identifiable {
         var list: [CommodityListRow] = []
         
         // ユーザーが登録した商品リスト、及び各商品の最安値・購入店を取得
-        commodityRepository.getCommodities()
+        commodityRepository.getAllCommodities()
             .map { $0.filter(\.isEnabled) }
             .flatMap(\.publisher)
             .flatMap { commodity in
@@ -34,7 +34,7 @@ final class CommodityListViewModel: ObservableObject, Identifiable {
                 )
             }
             .flatMap { result1, result2, commodity -> AnyPublisher<CommodityListRow?, Error> in
-                guard let result1 = result1, let result2 = result2 else {
+                guard let result1 = result1, let result2 = result2, result1.isEnabled, result2.isEnabled else {
                     return Just(nil).setFailureType(to: Error.self).eraseToAnyPublisher()
                 }
                 

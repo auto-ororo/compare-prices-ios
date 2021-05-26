@@ -9,6 +9,7 @@ import Combine
 import Foundation
 
 final class MockPurchaseResultRepository: PurchaseResultRepository {
+
     private class SingletonPurchaseResults {
         static let shared = SingletonPurchaseResults()
         
@@ -41,7 +42,23 @@ final class MockPurchaseResultRepository: PurchaseResultRepository {
                 return
             }
             
-            SingletonPurchaseResults.shared.commoditiyPrices.remove(at: index)
+            SingletonPurchaseResults.shared.commoditiyPrices[index] = purchaseResult
+            promise(.success(()))
+        }
+    }
+    
+    func deletePurchaseResult(_ purchaseResult: PurchaseResult) -> Future<Void, Error> {
+        .init { promise in
+            guard let index = SingletonPurchaseResults.shared.commoditiyPrices.firstIndex(where: { $0.id == purchaseResult.id }) else {
+                print("CommodityPrice not found")
+                promise(.failure(NSError()))
+                return
+            }
+            
+            var target = purchaseResult
+            target.isEnabled = false
+            
+            SingletonPurchaseResults.shared.commoditiyPrices[index] = target
             promise(.success(()))
         }
     }

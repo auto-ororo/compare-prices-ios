@@ -13,6 +13,8 @@ protocol PurchaseResultRepository {
     
     func updatePurchaseResult(_ purchaseResult: PurchaseResult) -> Future<Void, Error>
     
+    func deletePurchaseResult(_ purchaseResult: PurchaseResult) -> Future<Void, Error>
+    
     func getLowestPricePurchaseResult(_ commodityId: UUID) -> Future<PurchaseResult?, Error>
     
     func getNewestPurchaseResult(_ commodityId: UUID) -> Future<PurchaseResult?, Error>

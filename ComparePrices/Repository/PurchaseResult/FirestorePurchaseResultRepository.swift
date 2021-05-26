@@ -20,6 +20,12 @@ final class FirestorePurchaseResultRepository: PurchaseResultRepository {
         setPurchaseResult(purchaseResult)
     }
     
+    func deletePurchaseResult(_ purchaseResult: PurchaseResult) -> Future<Void, Error> {
+        var target = purchaseResult
+        target.isEnabled = false
+        return setPurchaseResult(target)
+    }
+
     private func setPurchaseResult(_ purchaseResult: PurchaseResult) -> Future<Void, Error> {
         let userId = Auth.auth().currentUser!.uid
         return Firestore.purchaseResultDocRef(userId: userId, purchaseResultId: purchaseResult.id.uuidString).setData(document: purchaseResult)
@@ -28,23 +34,29 @@ final class FirestorePurchaseResultRepository: PurchaseResultRepository {
     func getLowestPricePurchaseResult(_ commodityId: UUID) -> Future<PurchaseResult?, Error> {
         let userId = Auth.auth().currentUser!.uid
         return Firestore.purchaseResultColRef(userId: userId).whereField("commodityId", isEqualTo: commodityId.uuidString)
+            .whereField("isEnabled", isEqualTo: true)
             .order(by: "price").limit(to: 1).getDocument()
     }
     
     func getNewestPurchaseResult(_ commodityId: UUID) -> Future<PurchaseResult?, Error> {
         let userId = Auth.auth().currentUser!.uid
         return Firestore.purchaseResultColRef(userId: userId).whereField("commodityId", isEqualTo: commodityId.uuidString)
+            .whereField("isEnabled", isEqualTo: true)
             .order(by: "purchaseDate", descending: true).limit(to: 1).getDocument()
     }
     
     func getPurchaseResults(_ commodityId: UUID) -> Future<[PurchaseResult], Error> {
         let userId = Auth.auth().currentUser!.uid
-        return Firestore.purchaseResultColRef(userId: userId).whereField("commodityId", isEqualTo: commodityId.uuidString).getDocuments()
+        return Firestore.purchaseResultColRef(userId: userId)
+            .whereField("isEnabled", isEqualTo: true)
+            .whereField("commodityId", isEqualTo: commodityId.uuidString).getDocuments()
     }
     
     func observePurchaseResults(_ commodityId: UUID) -> AnyPublisher<[PurchaseResult], Error> {
         let userId = Auth.auth().currentUser!.uid
-        return Firestore.purchaseResultColRef(userId: userId).whereField("commodityId", isEqualTo: commodityId.uuidString).observeDocuments()
+        return Firestore.purchaseResultColRef(userId: userId)
+            .whereField("isEnabled", isEqualTo: true)
+            .whereField("commodityId", isEqualTo: commodityId.uuidString).observeDocuments()
     }
     
     func getPurchaseResult(_ purchaseResultId: UUID) -> Future<PurchaseResult, Error> {

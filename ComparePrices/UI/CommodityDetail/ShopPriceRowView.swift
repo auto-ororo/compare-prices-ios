@@ -20,6 +20,7 @@ struct ShopPriceRowView: View {
                 HStack(alignment: .bottom) {
                     Text(shopPrice.shop.name)
                         .foregroundColor(shopPrice.shop.isEnabled ? .primary : .gray)
+                        .bold()
                     
                     if !shopPrice.shop.isEnabled {
                         Text("(削除済)").font(.footnote).foregroundColor(.gray)

@@ -25,8 +25,7 @@ final class SelectShopSheetViewModel: ObservableObject, Identifiable {
     }
     
     func observeShops() {
-        shopRepository.observeShops()
-            .map { $0.filter(\.isEnabled) }
+        shopRepository.observeAllShops()
             .sink(receiveCompletion: { result in
                       switch result {
                       case let .failure(error):
@@ -43,9 +42,6 @@ final class SelectShopSheetViewModel: ObservableObject, Identifiable {
     
     func addShop() {
         shopRepository.getShop(searchWord)
-            .map { optionalShop -> Shop? in
-                optionalShop?.isEnabled == true ? optionalShop : nil
-            }
             .flatMap { [weak self] optionalShop -> AnyPublisher<Void, Error> in
                 if optionalShop == nil, let shopRepository = self?.shopRepository, let searchWord = self?.searchWord {
                     return shopRepository.addShop(Shop(name: searchWord)).eraseToAnyPublisher()
@@ -64,9 +60,7 @@ final class SelectShopSheetViewModel: ObservableObject, Identifiable {
     }
     
     func deleteShop(shop: Shop) {
-        var disabledShop = shop
-        disabledShop.isEnabled = false
-        shopRepository.updateShop(disabledShop)
+        shopRepository.deleteShop(shop)
             .sink(receiveCompletion: { result in
                 switch result {
                 case let .failure(error):

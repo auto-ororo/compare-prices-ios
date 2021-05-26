@@ -25,8 +25,7 @@ final class SelectCommoditySheetViewModel: ObservableObject, Identifiable {
     }
     
     func observeCommodities() {
-        commodityRepository.observeCommodities()
-            .map { $0.filter(\.isEnabled) }
+        commodityRepository.observeAllCommodities()
             .sink(receiveCompletion: { result in
                       switch result {
                       case let .failure(error):
@@ -43,9 +42,6 @@ final class SelectCommoditySheetViewModel: ObservableObject, Identifiable {
     
     func addCommodity() {
         commodityRepository.getCommodity(name: searchWord)
-            .map { optionalCommodity -> Commodity? in
-                optionalCommodity?.isEnabled == true ? optionalCommodity : nil
-            }
             .flatMap { [weak self] optionalCommodity -> AnyPublisher<Void, Error> in
                 if optionalCommodity == nil, let commodityRepository = self?.commodityRepository, let searchWord = self?.searchWord {
                     return commodityRepository.addCommodity(Commodity(name: searchWord)).eraseToAnyPublisher()
@@ -64,9 +60,7 @@ final class SelectCommoditySheetViewModel: ObservableObject, Identifiable {
     }
     
     func deleteCommodity(commodity: Commodity) {
-        var disabledCommodity = commodity
-        disabledCommodity.isEnabled = false
-        commodityRepository.updateCommodity(disabledCommodity)
+        commodityRepository.deleteCommodity(commodity)
             .sink(receiveCompletion: { result in
                 switch result {
                 case let .failure(error):
