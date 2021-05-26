@@ -61,7 +61,7 @@ final class CommodityDetailViewModel: ObservableObject, Identifiable {
     func deletePurchaseResult(shopPriceListRow: ShopPriceListRow) {
         purchaseResultRepository.getPurchaseResult(shopPriceListRow.purchaseResultId)
             .compactMap { [weak self] purchaseResult in
-                return self?.purchaseResultRepository.deletePurchaseResult(purchaseResult).eraseToAnyPublisher()
+                self?.purchaseResultRepository.deletePurchaseResult(purchaseResult).eraseToAnyPublisher()
             }
             .flatMap { $0 }
             .sink(receiveCompletion: { result in

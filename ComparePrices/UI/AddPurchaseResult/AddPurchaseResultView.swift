@@ -25,7 +25,7 @@ struct AddPurchaseResultView: View {
                 } else {
                     Button(action: { viewModel.showSelectCommoditySheet() }, label: {
                         Text(viewModel.selectedCommodity?.name ?? "選択して下さい")
-                            .foregroundColor(viewModel.selectedCommodity != nil ? .primary :.gray)
+                            .foregroundColor(viewModel.selectedCommodity != nil ? .primary : .gray)
                     }).padding(.top, 4)
                 }
                 Divider()
@@ -35,7 +35,7 @@ struct AddPurchaseResultView: View {
                 Text("店舗").font(.headline)
                 Button(action: { viewModel.showSelectShopSheet() }, label: {
                     Text(viewModel.selectedShop?.name ?? "選択して下さい")
-                        .foregroundColor(viewModel.selectedShop != nil ? .primary :.gray)
+                        .foregroundColor(viewModel.selectedShop != nil ? .primary : .gray)
                 }).padding(.top, 4)
                 Divider()
             }.padding()

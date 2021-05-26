@@ -9,7 +9,6 @@ import Combine
 import Foundation
 
 final class MockPurchaseResultRepository: PurchaseResultRepository {
-
     private class SingletonPurchaseResults {
         static let shared = SingletonPurchaseResults()
         

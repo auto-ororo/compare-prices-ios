@@ -5,8 +5,8 @@
 //  Created by Ryo Narisawa on 2021/01/30.
 //
 
-import SwiftUI
 import SFSafeSymbols
+import SwiftUI
 
 struct CommodityRowView: View {
     var commodityListRow: CommodityListRow
