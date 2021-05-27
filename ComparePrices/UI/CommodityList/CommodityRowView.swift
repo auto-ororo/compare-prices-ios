@@ -12,24 +12,31 @@ struct CommodityRowView: View {
     var commodityListRow: CommodityListRow
     
     var body: some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 4) {
-                Text(commodityListRow.commodity.name).font(.title3).bold()
-                
-                HStack(alignment: .bottom, spacing: 0) {
-                    Text(commodityListRow.lowestPrice.descriptionWithCurrency())
-                        .font(.title3).padding(.trailing, 4)
-                    Text(commodityListRow.mostInexpensiveShop.name)
-                }.padding(.top, 4)
-                
-                HStack(alignment: .bottom, spacing: 0) {
-                    Spacer()
-                    Text("最後に買った日").font(.caption).padding(.trailing, 4)
-                    Text(commodityListRow.lastPurchaseDate.dateString())
-                        .font(.caption)
+        VStack(spacing: 4) {
+            HStack {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(commodityListRow.commodity.name).font(.title3).bold()
+                    
+                    HStack(alignment: .bottom, spacing: 0) {
+                        HStack(alignment: .firstTextBaseline) {
+                            Text(commodityListRow.lowestPrice.descriptionWithCurrency())
+                                .font(.title2).padding(.trailing, 4)
+                            Text(commodityListRow.mostInexpensiveShop.name).font(.subheadline)
+                        }
+
+                        Spacer()
+                        
+                        VStack(alignment: .trailing) {
+                            Text("最後購入日").font(.caption)
+                            Text(commodityListRow.lastPurchaseDate.dateString())
+                                .font(.caption)
+                        }.foregroundColor(R.color.elevation.color)
+                    }
                 }
+                Image(systemSymbol: SFSafeSymbols.SFSymbol.chevronRight)
+                    .foregroundColor(R.color.elevation.color)
             }
-            Image(systemSymbol: SFSafeSymbols.SFSymbol.chevronRight)
+            Divider()
         }
     }
 }

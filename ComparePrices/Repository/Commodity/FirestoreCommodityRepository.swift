@@ -57,4 +57,11 @@ final class FirestoreCommodityRepository: CommodityRepository {
         let userId = Auth.auth().currentUser!.uid
         return Firestore.commodityColRef(userId: userId).observeDocuments()
     }
+    
+    func observeCommodities() -> AnyPublisher<[Commodity], Error> {
+        let userId = Auth.auth().currentUser!.uid
+        return Firestore.commodityColRef(userId: userId)
+            .whereField("isEnabled", isEqualTo: true)
+            .observeDocuments()
+    }
 }

@@ -91,4 +91,8 @@ final class MockShopRepository: ShopRepository {
     func observeAllShops() -> AnyPublisher<[Shop], Error> {
         SingletonShops.shared.$shops.setFailureType(to: Error.self).eraseToAnyPublisher()
     }
+    
+    func observeShops() -> AnyPublisher<[Shop], Error> {
+        SingletonShops.shared.$shops.setFailureType(to: Error.self).eraseToAnyPublisher()
+    }
 }

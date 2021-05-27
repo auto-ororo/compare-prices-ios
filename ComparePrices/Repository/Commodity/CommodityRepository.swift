@@ -22,4 +22,6 @@ protocol CommodityRepository {
     func getCommodity(name: String) -> Future<Commodity?, Error>
     
     func observeAllCommodities() -> AnyPublisher<[Commodity], Error>
+    
+    func observeCommodities() -> AnyPublisher<[Commodity], Error>
 }

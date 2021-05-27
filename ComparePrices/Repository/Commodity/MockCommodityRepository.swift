@@ -99,4 +99,8 @@ final class MockCommodityRepository: CommodityRepository {
     func observeAllCommodities() -> AnyPublisher<[Commodity], Error> {
         SingletonCommodities.shared.$commodities.setFailureType(to: Error.self).eraseToAnyPublisher()
     }
+    
+    func observeCommodities() -> AnyPublisher<[Commodity], Error> {
+        SingletonCommodities.shared.$commodities.setFailureType(to: Error.self).eraseToAnyPublisher()
+    }
 }

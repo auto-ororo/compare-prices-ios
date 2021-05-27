@@ -24,15 +24,16 @@ struct CommodityListView: View {
                 TextField("商品名を入力", text: $viewModel.searchWord)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
             }.padding(.horizontal, 8)
-                
-            List(viewModel.filteredCommodityList) { commodityListRow in
-                Button(action: {
-                           navigator.navigate(to: .commodityDetail(commodityListRow.commodity), direction: .next)
-                       },
-                       label: {
-                           CommodityRowView(commodityListRow: commodityListRow)
-                       })
-            }.listStyle(PlainListStyle())
+            
+            ScrollView(.vertical) {
+                ForEach(viewModel.filteredCommodityList) { commodityListRow in
+                    CommodityRowView(commodityListRow: commodityListRow)
+                        .onTapGesture {
+                            navigator.navigate(to: .commodityDetail(commodityListRow.commodity), direction: .next)
+                        }
+                        .padding(.horizontal).padding(.top)
+                }
+            }
                 
             SubmitButton(text: "買い物登録") {
                 navigator.navigate(to: .addPurchaseResult(nil), direction: .next)

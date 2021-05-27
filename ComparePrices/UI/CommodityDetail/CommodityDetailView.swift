@@ -24,17 +24,22 @@ struct CommodityDetailView: View {
             }, title: commodity.name)
                 
             // 購買履歴
-            List(viewModel.shopPriceList) { shopPrice in
-                ShopPriceRowView(shopPrice: shopPrice)
-                    .contentShape(Rectangle())
-                    .onLongPressGesture {
-                        targetShopPrice = shopPrice
+            ScrollView(.vertical) {
+                LazyVStack {
+                    ForEach(viewModel.shopPriceList) { shopPrice in
+                        ShopPriceRowView(shopPrice: shopPrice, onTapOption: {
+                            targetShopPrice = shopPrice
+                        }).padding(.horizontal)
                     }
+                }
             }
-                
+
             SubmitButton(text: "買い物登録") {
                 navigator.navigate(to: .addPurchaseResult(commodity), direction: .next)
-            }.padding()
+            }
+            .padding(.horizontal)
+            .padding(.top, 8)
+            .padding(.bottom)
         }.onAppear {
             viewModel.observeShopPrices(commodityId: commodity.id)
         }.actionSheet(item: $targetShopPrice) { shopPrice in
