@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 final class AddPurchaseResultViewModel: ObservableObject, Identifiable {
-    @Injected var commodityPriceRepository: CommodityPriceRepository
+    @Injected var purchaseResultRepository: PurchaseResultRepository
     @Injected var commodityRepository: CommodityRepository
     @Injected var shopRepository: ShopRepository
     
@@ -22,6 +22,8 @@ final class AddPurchaseResultViewModel: ObservableObject, Identifiable {
     @Published var selectedCommodity: Commodity?
 
     @Published var selectedShop: Shop?
+    
+    @Published var purchaseDate = Date()
 
     @Published var sheet = SelectSheet()
     
@@ -52,7 +54,7 @@ final class AddPurchaseResultViewModel: ObservableObject, Identifiable {
         
         guard let selectedCommodity = selectedCommodity, let selectedShop = selectedShop, let price = self.price else { return }
         
-        commodityPriceRepository.addCommodityPrice(CommodityPrice(commodityId: selectedCommodity.id, shopId: selectedShop.id, price: price))
+        purchaseResultRepository.addPurchaseResult(PurchaseResult(commodityId: selectedCommodity.id, shopId: selectedShop.id, price: price, purchaseDate: purchaseDate))
             .sink(receiveCompletion: { [weak self] result in
                 switch result {
                 case let .failure(error):

@@ -15,44 +15,35 @@ struct CommodityDetailView: View {
     
     var commodity: Commodity
     
+    @State private var targetShopPrice: ShopPriceListRow?
+    
     var body: some View {
-        ZStack {
-            VStack(alignment: .leading) {
-                Header(backButtonAction: {
-                    navigator.navigate(to: .commodityList, direction: .back)
-                }, title: "詳細")
+        VStack(alignment: .leading) {
+            Header(backButtonAction: {
+                navigator.navigate(to: .commodityList, direction: .back)
+            }, title: commodity.name)
                 
-                HStack {
-                    Spacer()
-                    Text(commodity.name).padding().font(.title)
-                    Spacer()
-                }
-                
-                // 品物リスト
-                List(viewModel.shopPriceList) { shopPrice in
-                    HStack {
-                        Text(shopPrice.rank.description)
-                        Text(shopPrice.shop.name)
-                            .foregroundColor(shopPrice.shop.isEnabled ? .black : .gray)
-                        Spacer()
-                        Text(shopPrice.price.descriptionWithCurrency())
+            // 購買履歴
+            List(viewModel.shopPriceList) { shopPrice in
+                ShopPriceRowView(shopPrice: shopPrice)
+                    .contentShape(Rectangle())
+                    .onLongPressGesture {
+                        targetShopPrice = shopPrice
                     }
-                }.listStyle(PlainListStyle())
             }
-            
-            // Floating Button
-            VStack(alignment: .center) {
-                Spacer()
-                HStack {
-                    Spacer()
-                    AddCircleButton(action: {
-                        navigator.navigate(to: .addPurchaseResult(commodity), direction: .next)
-                    })
-                }
-            }
-            
+                
+            SubmitButton(text: "買い物登録") {
+                navigator.navigate(to: .addPurchaseResult(commodity), direction: .next)
+            }.padding()
         }.onAppear {
-            viewModel.getShopPrices(commodityId: commodity.id)
+            viewModel.observeShopPrices(commodityId: commodity.id)
+        }.actionSheet(item: $targetShopPrice) { shopPrice in
+            ActionSheet(title: Text("\(shopPrice.shop.name) - \(shopPrice.price.descriptionWithCurrency())"), message: nil, buttons: [
+                .destructive(Text("削除")) {
+                    viewModel.deletePurchaseResult(shopPriceListRow: shopPrice)
+                },
+                .cancel()
+            ])
         }
     }
 }

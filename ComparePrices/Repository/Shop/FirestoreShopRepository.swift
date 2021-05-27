@@ -20,6 +20,12 @@ final class FirestoreShopRepository: ShopRepository {
         setShop(shop)
     }
     
+    func deleteShop(_ shop: Shop) -> Future<Void, Error> {
+        var target = shop
+        target.isEnabled = false
+        return setShop(target)
+    }
+    
     private func setShop(_ shop: Shop) -> Future<Void, Error> {
         let userId = Auth.auth().currentUser!.uid
         return Firestore.shopDocRef(userId: userId, shipId: shop.id.uuidString).setData(document: shop)
@@ -32,15 +38,17 @@ final class FirestoreShopRepository: ShopRepository {
     
     func getShop(_ name: String) -> Future<Shop?, Error> {
         let userId = Auth.auth().currentUser!.uid
-        return Firestore.shopColRef(userId: userId).whereField("name", isEqualTo: name).getDocument()
+        return Firestore.shopColRef(userId: userId)
+            .whereField("isEnabled", isEqualTo: true)
+            .whereField("name", isEqualTo: name).getDocument()
     }
 
-    func getShops() -> Future<[Shop], Error> {
+    func getAllShops() -> Future<[Shop], Error> {
         let userId = Auth.auth().currentUser!.uid
         return Firestore.shopColRef(userId: userId).getDocuments()
     }
     
-    func observeShops() -> AnyPublisher<[Shop], Error> {
+    func observeAllShops() -> AnyPublisher<[Shop], Error> {
         let userId = Auth.auth().currentUser!.uid
         return Firestore.shopColRef(userId: userId).observeDocuments()
     }

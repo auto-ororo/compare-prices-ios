@@ -16,36 +16,50 @@ struct AddPurchaseResultView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Header(backButtonAction:
-                back,
-                title: "買い物登録")
+            Header(backButtonAction: back, title: "買い物登録")
             
-            HStack {
-                Text("商品").font(.headline).frame(width: 70, alignment: .trailing)
-                Button(action: { viewModel.showSelectCommoditySheet() }, label: {
-                    Text(viewModel.selectedCommodity?.name ?? "選択して下さい").foregroundColor(.gray).padding(8).overlay(
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color.gray, lineWidth: 1)
-                    )
-                }).padding().disabled(commodity != nil)
-            }
+            VStack(alignment: .leading, spacing: 8) {
+                Text("商品").font(.headline)
+                if let commodity = self.commodity {
+                    Text(commodity.name).padding(.top, 4)
+                } else {
+                    Button(action: { viewModel.showSelectCommoditySheet() }, label: {
+                        Text(viewModel.selectedCommodity?.name ?? "選択して下さい")
+                            .foregroundColor(viewModel.selectedCommodity != nil ? .primary : .gray)
+                    }).padding(.top, 4)
+                }
+                Divider()
+            }.padding()
             
-            HStack {
-                Text("購入店").font(.headline).frame(width: 70, alignment: .trailing)
+            VStack(alignment: .leading, spacing: 8) {
+                Text("店舗").font(.headline)
                 Button(action: { viewModel.showSelectShopSheet() }, label: {
-                    Text(viewModel.selectedShop?.name ?? "選択して下さい").foregroundColor(.gray).padding(8).overlay(
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color.gray, lineWidth: 1)
-                    )
-                }).padding()
-            }
+                    Text(viewModel.selectedShop?.name ?? "選択して下さい")
+                        .foregroundColor(viewModel.selectedShop != nil ? .primary : .gray)
+                }).padding(.top, 4)
+                Divider()
+            }.padding()
             
-            HStack {
-                Text("価格").font(.headline).frame(width: 70, alignment: .trailing)
-                TextField("価格", text: $viewModel.priceString)
-                    .keyboardType(.numberPad).padding().textFieldStyle(RoundedBorderTextFieldStyle())
-            }
+            HStack(alignment: .center) {
+                Text("価格").font(.headline)
+                VStack {
+                    HStack(alignment: .bottom) {
+                        TextField("0", text: $viewModel.priceString).multilineTextAlignment(.trailing)
+                            .keyboardType(.numberPad).font(.title3)
+                        Text("円").font(.subheadline)
+                    }
+                    Divider().padding(-2)
+                }
+            }.padding()
+
+            HStack(alignment: .center, spacing: 8) {
+                Text("購入日").font(.headline)
+                Spacer()
+                DatePicker("", selection: $viewModel.purchaseDate, displayedComponents: [.date]).labelsHidden()
+            }.padding()
+            
             Spacer()
+            
             SubmitButton(text: "登録", action: { viewModel.addPurchaseResult() }, isActive: viewModel.isButtonEnabled).padding()
             
         }.onReceive(viewModel.finishedAddShopPrice) {
@@ -54,7 +68,7 @@ struct AddPurchaseResultView: View {
         .onAppear {
             viewModel.setSelectedCommodityIfParamExists(commodity: commodity)
         }
-        .sheet(isPresented: $viewModel.sheet.isShown) {
+        .fullScreenCover(isPresented: $viewModel.sheet.isShown) {
             switch viewModel.sheet.targetItem {
             case .commodity:
                 SelectCommoditySheetView(isPresent: $viewModel.sheet.isShown, selectedCommodity: $viewModel.selectedCommodity)
@@ -75,19 +89,6 @@ struct AddPurchaseResultView: View {
             navigation.navigate(to: .commodityDetail(commodity), direction: .back)
         } else {
             navigation.navigate(to: .commodityList, direction: .back)
-        }
-    }
-    
-    private struct InputTextLayout: View {
-        var label: String
-        
-        var bindingText: Binding<String>
-        
-        var body: some View {
-            HStack {
-                Text(label).font(.headline).frame(width: 70, alignment: .trailing)
-                TextField("", text: bindingText).padding().textFieldStyle(RoundedBorderTextFieldStyle())
-            }
         }
     }
 }

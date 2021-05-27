@@ -19,7 +19,7 @@ struct SubmitButton: View {
         Button(action: action) {
             HStack {
                 Spacer()
-                Text(text).font(.title2).accentColor(.white).padding()
+                Text(text).font(.title2).foregroundColor(.white).padding()
                 Spacer()
             }
         }.background(R.color.primary.color)

@@ -39,11 +39,11 @@ extension Firestore {
         shopColRef(userId: userId).document(shipId)
     }
     
-    static func commodityPriceColRef(userId: String, commodityId: String) -> CollectionReference {
-        commodityDocRef(userId: userId, commodityId: commodityId).collection(FirestoreCollections.prices.rawValue)
+    static func purchaseResultColRef(userId: String) -> CollectionReference {
+        userDocRef(userId: userId).collection(FirestoreCollections.purchaseResults.rawValue)
     }
     
-    static func commodityPriceDocRef(userId: String, commodityId: String, priceId: String) -> DocumentReference {
-        commodityPriceColRef(userId: userId, commodityId: commodityId).document(priceId)
+    static func purchaseResultDocRef(userId: String, purchaseResultId: String) -> DocumentReference {
+        purchaseResultColRef(userId: userId).document(purchaseResultId)
     }
 }
