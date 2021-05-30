@@ -58,6 +58,7 @@
 		7C545685263FDFD10089B4CE /* FirestoreExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C545684263FDFD10089B4CE /* FirestoreExtensions.swift */; };
 		7C545687263FE2690089B4CE /* FirestoreCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C545686263FE2690089B4CE /* FirestoreCollections.swift */; };
 		7C5456892640027F0089B4CE /* QueryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5456882640027F0089B4CE /* QueryExtensions.swift */; };
+		7C6E0CDD2663868900102BC5 /* SheetHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E0CDC2663868900102BC5 /* SheetHeader.swift */; };
 		7C7801A8263AF82D00E8B571 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7801A7263AF82D00E8B571 /* Navigator.swift */; };
 		7C7801AA263B182700E8B571 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7801A9263B182700E8B571 /* Header.swift */; };
 		7CA6701A263C63D4007FCF10 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA67019263C63D4007FCF10 /* Environment.swift */; };
@@ -153,6 +154,7 @@
 		7C545684263FDFD10089B4CE /* FirestoreExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreExtensions.swift; sourceTree = "<group>"; };
 		7C545686263FE2690089B4CE /* FirestoreCollections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreCollections.swift; sourceTree = "<group>"; };
 		7C5456882640027F0089B4CE /* QueryExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryExtensions.swift; sourceTree = "<group>"; };
+		7C6E0CDC2663868900102BC5 /* SheetHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetHeader.swift; sourceTree = "<group>"; };
 		7C7801A7263AF82D00E8B571 /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		7C7801A9263B182700E8B571 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		7CA67019263C63D4007FCF10 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 				7C44730E263BEB650001F9EB /* AddCircleButton.swift */,
 				7CAD818E26636D6A000768A7 /* SelectItemRowView.swift */,
 				7CAD819026637087000768A7 /* SelectDateSheetView.swift */,
+				7C6E0CDC2663868900102BC5 /* SheetHeader.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -738,6 +741,7 @@
 				7C0AAF41264FE8C700FC8B24 /* AddPurchaseResultViewModel.swift in Sources */,
 				7C545674263FD80F0089B4CE /* MockShopRepository.swift in Sources */,
 				2A9363F025C56D4A00BD4FEA /* ContentView.swift in Sources */,
+				7C6E0CDD2663868900102BC5 /* SheetHeader.swift in Sources */,
 				2AF14CF325E3DD40004E901C /* Injected.swift in Sources */,
 				2A64665425F48A5A00CE770E /* Shop.swift in Sources */,
 				2A29C2E02607907B00953618 /* SelectShopSheetViewModel.swift in Sources */,

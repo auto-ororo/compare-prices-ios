@@ -13,8 +13,9 @@ struct SelectDateSheetView: View {
     @Binding var selectedDate: Date
     
     var body: some View {
-        VStack(alignment: .center) {
-            Text(title).font(.title)
+        VStack {
+            SheetHeader(title: title)
+            
             DatePicker(
                 "",
                 selection: $selectedDate,
@@ -26,6 +27,8 @@ struct SelectDateSheetView: View {
             SubmitButton(text: "選択", action: {
                 isPresent = false
             }).padding()
+            
+            Spacer()
         }
     }
 }

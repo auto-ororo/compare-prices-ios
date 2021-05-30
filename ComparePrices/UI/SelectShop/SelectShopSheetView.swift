@@ -17,6 +17,7 @@ struct SelectShopSheetView: View {
 
     var body: some View {
         VStack {
+            SheetHeader(title: "店舗選択")
             // 検索欄
             HStack {
                 TextField("店舗名を入力", text: $viewModel.searchWord)
@@ -33,7 +34,7 @@ struct SelectShopSheetView: View {
                         .stroke(R.color.primary.color, lineWidth: 2)
                 ).padding(.trailing, 8).opacity(viewModel.isEnabledAddButton ? 1.0 : 0.7)
                     
-            }.padding(.top, 16)
+            }
             
             ScrollView {
                 LazyVStack(pinnedViews: .sectionHeaders) {
