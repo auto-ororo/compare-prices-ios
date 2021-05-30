@@ -5,4 +5,28 @@
   Created by ororo on 2021/05/02.
   
 */
-"AppName" = "ComparePrices";
+"appName" = "ComparePrices";
+"common.delete" = "削除";
+"common.ok" = "OK";
+"common.cancel" = "キャンセル";
+"common.deleted" = "(削除済)";
+"common.option" = "︙";
+"common.zero" = "0";
+"common.add" = "追加";
+"common.register" = "登録";
+"common.select" = "選択";
+"common.dateFormat" = "yyyy年M月d日";
+"common.commodity" = "商品";
+"common.shop" = "店舗";
+"common.price" = "価格";
+"common.currency" = "円";
+"common.purchaseDate" = "購入日";
+"addPurchaseResult.title" = "価格登録";
+"addPurchaseResult.selectHint" = "選択して下さい";
+"selectShopSheet.title" = "店舗選択";
+"selectShopSheet.inputHint" = "店舗名を入力";
+"selectCommoditySheet.title" = "商品選択";
+"selectCommoditySheet.inputHint" = "商品名を入力";
+"commodityList.title" = "底値リスト";
+"commodityList.inputHint" = "商品名を入力";
+"commodityList.lastPurchaseDate" = "最終購入日";

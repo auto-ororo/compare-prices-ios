@@ -25,11 +25,11 @@ struct ShopPriceRowView: View {
                             Text(shopPrice.shop.name).bold()
                             
                             if !shopPrice.shop.isEnabled {
-                                Text("(削除済)").font(.footnote)
+                                Text(R.string.localizable.commonDeleted()).font(.footnote)
                             }
                         }.foregroundColor(shopPrice.shop.isEnabled ? .primary : R.color.elevation.color)
                         Spacer()
-                        Text("︙").font(.subheadline)
+                        Text(R.string.localizable.commonOption()).font(.subheadline)
                             .bold()
                             .padding(.horizontal, 8)
                             .padding(.bottom, 8)

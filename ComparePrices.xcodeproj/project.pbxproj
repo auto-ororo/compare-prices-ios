@@ -11,7 +11,6 @@
 		2A29C2E02607907B00953618 /* SelectShopSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A29C2DF2607907B00953618 /* SelectShopSheetViewModel.swift */; };
 		2A29C2E5260791A800953618 /* ShopListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A29C2E4260791A800953618 /* ShopListRow.swift */; };
 		2A4BD9F4262C684200BEC349 /* ModuleInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4BD9F3262C684200BEC349 /* ModuleInjector.swift */; };
-		2A64664425F3530700CE770E /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A64664325F3530700CE770E /* ContentViewModel.swift */; };
 		2A64664F25F4894B00CE770E /* Commodity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A64664E25F4894B00CE770E /* Commodity.swift */; };
 		2A64665425F48A5A00CE770E /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A64665325F48A5A00CE770E /* Shop.swift */; };
 		2A64665925F48F9700CE770E /* ShopRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A64665825F48F9700CE770E /* ShopRepository.swift */; };
@@ -101,7 +100,6 @@
 		2A29C2DF2607907B00953618 /* SelectShopSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectShopSheetViewModel.swift; sourceTree = "<group>"; };
 		2A29C2E4260791A800953618 /* ShopListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopListRow.swift; sourceTree = "<group>"; };
 		2A4BD9F3262C684200BEC349 /* ModuleInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleInjector.swift; sourceTree = "<group>"; };
-		2A64664325F3530700CE770E /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		2A64664E25F4894B00CE770E /* Commodity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commodity.swift; sourceTree = "<group>"; };
 		2A64665325F48A5A00CE770E /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		2A64665825F48F9700CE770E /* ShopRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopRepository.swift; sourceTree = "<group>"; };
@@ -280,7 +278,6 @@
 				7C54566C263FD15B0089B4CE /* CommodityList */,
 				2A9363ED25C56D4A00BD4FEA /* ComparePricesApp.swift */,
 				2A9363EF25C56D4A00BD4FEA /* ContentView.swift */,
-				2A64664325F3530700CE770E /* ContentViewModel.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -511,8 +508,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2A93640F25C56D4A00BD4FEA /* Build configuration list for PBXNativeTarget "ComparePrices" */;
 			buildPhases = (
-				7CF965D9263DB3F100775320 /* SwiftLint */,
 				7CF965F9263EE6C800775320 /* R.Swift */,
+				7CF965D9263DB3F100775320 /* SwiftLint */,
 				7CC79C93263C6DDE008536A0 /* GoogleService-Info */,
 				2A9363E625C56D4A00BD4FEA /* Sources */,
 				2A9363E725C56D4A00BD4FEA /* Frameworks */,
@@ -756,7 +753,6 @@
 				2AC3EA4C25EB967A00E81AD5 /* IntExtensions.swift in Sources */,
 				2A29C2E5260791A800953618 /* ShopListRow.swift in Sources */,
 				2A4BD9F4262C684200BEC349 /* ModuleInjector.swift in Sources */,
-				2A64664425F3530700CE770E /* ContentViewModel.swift in Sources */,
 				7C54567D263FD9760089B4CE /* MockAuthRepository.swift in Sources */,
 				7C0AAF48265037F900FC8B24 /* SelectCommoditySheetViewModel.swift in Sources */,
 				7C54567F263FD9810089B4CE /* FirebaseAuthRepository.swift in Sources */,

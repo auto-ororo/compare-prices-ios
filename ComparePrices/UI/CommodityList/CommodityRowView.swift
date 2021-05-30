@@ -27,7 +27,7 @@ struct CommodityRowView: View {
                         Spacer()
                         
                         VStack(alignment: .trailing) {
-                            Text("最後購入日").font(.caption)
+                            Text(R.string.localizable.commodityListLastPurchaseDate()).font(.caption)
                             Text(commodityListRow.lastPurchaseDate.dateString())
                                 .font(.caption)
                         }.foregroundColor(R.color.elevation.color)

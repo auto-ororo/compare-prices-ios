@@ -24,7 +24,7 @@ struct SelectDateSheetView: View {
             .datePickerStyle(WheelDatePickerStyle())
             .labelsHidden()
             
-            SubmitButton(text: "選択", action: {
+            SubmitButton(text: R.string.localizable.commonSelect(), action: {
                 isPresent = false
             }).padding()
             

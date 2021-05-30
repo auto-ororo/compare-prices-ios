@@ -17,23 +17,22 @@ struct SelectCommoditySheetView: View {
 
     var body: some View {
         VStack {
-            SheetHeader(title: "商品選択")
+            SheetHeader(title: R.string.localizable.selectCommoditySheetTitle())
             // 検索欄
             HStack {
-                TextField("商品を入力", text: $viewModel.searchWord)
+                TextField(R.string.localizable.selectCommoditySheetInputHint(), text: $viewModel.searchWord)
                     .textFieldStyle(RoundedBorderTextFieldStyle()).padding(.leading, 8)
                 Button(
                     action: {
                         viewModel.addCommodity()
                     },
                     label: {
-                        Text("追加").foregroundColor(R.color.primary.color).font(.headline)
+                        Text(R.string.localizable.commonAdd()).foregroundColor(R.color.primary.color).font(.headline)
                     }
                 ).disabled(!viewModel.isEnabledAddButton).padding(8).overlay(
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(R.color.primary.color, lineWidth: 2)
                 ).padding(.trailing, 8).opacity(viewModel.isEnabledAddButton ? 1.0 : 0.7)
-                    
             }
             
             ScrollView {
@@ -58,7 +57,7 @@ struct SelectCommoditySheetView: View {
             isPresent = false
         }.actionSheet(item: $targetCommodity) { commodity in
             ActionSheet(title: Text(commodity.name), message: nil, buttons: [
-                .destructive(Text("削除")) {
+                .destructive(Text(R.string.localizable.commonDelete())) {
                     viewModel.deleteCommodity(commodity: commodity)
                 },
                 .cancel()
