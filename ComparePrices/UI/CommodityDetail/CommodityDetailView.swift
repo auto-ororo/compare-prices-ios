@@ -19,7 +19,7 @@ struct CommodityDetailView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Header(backButtonAction: {
+            ScreenHeader(backButtonAction: {
                 navigator.navigate(to: .commodityList, direction: .back)
             }, title: commodity.name)
                 

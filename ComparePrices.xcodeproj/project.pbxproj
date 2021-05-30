@@ -60,7 +60,7 @@
 		7C5456892640027F0089B4CE /* QueryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5456882640027F0089B4CE /* QueryExtensions.swift */; };
 		7C6E0CDD2663868900102BC5 /* SheetHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E0CDC2663868900102BC5 /* SheetHeader.swift */; };
 		7C7801A8263AF82D00E8B571 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7801A7263AF82D00E8B571 /* Navigator.swift */; };
-		7C7801AA263B182700E8B571 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7801A9263B182700E8B571 /* Header.swift */; };
+		7C7801AA263B182700E8B571 /* ScreenHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7801A9263B182700E8B571 /* ScreenHeader.swift */; };
 		7CA6701A263C63D4007FCF10 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA67019263C63D4007FCF10 /* Environment.swift */; };
 		7CAD818F26636D6A000768A7 /* SelectItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAD818E26636D6A000768A7 /* SelectItemRowView.swift */; };
 		7CAD819126637087000768A7 /* SelectDateSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAD819026637087000768A7 /* SelectDateSheetView.swift */; };
@@ -156,7 +156,7 @@
 		7C5456882640027F0089B4CE /* QueryExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryExtensions.swift; sourceTree = "<group>"; };
 		7C6E0CDC2663868900102BC5 /* SheetHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetHeader.swift; sourceTree = "<group>"; };
 		7C7801A7263AF82D00E8B571 /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
-		7C7801A9263B182700E8B571 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		7C7801A9263B182700E8B571 /* ScreenHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenHeader.swift; sourceTree = "<group>"; };
 		7CA67019263C63D4007FCF10 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		7CAD818E26636D6A000768A7 /* SelectItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectItemRowView.swift; sourceTree = "<group>"; };
 		7CAD819026637087000768A7 /* SelectDateSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateSheetView.swift; sourceTree = "<group>"; };
@@ -313,7 +313,7 @@
 			children = (
 				2AE4A97325D961510022D873 /* NavigationBackButton.swift */,
 				2AC3EA5025EBD56900E81AD5 /* SubmitButton.swift */,
-				7C7801A9263B182700E8B571 /* Header.swift */,
+				7C7801A9263B182700E8B571 /* ScreenHeader.swift */,
 				7C44730E263BEB650001F9EB /* AddCircleButton.swift */,
 				7CAD818E26636D6A000768A7 /* SelectItemRowView.swift */,
 				7CAD819026637087000768A7 /* SelectDateSheetView.swift */,
@@ -737,7 +737,7 @@
 				2A93644825C6A30500BD4FEA /* CommodityListRow.swift in Sources */,
 				7C54566B263FAB600089B4CE /* SplashViewModel.swift in Sources */,
 				7C3048D4263415CF00D1FBFE /* ShopPriceListRow.swift in Sources */,
-				7C7801AA263B182700E8B571 /* Header.swift in Sources */,
+				7C7801AA263B182700E8B571 /* ScreenHeader.swift in Sources */,
 				7C0AAF41264FE8C700FC8B24 /* AddPurchaseResultViewModel.swift in Sources */,
 				7C545674263FD80F0089B4CE /* MockShopRepository.swift in Sources */,
 				2A9363F025C56D4A00BD4FEA /* ContentView.swift in Sources */,

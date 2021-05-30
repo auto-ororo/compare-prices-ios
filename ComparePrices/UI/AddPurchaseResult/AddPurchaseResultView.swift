@@ -16,7 +16,7 @@ struct AddPurchaseResultView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Header(backButtonAction: back, title: "価格登録")
+            ScreenHeader(backButtonAction: back, title: "価格登録")
 
             InputLayout(
                 title: "商品",

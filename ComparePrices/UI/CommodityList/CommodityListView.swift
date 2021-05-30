@@ -16,7 +16,7 @@ struct CommodityListView: View {
     
     var body: some View {
         VStack {
-            Header(title: "底値リスト")
+            ScreenHeader(title: "底値リスト")
                 
             // 検索欄
             HStack {
