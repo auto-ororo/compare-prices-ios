@@ -116,15 +116,20 @@ struct AddPurchaseResultView: View {
 private struct InputLayout<Content: View>: View {
     var title: String
     
-    @ViewBuilder var content: () -> Content
+    var content: Content
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(title).font(.headline)
-            content()
+            content
                 .padding(.top, 4)
             Divider()
         }.padding()
+    }
+    
+    init(title: String, @ViewBuilder content: () -> Content) {
+        self.content = content()
+        self.title = title
     }
 }
 
