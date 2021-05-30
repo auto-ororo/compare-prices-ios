@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct SelectDateSheetView: View {
-    
-    var title : String
+    var title: String
     @Binding var isPresent: Bool
     @Binding var selectedDate: Date
     

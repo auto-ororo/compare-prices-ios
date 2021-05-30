@@ -17,62 +17,65 @@ struct AddPurchaseResultView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Header(backButtonAction: back, title: "価格登録")
-            
-            VStack(alignment: .leading, spacing: 8) {
-                Text("商品").font(.headline)
-                if let commodity = self.commodity {
-                    Text(commodity.name).padding(.top, 4)
-                } else {
-                    HStack {
-                        Text(viewModel.selectedCommodity?.name ?? "選択して下さい")
-                            .foregroundColor(viewModel.selectedCommodity != nil ? .primary : .gray)
-                        Spacer()
-                    }.padding(.top, 4)
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            viewModel.showSelectCommoditySheet()
-                        }
+
+            InputLayout(
+                title: "商品",
+                content: {
+                    if let commodity = self.commodity {
+                        Text(commodity.name).padding(.top, 4)
+                    } else {
+                        HStack {
+                            Text(viewModel.selectedCommodity?.name ?? "選択して下さい")
+                                .foregroundColor(viewModel.selectedCommodity != nil ? .primary : .gray)
+                            Spacer()
+                        }.contentShape(Rectangle())
+                            .onTapGesture {
+                                viewModel.showSelectCommoditySheet()
+                            }
+                    }
                 }
-                Divider()
-            }.padding()
+            )
             
-            VStack(alignment: .leading, spacing: 8) {
-                Text("店舗").font(.headline)
-                HStack {
-                    Text(viewModel.selectedShop?.name ?? "選択して下さい")
-                        .foregroundColor(viewModel.selectedShop != nil ? .primary : .gray)
-                    Spacer()
-                }.padding(.top, 4)
+            InputLayout(
+                title: "店舗",
+                content: {
+                    HStack {
+                        Text(viewModel.selectedShop?.name ?? "選択して下さい")
+                            .foregroundColor(viewModel.selectedShop != nil ? .primary : .gray)
+                        Spacer()
+                    }
                     .contentShape(Rectangle())
                     .onTapGesture {
                         viewModel.showSelectShopSheet()
                     }
-                Divider()
-            }.padding()
-            
-            VStack(alignment: .leading, spacing: 8) {
-                Text("価格").font(.headline)
-                HStack {
-                    TextField("0", text: $viewModel.priceString).multilineTextAlignment(.trailing)
-                        .keyboardType(.numberPad).font(.title3)
-                    Text("円").font(.subheadline)
                 }
-                Divider()
-            }.padding()
+            )
             
-            VStack(alignment: .leading, spacing: 8) {
-                Text("購入日").font(.headline)
-                HStack {
-                    Spacer()
-                    Text(viewModel.purchaseDate.dateString())
-                }.padding(.top, 4)
-                    .contentShape(Rectangle())
-                    .onTapGesture {
-                        viewModel.showSelectDateSheet()
+            InputLayout(
+                title: "価格",
+                content: {
+                    HStack {
+                        TextField("0", text: $viewModel.priceString).multilineTextAlignment(.trailing)
+                            .keyboardType(.numberPad).font(.title3)
+                        Text("円").font(.subheadline)
                     }
-                Divider()
-            }.padding()
+                }
+            )
             
+            InputLayout(
+                title: "購入日",
+                content: {
+                    HStack {
+                        Spacer()
+                        Text(viewModel.purchaseDate.dateString())
+                    }.padding(.top, 4)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            viewModel.showSelectDateSheet()
+                        }
+                }
+            )
+
             Spacer()
             
             SubmitButton(text: "登録", action: { viewModel.addPurchaseResult() }, isActive: viewModel.isButtonEnabled).padding()
@@ -107,6 +110,21 @@ struct AddPurchaseResultView: View {
         } else {
             navigation.navigate(to: .commodityList, direction: .back)
         }
+    }
+}
+
+private struct InputLayout<Content: View>: View {
+    var title: String
+    
+    @ViewBuilder var content: () -> Content
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text(title).font(.headline)
+            content()
+                .padding(.top, 4)
+            Divider()
+        }.padding()
     }
 }
 
