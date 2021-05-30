@@ -18,28 +18,35 @@ struct CommodityDetailView: View {
     @State private var targetShopPrice: ShopPriceListRow?
     
     var body: some View {
-        VStack(alignment: .leading) {
-            ScreenHeader(backButtonAction: {
-                navigator.navigate(to: .commodityList, direction: .back)
-            }, title: commodity.name)
-                
-            // 購買履歴
-            ScrollView(.vertical) {
-                LazyVStack {
-                    ForEach(viewModel.shopPriceList) { shopPrice in
-                        ShopPriceRowView(shopPrice: shopPrice, onTapOption: {
-                            targetShopPrice = shopPrice
-                        }).padding(.horizontal)
+        ZStack {
+            VStack(alignment: .leading) {
+                ScreenHeader(backButtonAction: {
+                    navigator.navigate(to: .commodityList, direction: .back)
+                }, title: commodity.name)
+
+                // 購買履歴
+                ScrollView(.vertical) {
+                    LazyVStack {
+                        ForEach(viewModel.shopPriceList) { shopPrice in
+                            ShopPriceRowView(shopPrice: shopPrice, onTapOption: {
+                                targetShopPrice = shopPrice
+                            }).padding(.horizontal)
+                        }
                     }
                 }
             }
-
-            SubmitButton(text: "買い物登録") {
-                navigator.navigate(to: .addPurchaseResult(commodity), direction: .next)
+            
+            // Floating Button
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    AddCircleButton(action: {
+                        navigator.navigate(to: .addPurchaseResult(commodity), direction: .next)
+                    })
+                }
             }
-            .padding(.horizontal)
-            .padding(.top, 8)
-            .padding(.bottom)
+
         }.onAppear {
             viewModel.observeShopPrices(commodityId: commodity.id)
         }.actionSheet(item: $targetShopPrice) { shopPrice in
