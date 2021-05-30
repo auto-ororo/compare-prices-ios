@@ -25,7 +25,7 @@ final class SelectCommoditySheetViewModel: ObservableObject, Identifiable {
     }
     
     func observeCommodities() {
-        commodityRepository.observeAllCommodities()
+        commodityRepository.observeCommodities()
             .sink(receiveCompletion: { result in
                       switch result {
                       case let .failure(error):

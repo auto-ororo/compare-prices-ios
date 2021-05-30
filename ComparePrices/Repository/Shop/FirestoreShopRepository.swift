@@ -52,4 +52,11 @@ final class FirestoreShopRepository: ShopRepository {
         let userId = Auth.auth().currentUser!.uid
         return Firestore.shopColRef(userId: userId).observeDocuments()
     }
+    
+    func observeShops() -> AnyPublisher<[Shop], Error> {
+        let userId = Auth.auth().currentUser!.uid
+        return Firestore.shopColRef(userId: userId)
+            .whereField("isEnabled", isEqualTo: true)
+            .observeDocuments()
+    }
 }

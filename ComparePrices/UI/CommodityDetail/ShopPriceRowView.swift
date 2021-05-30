@@ -11,29 +11,42 @@ import SwiftUI
 struct ShopPriceRowView: View {
     var shopPrice: ShopPriceListRow
     
+    var onTapOption: () -> Void
+    
     var body: some View {
-        HStack {
-            Image(systemSymbol: SFSafeSymbols.SFSymbol.crownFill)
-                .foregroundColor(getCrownColor()).font(.title3)
+        VStack(alignment: .leading, spacing: 0) {
+            HStack {
+                Image(systemSymbol: SFSafeSymbols.SFSymbol.crownFill)
+                    .foregroundColor(getCrownColor()).font(.title3)
 
-            VStack {
-                HStack(alignment: .bottom) {
-                    Text(shopPrice.shop.name)
-                        .foregroundColor(shopPrice.shop.isEnabled ? .primary : .gray)
-                        .bold()
-                    
-                    if !shopPrice.shop.isEnabled {
-                        Text("(削除済)").font(.footnote).foregroundColor(.gray)
+                VStack {
+                    HStack(alignment: .top) {
+                        HStack(alignment: .bottom) {
+                            Text(shopPrice.shop.name).bold()
+                            
+                            if !shopPrice.shop.isEnabled {
+                                Text("(削除済)").font(.footnote)
+                            }
+                        }.foregroundColor(shopPrice.shop.isEnabled ? .primary : R.color.elevation.color)
+                        Spacer()
+                        Text("︙").font(.subheadline)
+                            .bold()
+                            .padding(.horizontal, 8)
+                            .padding(.bottom, 8)
+                            .foregroundColor(R.color.elevation.color)
+                            .onTapGesture {
+                                onTapOption()
+                            }
                     }
-                    Spacer()
-                }.padding(.bottom, 4)
-                HStack(alignment: .bottom, spacing: 0) {
-                    Text(shopPrice.price.descriptionWithCurrency()).font(.title3)
-                    Spacer()
-                    Text(shopPrice.purchaseDate.dateString())
-                        .font(.caption)
+                    HStack(alignment: .bottom, spacing: 0) {
+                        Text(shopPrice.price.descriptionWithCurrency()).font(.title3)
+                        Spacer()
+                        Text(shopPrice.purchaseDate.dateString())
+                            .font(.caption).foregroundColor(R.color.elevation.color)
+                    }
                 }
             }
+            Divider().padding(.top, 4)
         }
     }
     
@@ -53,7 +66,7 @@ struct ShopPriceRowView: View {
 
 struct ShopPriceRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ShopPriceRowView(shopPrice: ShopPriceListRow(purchaseResultId: UUID(), rank: 1, shop: Shop(name: "たいらや"), price: 200, purchaseDate: Date()))
+        ShopPriceRowView(shopPrice: ShopPriceListRow(purchaseResultId: UUID(), rank: 1, shop: Shop(name: "たいらや"), price: 200, purchaseDate: Date()), onTapOption: {})
             .previewLayout(.fixed(width: 400, height: 100))
     }
 }

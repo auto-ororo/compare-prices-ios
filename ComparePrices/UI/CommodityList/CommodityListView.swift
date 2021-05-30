@@ -15,28 +15,39 @@ struct CommodityListView: View {
     @State var showAddView: Bool = false
     
     var body: some View {
-        VStack {
-            Header(title: "底値リスト")
+        ZStack {
+            VStack {
+                ScreenHeader(title: "底値リスト")
+                    
+                // 検索欄
+                HStack {
+                    Image(systemName: "magnifyingglass").foregroundColor(.blue).padding(8)
+                    TextField("商品名を入力", text: $viewModel.searchWord)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                }.padding(.horizontal, 8)
                 
-            // 検索欄
-            HStack {
-                Image(systemName: "magnifyingglass").foregroundColor(.blue).padding(8)
-                TextField("商品名を入力", text: $viewModel.searchWord)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-            }.padding(.horizontal, 8)
-                
-            List(viewModel.filteredCommodityList) { commodityListRow in
-                Button(action: {
-                           navigator.navigate(to: .commodityDetail(commodityListRow.commodity), direction: .next)
-                       },
-                       label: {
-                           CommodityRowView(commodityListRow: commodityListRow)
-                       })
-            }.listStyle(PlainListStyle())
-                
-            SubmitButton(text: "買い物登録") {
-                navigator.navigate(to: .addPurchaseResult(nil), direction: .next)
-            }.padding()
+                ScrollView(.vertical) {
+                    ForEach(viewModel.filteredCommodityList) { commodityListRow in
+                        CommodityRowView(commodityListRow: commodityListRow)
+                            .onTapGesture {
+                                navigator.navigate(to: .commodityDetail(commodityListRow.commodity), direction: .next)
+                            }
+                            .padding(.horizontal).padding(.top)
+                    }
+                }
+            }
+            
+            // Floating Button
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    AddCircleButton(action: {
+                        navigator.navigate(to: .addPurchaseResult(nil), direction: .next)
+                    })
+                }
+            }
+            
         }.onAppear {
             viewModel.getCommodities()
         }

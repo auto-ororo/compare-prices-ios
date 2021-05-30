@@ -22,4 +22,6 @@ protocol ShopRepository {
     func getAllShops() -> Future<[Shop], Error>
     
     func observeAllShops() -> AnyPublisher<[Shop], Error>
+    
+    func observeShops() -> AnyPublisher<[Shop], Error>
 }

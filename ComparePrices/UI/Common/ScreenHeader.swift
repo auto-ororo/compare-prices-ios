@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Header: View {
+struct ScreenHeader: View {
     var backButtonAction: (() -> Void)?
 
     var title: String = ""
@@ -24,11 +24,11 @@ struct Header: View {
                 
                 Spacer()
                 
-                Text(title).font(.title3)
+                Text(title).font(.title3).bold()
                 
                 Spacer()
 
-                Text("").frame(width: 50)
+                Rectangle().frame(width: 50, height: 0)
             }.padding(.vertical, 4)
             Divider().padding(0)
         }
@@ -37,6 +37,7 @@ struct Header: View {
 
 struct Header_Previews: PreviewProvider {
     static var previews: some View {
-        Header(backButtonAction: {}, title: "タイトル")
+        ScreenHeader(backButtonAction: {}, title: "タイトル")
+            .previewLayout(.fixed(width: 400, height: 50))
     }
 }

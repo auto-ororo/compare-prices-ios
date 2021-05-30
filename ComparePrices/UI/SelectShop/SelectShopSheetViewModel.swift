@@ -25,7 +25,7 @@ final class SelectShopSheetViewModel: ObservableObject, Identifiable {
     }
     
     func observeShops() {
-        shopRepository.observeAllShops()
+        shopRepository.observeShops()
             .sink(receiveCompletion: { result in
                       switch result {
                       case let .failure(error):

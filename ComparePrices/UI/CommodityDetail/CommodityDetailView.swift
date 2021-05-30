@@ -18,23 +18,35 @@ struct CommodityDetailView: View {
     @State private var targetShopPrice: ShopPriceListRow?
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Header(backButtonAction: {
-                navigator.navigate(to: .commodityList, direction: .back)
-            }, title: commodity.name)
-                
-            // 購買履歴
-            List(viewModel.shopPriceList) { shopPrice in
-                ShopPriceRowView(shopPrice: shopPrice)
-                    .contentShape(Rectangle())
-                    .onLongPressGesture {
-                        targetShopPrice = shopPrice
+        ZStack {
+            VStack(alignment: .leading) {
+                ScreenHeader(backButtonAction: {
+                    navigator.navigate(to: .commodityList, direction: .back)
+                }, title: commodity.name)
+
+                // 購買履歴
+                ScrollView(.vertical) {
+                    LazyVStack {
+                        ForEach(viewModel.shopPriceList) { shopPrice in
+                            ShopPriceRowView(shopPrice: shopPrice, onTapOption: {
+                                targetShopPrice = shopPrice
+                            }).padding(.horizontal)
+                        }
                     }
+                }
             }
-                
-            SubmitButton(text: "買い物登録") {
-                navigator.navigate(to: .addPurchaseResult(commodity), direction: .next)
-            }.padding()
+            
+            // Floating Button
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    AddCircleButton(action: {
+                        navigator.navigate(to: .addPurchaseResult(commodity), direction: .next)
+                    })
+                }
+            }
+
         }.onAppear {
             viewModel.observeShopPrices(commodityId: commodity.id)
         }.actionSheet(item: $targetShopPrice) { shopPrice in
