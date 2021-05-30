@@ -28,10 +28,10 @@ struct AddPurchaseResultView: View {
                             .foregroundColor(viewModel.selectedCommodity != nil ? .primary : .gray)
                         Spacer()
                     }.padding(.top, 4)
-                    .contentShape(Rectangle())
-                    .onTapGesture {
-                        viewModel.showSelectCommoditySheet()
-                    }
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            viewModel.showSelectCommoditySheet()
+                        }
                 }
                 Divider()
             }.padding()
@@ -43,10 +43,10 @@ struct AddPurchaseResultView: View {
                         .foregroundColor(viewModel.selectedShop != nil ? .primary : .gray)
                     Spacer()
                 }.padding(.top, 4)
-                .contentShape(Rectangle())
-                .onTapGesture {
-                    viewModel.showSelectShopSheet()
-                }
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        viewModel.showSelectShopSheet()
+                    }
                 Divider()
             }.padding()
             

@@ -38,17 +38,15 @@ struct SelectCommoditySheetView: View {
             ScrollView {
                 LazyVStack(pinnedViews: .sectionHeaders) {
                     ForEach(viewModel.filteredCommodityList) { commodity in
-                        HStack {
-                            Text(commodity.name).font(.title3)
-                            Spacer()
-                        }.padding(8).contentShape(Rectangle())
-                            .onTapGesture {
+                        SelectItemRowView(
+                            itemName: commodity.name,
+                            onTapItem: {
                                 viewModel.selectCommodity(commodity: commodity)
-                            }
-                            .onLongPressGesture {
+                            },
+                            onTapOption: {
                                 targetCommodity = commodity
                             }
-                        Divider()
+                        )
                     }
                 }
             }

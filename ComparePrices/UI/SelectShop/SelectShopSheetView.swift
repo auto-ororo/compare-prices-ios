@@ -38,17 +38,15 @@ struct SelectShopSheetView: View {
             ScrollView {
                 LazyVStack(pinnedViews: .sectionHeaders) {
                     ForEach(viewModel.filteredShopList) { shop in
-                        HStack {
-                            Text(shop.name).font(.title3)
-                            Spacer()
-                        }.padding(8).contentShape(Rectangle())
-                            .onTapGesture {
+                        SelectItemRowView(
+                            itemName: shop.name,
+                            onTapItem: {
                                 viewModel.selectShop(shop: shop)
-                            }
-                            .onLongPressGesture {
+                            },
+                            onTapOption: {
                                 targetShop = shop
                             }
-                        Divider()
+                        )
                     }
                 }
             }
