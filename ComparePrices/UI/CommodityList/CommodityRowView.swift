@@ -32,7 +32,7 @@ struct CommodityRowView: View {
                                 .font(.caption)
                         }.foregroundColor(R.color.elevation.color)
                     }
-                }
+                }.contentShape(Rectangle())
                 Image(systemSymbol: SFSafeSymbols.SFSymbol.chevronRight)
                     .foregroundColor(R.color.elevation.color)
             }

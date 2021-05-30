@@ -23,20 +23,30 @@ struct AddPurchaseResultView: View {
                 if let commodity = self.commodity {
                     Text(commodity.name).padding(.top, 4)
                 } else {
-                    Button(action: { viewModel.showSelectCommoditySheet() }, label: {
+                    HStack {
                         Text(viewModel.selectedCommodity?.name ?? "選択して下さい")
                             .foregroundColor(viewModel.selectedCommodity != nil ? .primary : .gray)
-                    }).padding(.top, 4)
+                        Spacer()
+                    }.padding(.top, 4)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        viewModel.showSelectCommoditySheet()
+                    }
                 }
                 Divider()
             }.padding()
             
             VStack(alignment: .leading, spacing: 8) {
                 Text("店舗").font(.headline)
-                Button(action: { viewModel.showSelectShopSheet() }, label: {
+                HStack {
                     Text(viewModel.selectedShop?.name ?? "選択して下さい")
                         .foregroundColor(viewModel.selectedShop != nil ? .primary : .gray)
-                }).padding(.top, 4)
+                    Spacer()
+                }.padding(.top, 4)
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    viewModel.showSelectShopSheet()
+                }
                 Divider()
             }.padding()
             
