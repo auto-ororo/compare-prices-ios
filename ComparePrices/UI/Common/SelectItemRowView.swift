@@ -28,7 +28,7 @@ struct SelectItemRowView: View {
                     onTapItem()
                 }
                 
-                Text("︙")
+                Text(R.string.localizable.commonOption())
                     .padding(.horizontal)
                     .padding(.vertical, 8)
                     .onTapGesture {

@@ -511,8 +511,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2A93640F25C56D4A00BD4FEA /* Build configuration list for PBXNativeTarget "ComparePrices" */;
 			buildPhases = (
-				7CF965D9263DB3F100775320 /* SwiftLint */,
 				7CF965F9263EE6C800775320 /* R.Swift */,
+				7CF965D9263DB3F100775320 /* SwiftLint */,
 				7CC79C93263C6DDE008536A0 /* GoogleService-Info */,
 				2A9363E625C56D4A00BD4FEA /* Sources */,
 				2A9363E725C56D4A00BD4FEA /* Frameworks */,

@@ -16,16 +16,16 @@ struct AddPurchaseResultView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            ScreenHeader(backButtonAction: back, title: "価格登録")
+            ScreenHeader(backButtonAction: back, title: R.string.localizable.addPurchaseResultTitle())
 
             InputLayout(
-                title: "商品",
+                title: R.string.localizable.commonCommodity(),
                 content: {
                     if let commodity = self.commodity {
                         Text(commodity.name).padding(.top, 4)
                     } else {
                         HStack {
-                            Text(viewModel.selectedCommodity?.name ?? "選択して下さい")
+                            Text(viewModel.selectedCommodity?.name ?? R.string.localizable.addPurchaseResultSelectHint())
                                 .foregroundColor(viewModel.selectedCommodity != nil ? .primary : .gray)
                             Spacer()
                         }.contentShape(Rectangle())
@@ -37,10 +37,10 @@ struct AddPurchaseResultView: View {
             )
             
             InputLayout(
-                title: "店舗",
+                title: R.string.localizable.commonShop(),
                 content: {
                     HStack {
-                        Text(viewModel.selectedShop?.name ?? "選択して下さい")
+                        Text(viewModel.selectedShop?.name ?? R.string.localizable.addPurchaseResultSelectHint())
                             .foregroundColor(viewModel.selectedShop != nil ? .primary : .gray)
                         Spacer()
                     }
@@ -52,18 +52,18 @@ struct AddPurchaseResultView: View {
             )
             
             InputLayout(
-                title: "価格",
+                title: R.string.localizable.commonPrice(),
                 content: {
                     HStack {
-                        TextField("0", text: $viewModel.priceString).multilineTextAlignment(.trailing)
+                        TextField(R.string.localizable.commonZero(), text: $viewModel.priceString).multilineTextAlignment(.trailing)
                             .keyboardType(.numberPad).font(.title3)
-                        Text("円").font(.subheadline)
+                        Text(R.string.localizable.commonCurrency()).font(.subheadline)
                     }
                 }
             )
             
             InputLayout(
-                title: "購入日",
+                title: R.string.localizable.commonPurchaseDate(),
                 content: {
                     HStack {
                         Spacer()
@@ -78,7 +78,9 @@ struct AddPurchaseResultView: View {
 
             Spacer()
             
-            SubmitButton(text: "登録", action: { viewModel.addPurchaseResult() }, isActive: viewModel.isButtonEnabled).padding()
+            SubmitButton(text: R.string.localizable.commonRegister(),
+                         action: { viewModel.addPurchaseResult() },
+                         isActive: viewModel.isButtonEnabled).padding()
             
         }.onReceive(viewModel.finishedAddShopPrice) {
             back()
@@ -93,7 +95,7 @@ struct AddPurchaseResultView: View {
             case .shop:
                 SelectShopSheetView(isPresent: $viewModel.sheet.isShown, selectedShop: $viewModel.selectedShop)
             case .date:
-                SelectDateSheetView(title: "購入日", isPresent: $viewModel.sheet.isShown, selectedDate: $viewModel.purchaseDate)
+                SelectDateSheetView(title: R.string.localizable.commonPurchaseDate(), isPresent: $viewModel.sheet.isShown, selectedDate: $viewModel.purchaseDate)
             }
         }
         // 画面全体をタップ検知可能にする

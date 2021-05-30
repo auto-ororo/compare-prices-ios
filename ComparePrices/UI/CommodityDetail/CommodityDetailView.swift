@@ -51,7 +51,7 @@ struct CommodityDetailView: View {
             viewModel.observeShopPrices(commodityId: commodity.id)
         }.actionSheet(item: $targetShopPrice) { shopPrice in
             ActionSheet(title: Text("\(shopPrice.shop.name) - \(shopPrice.price.descriptionWithCurrency())"), message: nil, buttons: [
-                .destructive(Text("削除")) {
+                .destructive(Text(R.string.localizable.commonDelete())) {
                     viewModel.deletePurchaseResult(shopPriceListRow: shopPrice)
                 },
                 .cancel()

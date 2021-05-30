@@ -17,23 +17,22 @@ struct SelectShopSheetView: View {
 
     var body: some View {
         VStack {
-            SheetHeader(title: "店舗選択")
+            SheetHeader(title: R.string.localizable.selectShopSheetTitle())
             // 検索欄
             HStack {
-                TextField("店舗名を入力", text: $viewModel.searchWord)
+                TextField(R.string.localizable.selectShopSheetInputHint(), text: $viewModel.searchWord)
                     .textFieldStyle(RoundedBorderTextFieldStyle()).padding(.leading, 8)
                 Button(
                     action: {
                         viewModel.addShop()
                     },
                     label: {
-                        Text("追加").foregroundColor(R.color.primary.color).font(.headline)
+                        Text(R.string.localizable.commonAdd()).foregroundColor(R.color.primary.color).font(.headline)
                     }
                 ).disabled(!viewModel.isEnabledAddButton).padding(8).overlay(
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(R.color.primary.color, lineWidth: 2)
                 ).padding(.trailing, 8).opacity(viewModel.isEnabledAddButton ? 1.0 : 0.7)
-                    
             }
             
             ScrollView {
@@ -58,7 +57,7 @@ struct SelectShopSheetView: View {
             isPresent = false
         }.actionSheet(item: $targetShop) { shop in
             ActionSheet(title: Text(shop.name), message: nil, buttons: [
-                .destructive(Text("削除")) {
+                .destructive(Text(R.string.localizable.commonDelete())) {
                     viewModel.deleteShop(shop: shop)
                 },
                 .cancel()

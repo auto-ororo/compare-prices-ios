@@ -31,6 +31,6 @@ struct SubmitButton: View {
 struct SubmitButton_Previews: PreviewProvider {
     static var previews: some View {
         MockModuleInjector().inject()
-        return SubmitButton(text: "登録", action: {})
+        return SubmitButton(text: R.string.localizable.commonRegister(), action: {})
     }
 }

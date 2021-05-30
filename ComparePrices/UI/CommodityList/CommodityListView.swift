@@ -5,6 +5,7 @@
 //  Created by Ryo Narisawa on 2021/01/30.
 //
 
+import SFSafeSymbols
 import SwiftUI
 
 struct CommodityListView: View {
@@ -17,12 +18,12 @@ struct CommodityListView: View {
     var body: some View {
         ZStack {
             VStack {
-                ScreenHeader(title: "底値リスト")
+                ScreenHeader(title: R.string.localizable.commodityListTitle())
                     
                 // 検索欄
                 HStack {
-                    Image(systemName: "magnifyingglass").foregroundColor(.blue).padding(8)
-                    TextField("商品名を入力", text: $viewModel.searchWord)
+                    Image(systemSymbol: SFSafeSymbols.SFSymbol.magnifyingglass).foregroundColor(.blue).padding(8)
+                    TextField(R.string.localizable.commodityListInputHint(), text: $viewModel.searchWord)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }.padding(.horizontal, 8)
                 

@@ -10,7 +10,7 @@ import Foundation
 extension Date {
     func dateString() -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy年M月d日"
+        formatter.dateFormat = R.string.localizable.commonDateFormat()
         return formatter.string(from: self)
     }
 }
