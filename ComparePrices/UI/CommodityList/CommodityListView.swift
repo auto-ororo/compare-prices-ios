@@ -26,9 +26,24 @@ struct CommodityListView: View {
                     TextField(R.string.localizable.commodityListInputHint(), text: $viewModel.searchWord)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }.padding(.horizontal, 8)
-                
+               
+                HStack {
+                    Image(systemSymbol: SFSafeSymbols.SFSymbol.arrowUpArrowDown).padding(.leading, 8)
+                    
+                    Picker("", selection: $viewModel.sortType) {
+                        Text(R.string.localizable.commodityListSortLastPurchaseDate()).tag(CommodityListViewModel.SortType.date)
+                        Text(R.string.localizable.commodityListSortCommodityName()).tag(CommodityListViewModel.SortType.commodity)
+                        Text(R.string.localizable.commodityListSortShopName()).tag(CommodityListViewModel.SortType.shop)
+                    }.pickerStyle(SegmentedPickerStyle())
+                    .onChange(of: viewModel.sortType, perform: { _ in
+                        // Pickerの切り替えだけではPublisherが通知しないため、明示的にSortTypeを設定する
+                        viewModel.notifySortTypeChanged()
+                    })
+                }.padding(.horizontal, 8)
+                .padding(.top, 8)
+
                 ScrollView(.vertical) {
-                    ForEach(viewModel.filteredCommodityList) { commodityListRow in
+                    ForEach(viewModel.filterdAndSortedList) { commodityListRow in
                         CommodityRowView(commodityListRow: commodityListRow)
                             .onTapGesture {
                                 navigator.navigate(to: .commodityDetail(commodityListRow.commodity), direction: .next)

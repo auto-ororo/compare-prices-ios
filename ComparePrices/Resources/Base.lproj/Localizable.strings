@@ -30,3 +30,6 @@
 "commodityList.title" = "底値リスト";
 "commodityList.inputHint" = "商品名を入力";
 "commodityList.lastPurchaseDate" = "最終購入日";
+"commodityList.sortCommodityName" = "商品名順";
+"commodityList.sortShopName" = "店舗名順";
+"commodityList.sortLastPurchaseDate" = "最終購入日順";

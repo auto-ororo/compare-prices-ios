@@ -17,7 +17,16 @@ final class CommodityListViewModel: ObservableObject, Identifiable {
     
     @Published var searchWord: String = ""
     @Published private var commodityList: [CommodityListRow] = []
-    @Published private(set) var filteredCommodityList: [CommodityListRow] = []
+    @Published private(set) var filterdAndSortedList: [CommodityListRow] = []
+    
+    @Published var sortType: SortType = .date
+    private var sortTypeChanged = PassthroughSubject<Void, Never>()
+    
+    enum SortType: Hashable {
+        case date
+        case commodity
+        case shop
+    }
     
     func getCommodities() {
         var list: [CommodityListRow] = []
@@ -60,14 +69,37 @@ final class CommodityListViewModel: ObservableObject, Identifiable {
             ).store(in: &cancellables)
     }
     
-    func filterCommodityListFromSearchWord() {
-        $commodityList.combineLatest($searchWord).map { commodities, searchWord in
-            if searchWord.isEmpty { return commodities }
-            return commodities.filter { $0.commodity.name.contains(searchWord) || $0.mostInexpensiveShop.name.contains(searchWord) }
-        }.assign(to: \.filteredCommodityList, on: self).store(in: &cancellables)
+    func notifySortTypeChanged() {
+        sortType = sortType
+    }
+    
+    private func filterAndSortCommodityList() {
+        Publishers.CombineLatest3($commodityList, $searchWord, $sortType).map { [weak self] commodities, searchWord, _ in
+            var filterdAndSortedList: [CommodityListRow]
+            
+            if searchWord.isEmpty {
+                filterdAndSortedList = commodities
+            } else {
+                filterdAndSortedList = commodities.filter { $0.commodity.name.contains(searchWord) || $0.mostInexpensiveShop.name.contains(searchWord) }
+            }
+
+            guard let sortType = self?.sortType else { return filterdAndSortedList }
+            
+            switch sortType {
+            case .commodity:
+                filterdAndSortedList.sort { $0.commodity.name < $1.commodity.name }
+            case .shop:
+                filterdAndSortedList.sort { $0.mostInexpensiveShop.name < $1.mostInexpensiveShop.name }
+            case .date:
+                filterdAndSortedList.sort { $0.lastPurchaseDate > $1.lastPurchaseDate }
+            }
+            
+            return filterdAndSortedList
+        }
+        .assign(to: \.filterdAndSortedList, on: self).store(in: &cancellables)
     }
     
     init() {
-        filterCommodityListFromSearchWord()
+        filterAndSortCommodityList()
     }
 }
