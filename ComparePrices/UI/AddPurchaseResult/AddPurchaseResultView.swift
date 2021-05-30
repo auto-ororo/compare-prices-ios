@@ -16,7 +16,7 @@ struct AddPurchaseResultView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Header(backButtonAction: back, title: "買い物登録")
+            Header(backButtonAction: back, title: "価格登録")
             
             VStack(alignment: .leading, spacing: 8) {
                 Text("商品").font(.headline)
@@ -50,22 +50,27 @@ struct AddPurchaseResultView: View {
                 Divider()
             }.padding()
             
-            HStack(alignment: .center) {
+            VStack(alignment: .leading, spacing: 8) {
                 Text("価格").font(.headline)
-                VStack {
-                    HStack(alignment: .bottom) {
-                        TextField("0", text: $viewModel.priceString).multilineTextAlignment(.trailing)
-                            .keyboardType(.numberPad).font(.title3)
-                        Text("円").font(.subheadline)
-                    }
-                    Divider().padding(-2)
+                HStack {
+                    TextField("0", text: $viewModel.priceString).multilineTextAlignment(.trailing)
+                        .keyboardType(.numberPad).font(.title3)
+                    Text("円").font(.subheadline)
                 }
+                Divider()
             }.padding()
-
-            HStack(alignment: .center, spacing: 8) {
+            
+            VStack(alignment: .leading, spacing: 8) {
                 Text("購入日").font(.headline)
-                Spacer()
-                DatePicker("", selection: $viewModel.purchaseDate, displayedComponents: [.date]).labelsHidden()
+                HStack {
+                    Spacer()
+                    Text(viewModel.purchaseDate.dateString())
+                }.padding(.top, 4)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        viewModel.showSelectDateSheet()
+                    }
+                Divider()
             }.padding()
             
             Spacer()
@@ -84,6 +89,8 @@ struct AddPurchaseResultView: View {
                 SelectCommoditySheetView(isPresent: $viewModel.sheet.isShown, selectedCommodity: $viewModel.selectedCommodity)
             case .shop:
                 SelectShopSheetView(isPresent: $viewModel.sheet.isShown, selectedShop: $viewModel.selectedShop)
+            case .date:
+                SelectDateSheetView(title: "購入日", isPresent: $viewModel.sheet.isShown, selectedDate: $viewModel.purchaseDate)
             }
         }
         // 画面全体をタップ検知可能にする

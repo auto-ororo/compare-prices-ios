@@ -35,6 +35,7 @@ final class AddPurchaseResultViewModel: ObservableObject, Identifiable {
     enum TargetItem {
         case commodity
         case shop
+        case date
     }
     
     func showSelectCommoditySheet() {
@@ -43,6 +44,10 @@ final class AddPurchaseResultViewModel: ObservableObject, Identifiable {
 
     func showSelectShopSheet() {
         sheet = SelectSheet(isShown: true, targetItem: .shop)
+    }
+    
+    func showSelectDateSheet() {
+        sheet = SelectSheet(isShown: true, targetItem: .date)
     }
 
     private(set) var finishedAddShopPrice = PassthroughSubject<Void, Never>()
